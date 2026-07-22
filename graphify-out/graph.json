@@ -681,19 +681,30 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 19,
+      "community_name": "rendered-html.test.mjs",
       "norm_label": "scenewallpaper.tsx"
+    },
+    {
+      "label": "compileShader()",
+      "file_type": "code",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "components_desktop_scenewallpaper_compileshader",
+      "community": 19,
+      "community_name": "rendered-html.test.mjs",
+      "norm_label": "compileshader()"
     },
     {
       "label": "SceneWallpaper()",
       "file_type": "code",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L3",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_scenewallpaper",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 19,
+      "community_name": "rendered-html.test.mjs",
       "norm_label": "scenewallpaper()"
     },
     {
@@ -5011,12 +5022,47 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L3",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper",
+      "target": "components_desktop_scenewallpaper_compileshader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper",
       "target": "components_desktop_scenewallpaper_scenewallpaper",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper_scenewallpaper",
+      "target": "components_desktop_scenewallpaper_compileshader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper_scenewallpaper",
+      "target": "tests_rendered_html_test_render"
     },
     {
       "relation": "contains",
@@ -7861,5 +7907,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "67b1c6290a8dbd2fccbe8cc94e79bc2cee3442a4"
+  "built_at_commit": "e3d96155eacb5d9993addf8b3e486809d2636489"
 }
