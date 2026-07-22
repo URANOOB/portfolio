@@ -351,8 +351,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_experienceapp",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "experienceapp.tsx"
     },
     {
@@ -362,8 +362,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_experienceapp_experienceapp",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "experienceapp()"
     },
     {
@@ -439,8 +439,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_logisticsapp",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "logisticsapp.tsx"
     },
     {
@@ -450,8 +450,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_logisticsapp_logisticsapp",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "logisticsapp()"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_settingsapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "settingsapp.tsx"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_apps_settingsapp_settingsapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "settingsapp()"
     },
     {
@@ -582,8 +582,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_skillsapp",
-      "community": 7,
-      "community_name": "skills.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "skillsapp.tsx"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_apps_skillsapp_skillsapp",
-      "community": 7,
-      "community_name": "skills.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "skillsapp()"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_terminalapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "terminalapp.tsx"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_terminalapp_entry",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "entry"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_apps_terminalapp_terminalapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "terminalapp()"
     },
     {
@@ -637,8 +637,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_bootscreen",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "bootscreen.tsx"
     },
     {
@@ -648,8 +648,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_desktop_bootscreen_bootscreen",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "bootscreen()"
     },
     {
@@ -736,8 +736,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_menubar",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "menubar.tsx"
     },
     {
@@ -747,8 +747,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_desktop_menubar_menuapps",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "menuapps"
     },
     {
@@ -758,8 +758,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_desktop_menubar_menubar",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "menubar()"
     },
     {
@@ -807,21 +807,10 @@
       "norm_label": "asciiportrait.tsx"
     },
     {
-      "label": "RenderedPortrait",
-      "file_type": "code",
-      "source_file": "components/ui/AsciiPortrait.tsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "components_ui_asciiportrait_renderedportrait",
-      "community": 11,
-      "community_name": "SceneWallpaper",
-      "norm_label": "renderedportrait"
-    },
-    {
       "label": "AsciiPortrait()",
       "file_type": "code",
       "source_file": "components/ui/AsciiPortrait.tsx",
-      "source_location": "L12",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "components_ui_asciiportrait_asciiportrait",
       "community": 11,
@@ -835,8 +824,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "uranomark.tsx"
     },
     {
@@ -846,8 +835,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark_uranomark",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "uranomark()"
     },
     {
@@ -956,8 +945,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_experience",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "experience.ts"
     },
     {
@@ -967,8 +956,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_experience_experience",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "experience"
     },
     {
@@ -978,8 +967,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "data_experience_logisticsexperience",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "logisticsexperience"
     },
     {
@@ -989,8 +978,8 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "data_experience_softwareexperience",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "softwareexperience"
     },
     {
@@ -1088,8 +1077,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_skills",
-      "community": 7,
-      "community_name": "skills.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "skills.ts"
     },
     {
@@ -1099,8 +1088,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_skills_skillgroups",
-      "community": 7,
-      "community_name": "skills.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "skillgroups"
     },
     {
@@ -1132,8 +1121,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_terminal",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "terminal.ts"
     },
     {
@@ -1143,8 +1132,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_terminal_terminalresult",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "terminalresult"
     },
     {
@@ -1154,8 +1143,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_terminal_appaliases",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "appaliases"
     },
     {
@@ -1165,8 +1154,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_terminal_runportfoliocommand",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "runportfoliocommand()"
     },
     {
@@ -2089,8 +2078,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_preferences_store",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "preferences-store.ts"
     },
     {
@@ -2100,8 +2089,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "store_preferences_store_theme",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "theme"
     },
     {
@@ -2111,8 +2100,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "store_preferences_store_language",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "language"
     },
     {
@@ -2122,8 +2111,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "store_preferences_store_preferencesstore",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "preferencesstore"
     },
     {
@@ -2133,8 +2122,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "store_preferences_store_usepreferencesstore",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "skills.ts",
       "norm_label": "usepreferencesstore"
     },
     {
@@ -2595,8 +2584,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "types_portfolio",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "portfolio.ts"
     },
     {
@@ -2617,8 +2606,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "types_portfolio_projectstatus",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "projectstatus"
     },
     {
@@ -2639,8 +2628,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "types_portfolio_experience",
-      "community": 33,
-      "community_name": "experience.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "experience"
     },
     {
@@ -2650,8 +2639,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "types_portfolio_skillgroup",
-      "community": 7,
-      "community_name": "skills.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "skillgroup"
     },
     {
@@ -5457,22 +5446,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/ui/AsciiPortrait.tsx",
-      "source_location": "L12",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_ui_asciiportrait",
       "target": "components_ui_asciiportrait_asciiportrait",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/ui/AsciiPortrait.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_ui_asciiportrait",
-      "target": "components_ui_asciiportrait_renderedportrait",
       "confidence_score": 1.0
     },
     {
@@ -5481,7 +5459,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "components/ui/AsciiPortrait.tsx",
-      "source_location": "L50",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_ui_asciiportrait_asciiportrait",
@@ -8375,5 +8353,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "02c914111c46d2e6ada9281e88d80b6437e1d1ad"
+  "built_at_commit": "8e9344a15a887de5ad1f383a5a68783a963eb77c"
 }
