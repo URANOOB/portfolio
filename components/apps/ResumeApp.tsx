@@ -102,7 +102,7 @@ export function ResumeApp() {
           <iframe
             key={selected.id}
             title={`Hoja de vida de William Galeano para ${selected.title}`}
-            src={`${selected.file}#page=1&view=FitH&toolbar=1&navpanes=0`}
+            src={`${selected.file}#page=1&view=FitH&toolbar=0&navpanes=0`}
           />
           <div className="resume-pdf-fallback">
             <Image
