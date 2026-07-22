@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 65 files · ~786,519 words
+- 65 files · ~788,558 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 332 nodes · 426 edges · 33 communities (22 shown, 11 thin omitted)
+- 331 nodes · 425 edges · 32 communities (21 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.6)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7f42936e`
+- Built from commit: `0b3b2dfe`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +22,6 @@
 - FinderApp.tsx
 - scripts
 - dependencies
-- preferences-store.ts
 - include
 - layout.tsx
 - index.ts
@@ -60,8 +59,6 @@
 10. `include` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `FinderApp()` --calls--> `useWindowStore`  [EXTRACTED]
-  components/apps/FinderApp.tsx → store/window-store.ts
 - `SceneWallpaper()` --indirect_call--> `render()`  [INFERRED]
   components/desktop/SceneWallpaper.tsx → tests/rendered-html.test.mjs
 - `TerminalResult` --references--> `AppId`  [EXTRACTED]
@@ -70,15 +67,17 @@
   app/api/contact/route.ts → lib/validation.ts
 - `AboutApp()` --calls--> `useWindowStore`  [EXTRACTED]
   components/apps/AboutApp.tsx → store/window-store.ts
+- `ContactApp()` --calls--> `validateContactPayload()`  [EXTRACTED]
+  components/apps/ContactApp.tsx → lib/validation.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 11 thin omitted)
+## Communities (32 total, 11 thin omitted)
 
 ### Community 0 - "DesktopShell.tsx"
-Cohesion: 0.12
-Nodes (20): metadata, AboutApp(), searchableApps, SearchApp(), DesktopShell(), DesktopShortcut(), Dock(), DockItem() (+12 more)
+Cohesion: 0.07
+Nodes (39): metadata, AboutApp(), FinderApp(), searchableApps, SearchApp(), accentOptions, SettingsApp(), textSizeOptions (+31 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.05
@@ -89,12 +88,12 @@ Cohesion: 0.10
 Nodes (20): dom, dom.iterable, esnext, compilerOptions, allowImportingTsExtensions, allowJs, esModuleInterop, incremental (+12 more)
 
 ### Community 3 - "terminal.ts"
-Cohesion: 0.16
-Nodes (11): POST(), ContactApp(), emptyForm, Entry, raccoonFrames, TerminalApp(), appAliases, runPortfolioCommand() (+3 more)
+Cohesion: 0.18
+Nodes (10): POST(), ContactApp(), emptyForm, Entry, TerminalApp(), appAliases, runPortfolioCommand(), TerminalResult (+2 more)
 
 ### Community 4 - "FinderApp.tsx"
 Cohesion: 0.09
-Nodes (17): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, Variant, experience, logisticsExperience (+9 more)
+Nodes (16): generateMetadata(), ProjectPage(), folders, notes, Variant, experience, logisticsExperience, softwareExperience (+8 more)
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
@@ -103,10 +102,6 @@ Nodes (15): engines, node, name, private, scripts, build, build:vercel, dev (+7 
 ### Community 6 - "dependencies"
 Cohesion: 0.13
 Nodes (15): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+7 more)
-
-### Community 7 - "preferences-store.ts"
-Cohesion: 0.11
-Nodes (18): accentOptions, SettingsApp(), textSizeOptions, BootScreen(), menuApps, MenuBar(), compileShader(), SceneWallpaper() (+10 more)
 
 ### Community 8 - "include"
 Cohesion: 0.17
@@ -157,7 +152,7 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **155 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+150 more)
+- **154 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+149 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -166,14 +161,14 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`, `FinderApp.tsx`, `preferences-store.ts`?**
+- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`, `FinderApp.tsx`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _155 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _154 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.1226890756302521 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06612021857923497 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
