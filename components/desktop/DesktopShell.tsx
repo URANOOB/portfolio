@@ -7,6 +7,7 @@ import { BootScreen } from "@/components/desktop/BootScreen";
 import { DesktopShortcut } from "@/components/desktop/DesktopShortcut";
 import { Dock } from "@/components/desktop/Dock";
 import { MenuBar } from "@/components/desktop/MenuBar";
+import { SceneWallpaper } from "@/components/desktop/SceneWallpaper";
 import { WindowLayer } from "@/components/windows/WindowLayer";
 import { desktopShortcuts } from "@/data/navigation";
 import { profile } from "@/data/profile";
@@ -53,12 +54,7 @@ export function DesktopShell() {
       <a className="skip-link" href="#desktop-intro">
         Saltar al contenido
       </a>
-      <div className="cosmos" aria-hidden="true">
-        <div className="orbit orbit-one" />
-        <div className="orbit orbit-two" />
-        <div className="planet-glow" />
-        <div className="grain" />
-      </div>
+      <SceneWallpaper />
 
       <MenuBar />
 
