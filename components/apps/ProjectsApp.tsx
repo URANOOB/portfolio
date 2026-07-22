@@ -83,30 +83,66 @@ export function ProjectsApp() {
   }
 
   return (
-    <article className="app-scroll projects-app">
-      <header className="app-section-header">
-        <div>
-          <p className="section-kicker">TRABAJO SELECCIONADO</p>
-          <h2>Productos con una razón de ser.</h2>
-        </div>
-        <p>Explora el reto, el proceso y lo aprendido.</p>
+    <article className="app-scroll works-editorial">
+      <header className="works-editorial-header">
+        <h2>Works</h2>
+        <p>
+          Explora proyectos seleccionados, sus periodos, decisiones técnicas y resultados. Selecciona
+          cualquier trabajo para ver el contexto completo.
+        </p>
       </header>
-      <div className="projects-grid">
-        {projects.map((project) => (
-          <button className="project-card" key={project.slug} onClick={() => setSelected(project)}>
-            <ProjectVisual project={project} />
-            <div className="project-card-copy">
-              <span>{project.eyebrow}</span>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div>
-                <span className="status-dot" /> {project.status}
-                <ArrowUpRight size={17} />
-              </div>
+
+      <section className="works-panel works-project-list" aria-labelledby="works-list-title">
+        <h3 id="works-list-title">Project List</h3>
+        <div>
+          {projects.map((project) => (
+            <button key={project.slug} onClick={() => setSelected(project)}>
+              <span className="works-project-heading">
+                <strong>{project.title}</strong>
+                <span>{project.role} · {project.period} · {project.context}</span>
+              </span>
+              <span className="works-project-outcome">{project.outcome}</span>
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
+        <h3 id="works-timeline-title">Timeline (from 2024)</h3>
+        <div className="works-timeline-scroll">
+          <div className="works-timeline">
+            <div className="works-timeline-years" aria-hidden="true">
+              <span>Projects</span>
+              <span>2024</span>
+              <span>2025</span>
+              <span>2026</span>
             </div>
-          </button>
-        ))}
-      </div>
+            <div className="works-timeline-chart">
+              <div className="works-timeline-now"><span>Hoy</span></div>
+              {projects.map((project) => (
+                <button
+                  className="works-timeline-row"
+                  key={project.slug}
+                  onClick={() => setSelected(project)}
+                  aria-label={`Abrir ${project.title}, ${project.period}`}
+                >
+                  <span className="works-timeline-name">{project.title}</span>
+                  <span className="works-timeline-grid" aria-hidden="true">
+                    <i
+                      className={`works-timeline-bar works-bar-${project.accent}`}
+                      style={{
+                        left: `${project.timeline.start}%`,
+                        width: `${project.timeline.end - project.timeline.start}%`,
+                      }}
+                    />
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </article>
   );
 }
