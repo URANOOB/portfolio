@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { runPortfolioCommand } from "@/lib/terminal";
 import { useWindowStore } from "@/store/window-store";
@@ -9,70 +10,21 @@ interface Entry {
   lines: string[];
 }
 
-const raccoonFrames = [
-  String.raw`          .-"""""-.
-         /  _   _  \
-        |  /o\ /o\  |
-        |  \_ V _/  |
-         \  '---'  /
-      .---'-------'---.
-     /   /|       |\   \
-~~==\__/ |_______| \__/==~~
-        _/ /     \ \_
-       /__/       \__\
-`.trimEnd(),
-  String.raw`          .-"""""-.
-         /  _   _  \
-        |  /-\ /-\  |
-        |  \_ V _/  |
-         \  '---'  /
-      .---'-------'---.
-     /   /|       |\   \
-  ==~~\_/ |_______| \_/~~==
-       /_/         \_\
-        /_\       /_\
-`.trimEnd(),
-  String.raw`          .-"""""-.
-         /  _   _  \
-        |  /o\ /o\  |
-        |  \_ V _/  |
-         \  '---'  /
-      .---'-------'---.
-     /   /|       |\   \
-~~==\__/ |_______| \__/==~~
-       /_/         \_\
-      /_/           \_\
-`.trimEnd(),
-  String.raw`          .-"""""-.
-         /  _   _  \
-        |  /o\ /o\  |
-        |  \_ V _/  |
-         \  '---'  /
-      .---'-------'---.
-     /   /|       |\   \
-  ==~~\_/ |_______| \_/~~==
-        _/ /     \ \_
-       /__/       \__\
-`.trimEnd(),
-];
-
 function RaccoonAnimation() {
-  const [frame, setFrame] = useState(0);
-
-  useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches) return;
-
-    const interval = window.setInterval(
-      () => setFrame((current) => (current + 1) % raccoonFrames.length),
-      360,
-    );
-    return () => window.clearInterval(interval);
-  }, []);
-
   return (
     <div className="terminal-raccoon" aria-label="Mapache de Urano esperando un comando">
-      <pre className="terminal-raccoon-art" aria-hidden="true">{raccoonFrames[frame]}</pre>
+      <div className="terminal-raccoon-track" aria-hidden="true">
+        <Image
+          className="terminal-raccoon-sprite"
+          src="/terminal-raccoon-walk.gif"
+          alt=""
+          width={748}
+          height={330}
+          unoptimized
+          priority
+          draggable={false}
+        />
+      </div>
       <div className="terminal-raccoon-status">
         <span aria-hidden="true" />
         URANO RACCOON // escribe <code>help</code> para explorar
