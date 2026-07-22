@@ -20,6 +20,11 @@ export interface Project {
   eyebrow: string;
   description: string;
   longDescription: string;
+  role: string;
+  period: string;
+  context: string;
+  outcome: string;
+  timeline: { start: number; end: number };
   technologies: string[];
   status: ProjectStatus;
   repository: string | null;

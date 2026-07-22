@@ -3,6 +3,11 @@ import type { Project } from "@/types/portfolio";
 export const projects: Project[] = [
   {
     slug: "atlas-splitter",
+    role: "Creator & Python Developer",
+    period: "2026 - Present",
+    context: "Personal utility",
+    outcome: "Automates region detection and exports production-ready image assets.",
+    timeline: { start: 75, end: 94 },
     title: "Atlas Splitter",
     eyebrow: "Computer vision utility",
     description: "Herramienta para separar atlas WEBP y exportar elementos listos para flujos gráficos.",
@@ -25,6 +30,11 @@ export const projects: Project[] = [
   },
   {
     slug: "ingles-pa-la-paz",
+    role: "Full Stack Software Developer",
+    period: "2026 - Present",
+    context: "Volunteer · Social impact",
+    outcome: "Ships an accessible education platform with secure APIs, SEO, analytics, and deployment workflows.",
+    timeline: { start: 68, end: 94 },
     title: "Inglés Pa’ la Paz",
     eyebrow: "Social impact platform",
     description: "Plataforma digital para acercar educación en inglés a comunidades vulnerables.",
@@ -47,6 +57,11 @@ export const projects: Project[] = [
   },
   {
     slug: "asistente-juridico-ia",
+    role: "Product Concept & Technical Design",
+    period: "2026 · Concept",
+    context: "Private exploration",
+    outcome: "Defines a human-reviewed workspace connecting legal documents, clients, and semantic search.",
+    timeline: { start: 79, end: 88 },
     title: "Asistente jurídico con IA",
     eyebrow: "Private AI workspace",
     description: "Concepto privado para gestionar conocimiento, documentos y relaciones de una firma legal.",
