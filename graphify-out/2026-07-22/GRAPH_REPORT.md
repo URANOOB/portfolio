@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 65 files · ~794,499 words
+- 65 files · ~794,478 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 322 nodes · 415 edges · 34 communities (24 shown, 10 thin omitted)
+- 325 nodes · 418 edges · 34 communities (24 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dfab5dd7`
+- Built from commit: `02c91411`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -89,20 +89,20 @@ Cohesion: 0.10
 Nodes (20): dom, dom.iterable, esnext, compilerOptions, allowImportingTsExtensions, allowJs, esModuleInterop, incremental (+12 more)
 
 ### Community 3 - "terminal.ts"
-Cohesion: 0.36
-Nodes (5): POST(), ContactApp(), emptyForm, ContactPayload, validateContactPayload()
+Cohesion: 0.19
+Nodes (10): POST(), ContactApp(), emptyForm, Entry, TerminalApp(), appAliases, runPortfolioCommand(), TerminalResult (+2 more)
 
 ### Community 4 - "FinderApp.tsx"
-Cohesion: 0.11
-Nodes (15): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, Variant, Entry, TerminalApp() (+7 more)
+Cohesion: 0.14
+Nodes (10): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, Variant, profile, getProject() (+2 more)
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
 Nodes (15): engines, node, name, private, scripts, build, build:vercel, dev (+7 more)
 
 ### Community 6 - "dependencies"
-Cohesion: 0.13
-Nodes (15): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+7 more)
+Cohesion: 0.12
+Nodes (17): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+9 more)
 
 ### Community 8 - "include"
 Cohesion: 0.17
@@ -117,8 +117,8 @@ Cohesion: 0.29
 Nodes (3): Env, ExecutionContext, worker
 
 ### Community 11 - "SceneWallpaper"
-Cohesion: 0.28
-Nodes (5): AboutApp(), compileShader(), SceneWallpaper(), AsciiPortrait(), render()
+Cohesion: 0.24
+Nodes (6): AboutApp(), compileShader(), SceneWallpaper(), AsciiPortrait(), RenderedPortrait, render()
 
 ### Community 12 - ".prettierrc.json"
 Cohesion: 0.40
@@ -161,7 +161,7 @@ Cohesion: 0.28
 Nodes (4): experience, logisticsExperience, softwareExperience, Experience
 
 ## Knowledge Gaps
-- **146 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+141 more)
+- **148 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+143 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -170,12 +170,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Why does `useWindowStore` connect `DesktopShell.tsx` to `SceneWallpaper`, `FinderApp.tsx`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`, `SceneWallpaper`, `FinderApp.tsx`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _146 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _148 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

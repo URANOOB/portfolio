@@ -2,16 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AsciiGenerator, CharsetPreset } from "ts-ascii-engine";
-import type { CharColor } from "ts-ascii-engine";
-
-type RenderedPortrait = {
-  characters: string[][];
-  colors: CharColor[][];
-};
 
 export function AsciiPortrait() {
   const containerRef = useRef<HTMLElement>(null);
-  const [portrait, setPortrait] = useState<RenderedPortrait | null>(null);
+  const [ascii, setAscii] = useState("Rendering portrait…");
 
   useEffect(() => {
     const container = containerRef.current;
@@ -24,27 +18,23 @@ export function AsciiPortrait() {
     const render = () => {
       if (!image.naturalWidth) return;
 
-      const columns = Math.max(42, Math.min(74, Math.floor(container.clientWidth / 3.25)));
+      const columns = Math.max(40, Math.min(58, Math.floor(container.clientWidth / 4)));
       if (columns === lastColumns) return;
       lastColumns = columns;
 
       const generator = new AsciiGenerator({
-        charset: CharsetPreset.EXTENDED,
+        charset: CharsetPreset.STANDARD,
         width: columns,
-        aspectRatio: 0.5,
-        colored: true,
+        aspectRatio: 0.52,
+        colored: false,
         optimized: true,
       });
-      const result = generator.convertImage(image);
 
-      setPortrait({
-        characters: result.characters,
-        colors: result.colors ?? [],
-      });
+      setAscii(generator.convertImage(image).text);
     };
 
     image.onload = render;
-    image.onerror = () => setPortrait(null);
+    image.onerror = () => setAscii("Portrait unavailable");
     image.src = "/about/william-and-cat.jpeg";
 
     const observer = new ResizeObserver(render);
@@ -64,26 +54,7 @@ export function AsciiPortrait() {
       role="img"
       aria-label="ASCII portrait of William Galeano holding his cat"
     >
-      <pre aria-hidden="true">
-        {portrait
-          ? portrait.characters.map((row, rowIndex) => (
-              <span className="about-ascii-line" key={rowIndex}>
-                {row.map((character, columnIndex) => {
-                  const color = portrait.colors[rowIndex]?.[columnIndex];
-                  const style = color
-                    ? { color: `rgb(${color.r} ${color.g} ${color.b})` }
-                    : undefined;
-
-                  return (
-                    <span style={style} key={columnIndex}>
-                      {character}
-                    </span>
-                  );
-                })}
-              </span>
-            ))
-          : "Rendering portrait…"}
-      </pre>
+      <pre aria-hidden="true">{ascii}</pre>
       <figcaption>William and his cat, rendered in ASCII.</figcaption>
     </figure>
   );
