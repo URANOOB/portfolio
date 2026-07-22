@@ -90,8 +90,8 @@
     "semantic_hash": "64cb9cfee110726a7e40742527695018"
   },
   "components/desktop/DesktopShell.tsx": {
-    "mtime": 1784748730.0868292,
-    "ast_hash": "1e9d000f53b08e951fd687c6d1bd09d6",
+    "mtime": 1784750202.7095473,
+    "ast_hash": "20ec5523a8c893f7496b366e4ce5aaa5",
     "semantic_hash": ""
   },
   "components/desktop/DesktopShortcut.tsx": {
