@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight, CodeXml, ExternalLink, LockKeyhole, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ExternalLink, LockKeyhole, Share2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { projects } from "@/data/projects";
@@ -40,75 +41,101 @@ export function ProjectsApp() {
   const [selected, setSelected] = useState<Project | null>(null);
 
   if (selected) {
+    const primaryLink = selected.demo ?? selected.repository;
+    const primaryLabel = selected.demo ? "Visitar proyecto" : "Abrir repositorio";
+    const visualSlides = Array.from({ length: 3 }, (_, index) => selected.visuals[index] ?? null);
+
     return (
-      <article className="app-scroll project-detail">
-        <button className="text-button" onClick={() => setSelected(null)}>
-          <ArrowLeft size={16} /> Todos los proyectos
-        </button>
-        <ProjectVisual project={selected} />
-        <div className="project-detail-head">
-          <div>
-            <p className="section-kicker">{selected.eyebrow}</p>
-            <h2>{selected.title}</h2>
-          </div>
-          <span className="status-badge">{selected.status}</span>
-        </div>
-        <p className="project-long-description">{selected.longDescription}</p>
-        <div className="project-detail-grid">
-          <section>
-            <h3>Retos técnicos</h3>
-            <ul>
-              {selected.challenges.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+      <article className="app-scroll project-case-study">
+        <div className="project-case-layout">
+          <section className="project-case-copy">
+            <header className="project-case-intro">
+              <button className="text-button" onClick={() => setSelected(null)}>
+                <ArrowLeft size={15} /> Todos los proyectos
+              </button>
+              <div className="project-case-title-row">
+                <p className="section-kicker">{selected.eyebrow}</p>
+                <span className="status-badge">{selected.status}</span>
+              </div>
+              <h2>{selected.title}</h2>
+              <p className="project-case-meta">{selected.role} · {selected.period}</p>
+
+              <div className="project-case-actions">
+                {primaryLink ? (
+                  <a href={primaryLink} target="_blank" rel="noreferrer">
+                    {primaryLabel} <ExternalLink size={13} />
+                  </a>
+                ) : (
+                  <span><LockKeyhole size={13} /> Enlace pendiente</span>
+                )}
+                <Link href={`/projects/${selected.slug}`}>
+                  Ficha compartible <Share2 size={13} />
+                </Link>
+              </div>
+
+              <div className="project-case-facts">
+                <div>
+                  <h3>Tech stack</h3>
+                  <div className="project-case-tags">
+                    {selected.technologies.map((technology) => <span key={technology}>{technology}</span>)}
+                  </div>
+                </div>
+                <div>
+                  <h3>Tasks</h3>
+                  <div className="project-case-tags project-task-tags">
+                    {selected.tasks.map((task) => <span key={task}>{task}</span>)}
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <div className="project-case-narrative">
+              <section>
+                <h3>Overview</h3>
+                <p>{selected.longDescription}</p>
+              </section>
+              <section>
+                <h3>Stack</h3>
+                <p>{selected.outcome} El stack combina {selected.technologies.join(", ")} para sostener el flujo principal del producto.</p>
+              </section>
+              <section>
+                <h3>Technical challenges</h3>
+                <ul>
+                  {selected.challenges.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </section>
+              <section>
+                <h3>Key decisions</h3>
+                <ul>
+                  {selected.learnings.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </section>
+            </div>
           </section>
-          <section>
-            <h3>Aprendizajes</h3>
-            <ul>
-              {selected.learnings.map((item) => (
-                <li key={item}>{item}</li>
+
+          <aside className="project-case-visuals">
+            <header><strong>Visuals</strong><span>3 slides</span></header>
+            <div className="project-case-gallery">
+              {visualSlides.map((visual, index) => (
+                <figure key={visual?.src ?? `placeholder-${index}`}>
+                  <div className="project-case-frame">
+                    {visual ? (
+                      <Image src={visual.src} alt={visual.alt} fill sizes="(max-width: 800px) 100vw, 58vw" />
+                    ) : (
+                      <div className="project-case-placeholder">
+                        <ProjectVisual project={selected} />
+                        <span>Screenshot slot {String(index + 1).padStart(2, "0")}</span>
+                        <strong>Captura pendiente</strong>
+                        <p>{selected.challenges[index] ?? selected.description}</p>
+                      </div>
+                    )}
+                  </div>
+                  <figcaption>{visual?.caption ?? `Slide ${index + 1} · Visual pendiente`}</figcaption>
+                </figure>
               ))}
-            </ul>
-          </section>
+            </div>
+          </aside>
         </div>
-        <div className="tag-row">
-          {selected.technologies.map((technology) => (
-            <span key={technology}>{technology}</span>
-          ))}
-        </div>
-        <div className="project-links">
-          {selected.repository ? (
-            <a href={selected.repository} target="_blank" rel="noreferrer">
-              <CodeXml size={16} /> Repositorio
-            </a>
-          ) : (
-            <button disabled>
-              <CodeXml size={16} /> Repositorio
-            </button>
-          )}
-          {selected.demo ? (
-            <a href={selected.demo} target="_blank" rel="noreferrer">
-              <ExternalLink size={16} /> Demo
-            </a>
-          ) : (
-            <button disabled>
-              <ExternalLink size={16} /> Demo
-            </button>
-          )}
-          <Link href={`/projects/${selected.slug}`}>
-            <Share2 size={16} /> Ficha compartible
-          </Link>
-        </div>
-        {!selected.repository && !selected.demo ? (
-          <p className="private-note">
-            <LockKeyhole size={14} /> Repositorio y demo pendientes de publicación.
-          </p>
-        ) : !selected.demo ? (
-          <p className="private-note">
-            <LockKeyhole size={14} /> Este proyecto todavía no tiene una demo pública.
-          </p>
-        ) : null}
       </article>
     );
   }

@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "components/apps/ProjectsApp.tsx": {
-    "mtime": 1784762066.6782024,
-    "ast_hash": "aa61c09ae548bed1bbc8f81f1e47c874",
+    "mtime": 1784762350.6225853,
+    "ast_hash": "325f059a0eb4f689c69d437d9a79fb8a",
     "semantic_hash": ""
   },
   "components/apps/ResumeApp.tsx": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "data/projects.ts": {
-    "mtime": 1784762066.6815114,
-    "ast_hash": "01f5f5f7e62e94c1f05ccb23cac763fd",
+    "mtime": 1784762341.8858433,
+    "ast_hash": "0f084c3d18a9672d3f5903204c510775",
     "semantic_hash": ""
   },
   "data/skills.ts": {
@@ -215,8 +215,8 @@
     "semantic_hash": "5c49ab2a11718736fe4acfac45f67a7d"
   },
   "types/portfolio.ts": {
-    "mtime": 1784760735.462392,
-    "ast_hash": "aa3bd03712601472079dcb97eb12a1df",
+    "mtime": 1784762341.88419,
+    "ast_hash": "4cc48e9d49504739f9a4ba4a75f497f3",
     "semantic_hash": ""
   },
   "vercel.json": {
