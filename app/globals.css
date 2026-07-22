@@ -1854,7 +1854,6 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   height: 26px;
-  min-width: 116px;
   overflow: hidden;
   padding: 0 9px;
   border: 1px solid color-mix(in srgb, var(--accent-soft) 42%, transparent);
