@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, LockKeyhole } from "lucide-react";
+import { ArrowLeft, CodeXml, ExternalLink, LockKeyhole } from "lucide-react";
 import { getProject, projects } from "@/data/projects";
 
 export function generateStaticParams() {
@@ -67,15 +67,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
         <footer>
+          {project.repository ? (
+            <a href={project.repository} target="_blank" rel="noreferrer">
+              <CodeXml size={16} /> Abrir repositorio
+            </a>
+          ) : null}
           {project.demo ? (
             <a href={project.demo} target="_blank" rel="noreferrer">
               <ExternalLink size={16} /> Abrir demo
             </a>
-          ) : (
+          ) : !project.repository ? (
             <span>
               <LockKeyhole size={15} /> Demo y repositorio pendientes de verificación
             </span>
-          )}
+          ) : null}
         </footer>
       </article>
     </main>

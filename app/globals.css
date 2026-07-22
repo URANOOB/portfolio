@@ -1791,11 +1791,11 @@ textarea:focus-visible {
   scrollbar-color: var(--line-strong) transparent;
 }
 .works-timeline {
-  min-width: 720px;
+  min-width: 820px;
 }
 .works-timeline-years {
   display: grid;
-  grid-template-columns: 210px repeat(3, minmax(0, 1fr));
+  grid-template-columns: 210px repeat(5, minmax(0, 1fr));
   align-items: end;
   height: 38px;
   border-bottom: 1px solid var(--line-strong);
@@ -1839,7 +1839,7 @@ textarea:focus-visible {
   display: block;
   border-left: 1px solid var(--line);
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
-  background-size: 33.333% 100%;
+  background-size: 20% 100%;
 }
 .works-timeline-bar {
   position: absolute;
@@ -1863,7 +1863,7 @@ textarea:focus-visible {
   position: absolute;
   z-index: 2;
   top: 0;
-  right: 4%;
+  right: 1%;
   bottom: 0;
   width: 1px;
   background: var(--accent);
@@ -2622,6 +2622,9 @@ textarea:focus-visible {
   line-height: 1.7;
 }
 .share-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 25px;
   padding-top: 16px;
