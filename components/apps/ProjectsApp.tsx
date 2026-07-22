@@ -6,6 +6,21 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
+const MIN_TIMELINE_SPAN = 20;
+
+function getTimelineBar(project: Project) {
+  const actualSpan = project.timeline.end - project.timeline.start;
+
+  if (actualSpan >= MIN_TIMELINE_SPAN) {
+    return { left: project.timeline.start, width: actualSpan };
+  }
+
+  const center = (project.timeline.start + project.timeline.end) / 2;
+  const left = Math.max(0, Math.min(center - MIN_TIMELINE_SPAN / 2, 100 - MIN_TIMELINE_SPAN));
+
+  return { left, width: MIN_TIMELINE_SPAN };
+}
+
 function ProjectVisual({ project }: { project: Project }) {
   return (
     <div className={`project-visual visual-${project.accent}`} aria-hidden="true">
@@ -126,6 +141,9 @@ export function ProjectsApp() {
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
         <h3 id="works-timeline-title">Timeline (from 2018)</h3>
+        <p className="works-timeline-note">
+          La posición ubica cada trabajo en su año; la etiqueta conserva el periodo exacto.
+        </p>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
@@ -138,25 +156,28 @@ export function ProjectsApp() {
             </div>
             <div className="works-timeline-chart">
               <div className="works-timeline-now"><span>Hoy</span></div>
-              {projects.map((project) => (
-                <button
-                  className="works-timeline-row"
-                  key={project.slug}
-                  onClick={() => setSelected(project)}
-                  aria-label={`Abrir ${project.title}, ${project.period}`}
-                >
-                  <span className="works-timeline-name">{project.title}</span>
-                  <span className="works-timeline-grid" aria-hidden="true">
-                    <i
-                      className={`works-timeline-bar works-bar-${project.accent}`}
-                      style={{
-                        left: `${project.timeline.start}%`,
-                        width: `${project.timeline.end - project.timeline.start}%`,
-                      }}
-                    />
-                  </span>
-                </button>
-              ))}
+              {projects.map((project) => {
+                const bar = getTimelineBar(project);
+
+                return (
+                  <button
+                    className="works-timeline-row"
+                    key={project.slug}
+                    onClick={() => setSelected(project)}
+                    aria-label={`Abrir ${project.title}, ${project.period}`}
+                  >
+                    <span className="works-timeline-name">{project.title}</span>
+                    <span className="works-timeline-grid" aria-hidden="true">
+                      <i
+                        className={`works-timeline-bar works-bar-${project.accent}`}
+                        style={{ left: `${bar.left}%`, width: `${bar.width}%` }}
+                      >
+                        <span>{project.period}</span>
+                      </i>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

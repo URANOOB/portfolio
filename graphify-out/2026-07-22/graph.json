@@ -1096,7 +1096,7 @@
       "label": "getProject()",
       "file_type": "code",
       "source_file": "data/projects.ts",
-      "source_location": "L87",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "data_projects_getproject",
       "community": 4,
@@ -6022,7 +6022,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "data/projects.ts",
-      "source_location": "L87",
+      "source_location": "L195",
       "weight": 1.0,
       "_origin": "ast",
       "source": "data_projects",
@@ -8518,5 +8518,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "50244e01657285c33d3ab9ef706085329d31ad40"
+  "built_at_commit": "17e723f6a907a9ff268e3d53ee61957ac730d774"
 }
