@@ -121,12 +121,14 @@ textarea:focus-visible {
   width: calc(100% + 110px);
   height: 106%;
   max-width: none;
-  border: 0;
-  object-fit: cover;
-  object-position: center;
   pointer-events: none;
   user-select: none;
   will-change: transform;
+}
+.scene-layer > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .scene-layer-back {
   z-index: 0;
@@ -1924,7 +1926,6 @@ textarea:focus-visible {
   .scene-layer {
     top: -2%;
     height: 104%;
-    object-position: 58% center;
   }
   .planet-glow {
     width: 230px;
@@ -1993,7 +1994,6 @@ textarea:focus-visible {
   .scene-layer {
     left: -38px;
     width: calc(100% + 76px);
-    object-position: 56% center;
   }
   .scene-wallpaper::before {
     background: linear-gradient(90deg, rgba(7, 10, 18, 0.86), rgba(7, 10, 18, 0.42));
