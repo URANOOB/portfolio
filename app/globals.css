@@ -1832,7 +1832,7 @@ textarea:focus-visible {
 }
 .works-timeline-years {
   display: grid;
-  grid-template-columns: 210px repeat(5, minmax(0, 1fr));
+  grid-template-columns: 210px repeat(7, minmax(0, 1fr));
   align-items: end;
   height: 38px;
   border-bottom: 1px solid var(--line-strong);
@@ -1876,7 +1876,7 @@ textarea:focus-visible {
   display: block;
   border-left: 1px solid var(--line);
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
-  background-size: 20% 100%;
+  background-size: 14.285% 100%;
 }
 .works-timeline-bar {
   position: absolute;
@@ -1884,7 +1884,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   height: 26px;
-  min-width: 116px;
+  min-width: 86px;
   overflow: hidden;
   padding: 0 9px;
   border: 1px solid color-mix(in srgb, var(--accent-soft) 42%, transparent);

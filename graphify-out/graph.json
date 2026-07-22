@@ -1107,7 +1107,7 @@
       "label": "getProject()",
       "file_type": "code",
       "source_file": "data/projects.ts",
-      "source_location": "L195",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "data_projects_getproject",
       "community": 4,
@@ -4506,7 +4506,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L166",
+      "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_projectsapp_projectsapp",
@@ -6056,7 +6056,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "data/projects.ts",
-      "source_location": "L195",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast",
       "source": "data_projects",
@@ -8552,5 +8552,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "38debbe336d1351b1c53841912408d69f56351fd"
+  "built_at_commit": "f26b57ae3ab579df594b55b5f2a23845eacb509d"
 }

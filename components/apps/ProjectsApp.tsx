@@ -6,7 +6,7 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
-const MIN_TIMELINE_SPAN = 20;
+const MIN_TIMELINE_SPAN = 14;
 
 function getTimelineBar(project: Project) {
   const actualSpan = project.timeline.end - project.timeline.start;
@@ -146,19 +146,21 @@ export function ProjectsApp() {
       </section>
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
-        <h3 id="works-timeline-title">Timeline (from 2018)</h3>
+        <h3 id="works-timeline-title">Timeline · 2026</h3>
         <p className="works-timeline-note">
-          La posición ubica el año; el periodo exacto aparece dentro de cada barra.
+          La posición muestra los meses activos; el periodo exacto aparece dentro de cada barra.
         </p>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
               <span>Projects</span>
-              <span>2018</span>
-              <span>2020</span>
-              <span>2022</span>
-              <span>2024</span>
-              <span>2026</span>
+              <span>Ene</span>
+              <span>Feb</span>
+              <span>Mar</span>
+              <span>Abr</span>
+              <span>May</span>
+              <span>Jun</span>
+              <span>Jul</span>
             </div>
             <div className="works-timeline-chart">
               <div className="works-timeline-now"><span>Hoy</span></div>
