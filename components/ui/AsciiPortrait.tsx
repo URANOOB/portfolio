@@ -66,7 +66,7 @@ export function AsciiPortrait() {
       aria-label="ASCII portrait of William Galeano holding his cat"
     >
       <pre aria-hidden="true">{ascii}</pre>
-      <figcaption>William + Milo, rendered in ASCII.</figcaption>
+      <figcaption>William and his cat, rendered in ASCII.</figcaption>
     </figure>
   );
 }
