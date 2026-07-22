@@ -351,19 +351,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_experienceapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "ExperienceApp.tsx",
       "norm_label": "experienceapp.tsx"
     },
     {
       "label": "ExperienceApp()",
       "file_type": "code",
       "source_file": "components/apps/ExperienceApp.tsx",
-      "source_location": "L7",
+      "source_location": "L3",
       "_origin": "ast",
       "id": "components_apps_experienceapp_experienceapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "ExperienceApp.tsx",
       "norm_label": "experienceapp()"
     },
     {
@@ -373,8 +373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_finderapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp.tsx"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_apps_finderapp_folders",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "folders"
     },
     {
@@ -395,8 +395,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "components_apps_finderapp_notes",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "notes"
     },
     {
@@ -406,8 +406,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_apps_finderapp_finderapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp()"
     },
     {
@@ -1000,8 +1000,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile.ts"
     },
     {
@@ -1011,8 +1011,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile_profile",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile"
     },
     {
@@ -1069,6 +1069,39 @@
       "community": 7,
       "community_name": "skills.ts",
       "norm_label": "skillgroups"
+    },
+    {
+      "label": "software-experience.ts",
+      "file_type": "code",
+      "source_file": "data/software-experience.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_software_experience",
+      "community": 33,
+      "community_name": "ExperienceApp.tsx",
+      "norm_label": "software-experience.ts"
+    },
+    {
+      "label": "currentSoftwareFocus",
+      "file_type": "code",
+      "source_file": "data/software-experience.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_software_experience_currentsoftwarefocus",
+      "community": 33,
+      "community_name": "ExperienceApp.tsx",
+      "norm_label": "currentsoftwarefocus"
+    },
+    {
+      "label": "softwareCareerTimeline",
+      "file_type": "code",
+      "source_file": "data/software-experience.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "data_software_experience_softwarecareertimeline",
+      "community": 33,
+      "community_name": "ExperienceApp.tsx",
+      "norm_label": "softwarecareertimeline"
     },
     {
       "label": "eslint.config.mjs",
@@ -4047,7 +4080,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ExperienceApp.tsx",
-      "source_location": "L7",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_experienceapp",
@@ -4059,11 +4092,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ExperienceApp.tsx",
-      "source_location": "L5",
+      "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_experienceapp",
-      "target": "data_experience",
+      "target": "data_software_experience",
       "confidence_score": 1.0
     },
     {
@@ -4071,11 +4104,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ExperienceApp.tsx",
-      "source_location": "L5",
+      "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_experienceapp",
-      "target": "data_experience_softwareexperience",
+      "target": "data_software_experience_currentsoftwarefocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/ExperienceApp.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_experienceapp",
+      "target": "data_software_experience_softwarecareertimeline",
       "confidence_score": 1.0
     },
     {
@@ -5873,6 +5918,28 @@
       "_origin": "ast",
       "source": "data_skills",
       "target": "types_portfolio_skillgroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/software-experience.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_software_experience",
+      "target": "data_software_experience_currentsoftwarefocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/software-experience.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_software_experience",
+      "target": "data_software_experience_softwarecareertimeline",
       "confidence_score": 1.0
     },
     {
@@ -8239,5 +8306,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f7a365c9effffff860ce9cf3172f0d5f6836f066"
+  "built_at_commit": "7fe1c7911d5827fa8ca6f0186b1bfd05cb21f582"
 }
