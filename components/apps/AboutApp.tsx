@@ -1,84 +1,60 @@
 "use client";
 
-import { CheckCircle2, Globe2, MapPin, Sparkles } from "lucide-react";
-import Image from "next/image";
-import { profile } from "@/data/profile";
+import { ArrowUpRight } from "lucide-react";
+import { socialLinks } from "@/data/profile";
+import { useWindowStore } from "@/store/window-store";
 
 export function AboutApp() {
+  const openWindow = useWindowStore((state) => state.openWindow);
+
   return (
-    <article className="app-scroll about-app">
-      <header className="app-hero about-hero">
-        <div className="profile-avatar" aria-label="Monograma de William Galeano">
-          <span>{profile.initials}</span>
+    <article className="app-scroll about-editorial">
+      <header className="about-editorial-title">
+        <h2>
+          <span>William</span>
           <i aria-hidden="true" />
-        </div>
-        <div>
-          <p className="section-kicker">DESARROLLO DE SOFTWARE</p>
-          <h2>{profile.name}</h2>
-          <p className="about-headline">{profile.headline}</p>
-          <div className="about-meta">
-            <span>
-              <MapPin size={14} /> {profile.location}
-            </span>
-            <span>
-              <Globe2 size={14} /> {profile.languages.join(" · ")}
-            </span>
-          </div>
-        </div>
+          <span>Galeano</span>
+        </h2>
       </header>
 
-      <section className="about-grid">
-        <div className="narrative-card">
-          <Sparkles size={20} />
-          <h3>Software con criterio de producto</h3>
-          {profile.about.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-        <aside className="availability-card">
-          <p>Disponibilidad</p>
-          <h3>{profile.availability}</h3>
-          <span>
-            <CheckCircle2 size={16} /> Comunicación bilingüe
-          </span>
-          <span>
-            <CheckCircle2 size={16} /> Liderazgo y seguimiento
-          </span>
-          <span>
-            <CheckCircle2 size={16} /> Aprendizaje rápido
-          </span>
-        </aside>
+      <section className="about-editorial-copy">
+        <p>
+          Colombian, <strong>“Rolo”</strong>—meaning from the capital—and Latin American. I am a
+          full-stack software engineer who enjoys building thoughtful, high-quality digital products.
+          I love translating complex ideas into interfaces that feel clear, reliable, and fast.
+        </p>
+        <p>
+          Outside of code, I enjoy playing videogames and exploring new technologies. You can connect
+          with me on{" "}
+          {socialLinks.linkedin ? (
+            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          ) : (
+            <span className="about-inline-link">LinkedIn</span>
+          )}
+          .
+        </p>
       </section>
 
-      <section className="principles">
-        <div>
-          <strong>01</strong>
-          <h3>Entender</h3>
-          <p>Contexto, restricciones y resultado esperado.</p>
-        </div>
-        <div>
-          <strong>02</strong>
-          <h3>Construir</h3>
-          <p>Soluciones simples, visibles y mantenibles.</p>
-        </div>
-        <div>
-          <strong>03</strong>
-          <h3>Mejorar</h3>
-          <p>Iteración, aprendizaje y calidad en cada entrega.</p>
-        </div>
+      <section className="about-focus">
+        <h3>Current Focus</h3>
+        <ul>
+          <li>
+            Growing{" "}
+            <button onClick={() => openWindow("projects")}>Inglés Pa&apos; La Paz</button> while
+            validating ideas and helping to build free education.
+          </li>
+          <li>Building part-time Ingenio Empresarial tech solutions.</li>
+          <li>Continuing my software engineering studies at Politécnico Grancolombiano.</li>
+        </ul>
       </section>
-      <figure className="brand-preview">
-        <Image
-          src="/og.png"
-          alt="Urano OS: portafolio de desarrollo de software de William Galeano"
-          fill
-          sizes="(max-width: 600px) 90vw, 700px"
-        />
-        <figcaption>Una identidad original para presentar productos y desarrollo de software.</figcaption>
-      </figure>
-      <p className="photo-note">
-        La fotografía profesional se añadirá cuando el propietario proporcione el archivo original.
-      </p>
+
+      <section className="about-timeline-cta">
+        <p>Full Timeline</p>
+        <h3>View my complete experience timeline in a dedicated window with full role context.</h3>
+        <button onClick={() => openWindow("experience")}>Open Experience <ArrowUpRight size={16} /></button>
+      </section>
+
+      <div className="about-editorial-mark" aria-hidden="true">WG</div>
     </article>
   );
 }

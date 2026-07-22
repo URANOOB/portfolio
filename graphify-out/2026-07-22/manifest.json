@@ -55,8 +55,8 @@
     "semantic_hash": "4211293d01ef752862cc5383e7ff87a3"
   },
   "components/apps/FinderApp.tsx": {
-    "mtime": 1784752951.7265832,
-    "ast_hash": "5c389d8746bda3e9c07d89a09f54ddf6",
+    "mtime": 1784753264.5241325,
+    "ast_hash": "bdfe3f0d1e381cdd688dad9f961420bf",
     "semantic_hash": ""
   },
   "components/apps/ProjectsApp.tsx": {
@@ -110,8 +110,8 @@
     "semantic_hash": "ed9addb215a070abaf743d1667f5c405"
   },
   "components/windows/AppContent.tsx": {
-    "mtime": 1784752951.7317429,
-    "ast_hash": "80c15ce208bd1acc9fcb60880a1766de",
+    "mtime": 1784753264.5241325,
+    "ast_hash": "eda7be3ede136d0dcd851131066d16c2",
     "semantic_hash": ""
   },
   "components/windows/WindowFrame.tsx": {
@@ -120,18 +120,18 @@
     "semantic_hash": "c086251c6d7ad30e7d1a2d6a81c21b88"
   },
   "components/windows/WindowLayer.tsx": {
-    "mtime": 1784691620.6211958,
-    "ast_hash": "b338197fbed05d5c92d75146d795d869",
-    "semantic_hash": "b338197fbed05d5c92d75146d795d869"
+    "mtime": 1784753264.5241325,
+    "ast_hash": "62ca82dd2eddcb654754579a6ba1b0af",
+    "semantic_hash": ""
   },
   "data/experience.ts": {
-    "mtime": 1784752951.7253647,
-    "ast_hash": "5811afa3ed37249312380e63d87a1397",
+    "mtime": 1784753264.523124,
+    "ast_hash": "eb189d7e62413baf3d4ec8d1bcd3206c",
     "semantic_hash": ""
   },
   "data/navigation.ts": {
-    "mtime": 1784752951.7208648,
-    "ast_hash": "91c9c6a81d72171bf5ffaf7f74b5b9a1",
+    "mtime": 1784753264.5189538,
+    "ast_hash": "29829cf433139f3829fb86a7631c24f2",
     "semantic_hash": ""
   },
   "data/profile.ts": {
@@ -195,9 +195,9 @@
     "semantic_hash": "f53de6128a4fec27874848a0028cb9f4"
   },
   "store/window-store.ts": {
-    "mtime": 1784691533.8266253,
-    "ast_hash": "3156d4ccd5d47ea9862d81406ab6f167",
-    "semantic_hash": "3156d4ccd5d47ea9862d81406ab6f167"
+    "mtime": 1784753264.5241325,
+    "ast_hash": "e9f8a52f71014d6a2fc14e2c457d8e59",
+    "semantic_hash": ""
   },
   "tests/logic.test.mjs": {
     "mtime": 1784692261.8629937,
@@ -215,8 +215,8 @@
     "semantic_hash": "5c49ab2a11718736fe4acfac45f67a7d"
   },
   "types/portfolio.ts": {
-    "mtime": 1784752951.723566,
-    "ast_hash": "b8c62377bb51269ed6e6b3b821d3f9bb",
+    "mtime": 1784753264.5189538,
+    "ast_hash": "d38fda57174021aa4045c05c905e2f5a",
     "semantic_hash": ""
   },
   "vercel.json": {
@@ -602,6 +602,26 @@
   "components/apps/LogisticsApp.tsx": {
     "mtime": 1784752951.7313926,
     "ast_hash": "29558d8d2cb9cfee82da3cdf6b434351",
+    "semantic_hash": ""
+  },
+  "components/apps/ExperienceApp.tsx": {
+    "mtime": 1784753264.5281587,
+    "ast_hash": "030d173417ad7934e0ea821b7b1ec067",
+    "semantic_hash": ""
+  },
+  "components/apps/HelpApp.tsx": {
+    "mtime": 1784753264.529166,
+    "ast_hash": "b8723bb97c86e56a9cf1b0b5e3c02677",
+    "semantic_hash": ""
+  },
+  "components/apps/SearchApp.tsx": {
+    "mtime": 1784753264.529166,
+    "ast_hash": "191a8c9d61f4252f81669ca53a0d0bb0",
+    "semantic_hash": ""
+  },
+  "components/apps/SettingsApp.tsx": {
+    "mtime": 1784753264.529166,
+    "ast_hash": "0d9c255f3d704293aa339790fc6272e7",
     "semantic_hash": ""
   }
 }

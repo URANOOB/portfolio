@@ -45,8 +45,8 @@
     "semantic_hash": "372f697cb11a364064c8c8cffafe539e"
   },
   "components/apps/AboutApp.tsx": {
-    "mtime": 1784752951.7265832,
-    "ast_hash": "22272945e38af43e7faec84bc574f34b",
+    "mtime": 1784753796.6851163,
+    "ast_hash": "abc05dec23a3e7fcd2d01f8c6efb30c4",
     "semantic_hash": ""
   },
   "components/apps/ContactApp.tsx": {
