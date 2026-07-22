@@ -1163,16 +1163,12 @@ textarea:focus-visible {
 .about-ascii-portrait pre {
   margin: 0;
   font-family: var(--font-geist-mono), "Courier New", monospace;
-  font-size: 4px;
-  font-weight: 650;
-  line-height: 0.88;
+  font-size: clamp(6px, 0.48vw, 7px);
+  font-weight: 700;
+  line-height: 0.8;
   letter-spacing: 0;
   white-space: pre;
-  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 30%, transparent);
-  filter: saturate(0.8) contrast(1.08) brightness(1.05);
-}
-.about-ascii-line {
-  display: block;
+  text-shadow: 0 0 7px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .about-ascii-portrait figcaption {
   margin-top: 8px;
