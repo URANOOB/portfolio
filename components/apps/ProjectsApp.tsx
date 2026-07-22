@@ -63,19 +63,35 @@ export function ProjectsApp() {
           ))}
         </div>
         <div className="project-links">
-          <button disabled={!selected.repository}>
-            <CodeXml size={16} /> Repositorio
-          </button>
-          <button disabled={!selected.demo}>
-            <ExternalLink size={16} /> Demo
-          </button>
+          {selected.repository ? (
+            <a href={selected.repository} target="_blank" rel="noreferrer">
+              <CodeXml size={16} /> Repositorio
+            </a>
+          ) : (
+            <button disabled>
+              <CodeXml size={16} /> Repositorio
+            </button>
+          )}
+          {selected.demo ? (
+            <a href={selected.demo} target="_blank" rel="noreferrer">
+              <ExternalLink size={16} /> Demo
+            </a>
+          ) : (
+            <button disabled>
+              <ExternalLink size={16} /> Demo
+            </button>
+          )}
           <Link href={`/projects/${selected.slug}`}>
             <Share2 size={16} /> Ficha compartible
           </Link>
         </div>
-        {!selected.repository || !selected.demo ? (
+        {!selected.repository && !selected.demo ? (
           <p className="private-note">
-            <LockKeyhole size={14} /> Los enlaces se activarán cuando sean proporcionados y verificados.
+            <LockKeyhole size={14} /> Repositorio y demo pendientes de publicación.
+          </p>
+        ) : !selected.demo ? (
+          <p className="private-note">
+            <LockKeyhole size={14} /> Este proyecto todavía no tiene una demo pública.
           </p>
         ) : null}
       </article>
@@ -109,13 +125,15 @@ export function ProjectsApp() {
       </section>
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
-        <h3 id="works-timeline-title">Timeline (from 2024)</h3>
+        <h3 id="works-timeline-title">Timeline (from 2018)</h3>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
               <span>Projects</span>
+              <span>2018</span>
+              <span>2020</span>
+              <span>2022</span>
               <span>2024</span>
-              <span>2025</span>
               <span>2026</span>
             </div>
             <div className="works-timeline-chart">

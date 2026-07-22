@@ -12,7 +12,7 @@ export type AppId =
   | "resume"
   | "contact";
 
-export type ProjectStatus = "En desarrollo" | "Activo" | "Concepto privado";
+export type ProjectStatus = "En desarrollo" | "Activo" | "Concepto" | "Concepto privado" | "Completado";
 
 export interface Project {
   slug: string;
