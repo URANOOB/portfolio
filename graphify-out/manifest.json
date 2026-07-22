@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "components/apps/ProjectsApp.tsx": {
-    "mtime": 1784761490.2992647,
-    "ast_hash": "a1ab851d4e825b85291c86f5ce4e9e0b",
+    "mtime": 1784761616.019904,
+    "ast_hash": "7e3e43f6552eee88844685adb31040d1",
     "semantic_hash": ""
   },
   "components/apps/ResumeApp.tsx": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "data/projects.ts": {
-    "mtime": 1784761490.300275,
-    "ast_hash": "d6d4369441b1551d996e9885de79357f",
+    "mtime": 1784761616.020913,
+    "ast_hash": "94579e8ab1e8b3d90cb2c9f494f77645",
     "semantic_hash": ""
   },
   "data/skills.ts": {

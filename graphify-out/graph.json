@@ -477,21 +477,21 @@
       "norm_label": "projectsapp.tsx"
     },
     {
-      "label": "interactiveProjects",
+      "label": "getTimelineBar()",
       "file_type": "code",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
-      "id": "components_apps_projectsapp_interactiveprojects",
+      "id": "components_apps_projectsapp_gettimelinebar",
       "community": 4,
       "community_name": "FinderApp.tsx",
-      "norm_label": "interactiveprojects"
+      "norm_label": "gettimelinebar()"
     },
     {
       "label": "ProjectVisual()",
       "file_type": "code",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L11",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "components_apps_projectsapp_projectvisual",
       "community": 4,
@@ -502,7 +502,7 @@
       "label": "ProjectsApp()",
       "file_type": "code",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L26",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "components_apps_projectsapp_projectsapp",
       "community": 4,
@@ -582,8 +582,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_settingsapp",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "settingsapp.tsx"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_apps_settingsapp_accentoptions",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "accentoptions"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_apps_settingsapp_textsizeoptions",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "textsizeoptions"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_apps_settingsapp_settingsapp",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "settingsapp()"
     },
     {
@@ -692,8 +692,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_bootscreen",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen.tsx"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_desktop_bootscreen_bootscreen",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen()"
     },
     {
@@ -791,8 +791,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_menubar",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar.tsx"
     },
     {
@@ -802,8 +802,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_desktop_menubar_menuapps",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menuapps"
     },
     {
@@ -813,8 +813,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_desktop_menubar_menubar",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar()"
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper.tsx"
     },
     {
@@ -835,8 +835,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_wallpapersources",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "wallpapersources"
     },
     {
@@ -846,8 +846,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_compileshader",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "compileshader()"
     },
     {
@@ -857,8 +857,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_scenewallpaper",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper()"
     },
     {
@@ -868,8 +868,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark.tsx"
     },
     {
@@ -879,8 +879,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark_uranomark",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark()"
     },
     {
@@ -2133,8 +2133,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_preferences_store",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferences-store.ts"
     },
     {
@@ -2144,8 +2144,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "store_preferences_store_theme",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "theme"
     },
     {
@@ -2155,8 +2155,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "store_preferences_store_language",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "language"
     },
     {
@@ -2166,8 +2166,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "store_preferences_store_accent",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "accent"
     },
     {
@@ -2177,8 +2177,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "store_preferences_store_textsize",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "textsize"
     },
     {
@@ -2188,8 +2188,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "store_preferences_store_wallpaper",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "wallpaper"
     },
     {
@@ -2199,8 +2199,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "store_preferences_store_preferencesstore",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferencesstore"
     },
     {
@@ -2210,8 +2210,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "store_preferences_store_usepreferencesstore",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "usepreferencesstore"
     },
     {
@@ -2298,8 +2298,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_rendered_html_test",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "rendered-html.test.mjs"
     },
     {
@@ -2309,8 +2309,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "tests_rendered_html_test_render",
-      "community": 7,
-      "community_name": "MenuBar.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "render()"
     },
     {
@@ -4424,18 +4424,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_projectsapp",
-      "target": "components_apps_projectsapp_interactiveprojects",
+      "target": "components_apps_projectsapp_gettimelinebar",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L26",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_projectsapp",
@@ -4446,7 +4446,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/ProjectsApp.tsx",
-      "source_location": "L11",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_projectsapp",
@@ -4499,6 +4499,18 @@
       "_origin": "ast",
       "source": "components_apps_projectsapp",
       "target": "types_portfolio_project",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/ProjectsApp.tsx",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_projectsapp_projectsapp",
+      "target": "components_apps_projectsapp_gettimelinebar",
       "confidence_score": 1.0
     },
     {
@@ -8540,5 +8552,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7e47f0068779551da88a6cc196ed7cd684928533"
+  "built_at_commit": "38debbe336d1351b1c53841912408d69f56351fd"
 }

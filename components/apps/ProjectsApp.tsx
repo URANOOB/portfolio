@@ -6,7 +6,20 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
-const interactiveProjects = projects.filter((project) => project.repository || project.demo);
+const MIN_TIMELINE_SPAN = 20;
+
+function getTimelineBar(project: Project) {
+  const actualSpan = project.timeline.end - project.timeline.start;
+
+  if (actualSpan >= MIN_TIMELINE_SPAN) {
+    return { left: project.timeline.start, width: actualSpan };
+  }
+
+  const center = (project.timeline.start + project.timeline.end) / 2;
+  const left = Math.max(0, Math.min(center - MIN_TIMELINE_SPAN / 2, 100 - MIN_TIMELINE_SPAN));
+
+  return { left, width: MIN_TIMELINE_SPAN };
+}
 
 function ProjectVisual({ project }: { project: Project }) {
   return (
@@ -105,46 +118,52 @@ export function ProjectsApp() {
       <header className="works-editorial-header">
         <h2>Works</h2>
         <p>
-          Explora proyectos con repositorio o demostración disponible, sus periodos, decisiones técnicas
-          y resultados. Selecciona cualquier trabajo para ver el contexto completo.
+          Explora proyectos seleccionados, sus periodos, decisiones técnicas y resultados. Cada tarjeta
+          abre una ficha con el contexto completo del trabajo.
         </p>
       </header>
 
       <section className="works-panel works-project-list" aria-labelledby="works-list-title">
         <h3 id="works-list-title">Project List</h3>
         <div>
-          {interactiveProjects.map((project) => (
+          {projects.map((project) => (
             <button key={project.slug} onClick={() => setSelected(project)}>
-              <span className="works-project-heading">
-                <strong>{project.title}</strong>
-                <span>{project.role} · {project.period} · {project.context}</span>
+              <span className="works-project-card-top">
+                <span className="works-project-heading">
+                  <strong>{project.title}</strong>
+                  <span>{project.role} · {project.context}</span>
+                </span>
+                <span className="works-project-status">{project.status}</span>
               </span>
               <span className="works-project-outcome">{project.outcome}</span>
-              <ArrowUpRight size={15} aria-hidden="true" />
+              <span className="works-project-card-action">
+                <span>{project.period}</span>
+                <span>Ver proyecto <ArrowUpRight size={14} aria-hidden="true" /></span>
+              </span>
             </button>
           ))}
         </div>
       </section>
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
-        <h3 id="works-timeline-title">Timeline · 2026</h3>
+        <h3 id="works-timeline-title">Timeline (from 2018)</h3>
         <p className="works-timeline-note">
-          La posición y longitud corresponden a los meses registrados para cada proyecto.
+          La posición ubica el año; el periodo exacto aparece dentro de cada barra.
         </p>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
               <span>Projects</span>
-              <span>Mar</span>
-              <span>Abr</span>
-              <span>May</span>
-              <span>Jun</span>
-              <span>Jul</span>
+              <span>2018</span>
+              <span>2020</span>
+              <span>2022</span>
+              <span>2024</span>
+              <span>2026</span>
             </div>
             <div className="works-timeline-chart">
               <div className="works-timeline-now"><span>Hoy</span></div>
-              {interactiveProjects.map((project) => {
-                const width = project.timeline.end - project.timeline.start;
+              {projects.map((project) => {
+                const bar = getTimelineBar(project);
 
                 return (
                   <button
@@ -157,7 +176,7 @@ export function ProjectsApp() {
                     <span className="works-timeline-grid" aria-hidden="true">
                       <i
                         className={`works-timeline-bar works-bar-${project.accent}`}
-                        style={{ left: `${project.timeline.start}%`, width: `${width}%` }}
+                        style={{ left: `${bar.left}%`, width: `${bar.width}%` }}
                       >
                         <span>{project.period}</span>
                       </i>
