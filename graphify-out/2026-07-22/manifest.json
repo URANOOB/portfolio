@@ -75,8 +75,8 @@
     "semantic_hash": "5eb8e41045dd64345dadd75ada18579f"
   },
   "components/apps/TerminalApp.tsx": {
-    "mtime": 1784758986.9094715,
-    "ast_hash": "004bb3d8451936088e6d2d67a63436a5",
+    "mtime": 1784759384.191631,
+    "ast_hash": "543c2f1f8e07ab24bf8c50990e2fb913",
     "semantic_hash": ""
   },
   "components/desktop/BootScreen.tsx": {
@@ -627,6 +627,11 @@
   "data/software-experience.ts": {
     "mtime": 1784757792.2814488,
     "ast_hash": "17c3151804652e94a735f01b7c8ff18f",
+    "semantic_hash": ""
+  },
+  "public/terminal-raccoon-walk.gif": {
+    "mtime": 1784759344.589247,
+    "ast_hash": "bf16503f5e504b97d444b4a2aab5fcc9",
     "semantic_hash": ""
   }
 }

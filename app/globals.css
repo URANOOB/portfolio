@@ -1293,7 +1293,24 @@ textarea:focus-visible {
   filter: brightness(1.08);
 }
 .about-editorial-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 290px);
+  align-items: end;
+  gap: clamp(18px, 4vw, 42px);
   margin-top: 22px;
+}
+.about-raccoon {
+  width: min(100%, 290px);
+  margin: 0;
+  justify-self: end;
+  pointer-events: none;
+}
+.about-raccoon img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 9px 12px rgba(0, 0, 0, 0.2));
 }
 
 @media (max-width: 600px) {
@@ -1304,6 +1321,13 @@ textarea:focus-visible {
   }
   .about-editorial-title i {
     width: 72px;
+  }
+  .about-editorial-footer {
+    grid-template-columns: 1fr;
+  }
+  .about-raccoon {
+    width: min(78vw, 280px);
+    justify-self: center;
   }
 }
 

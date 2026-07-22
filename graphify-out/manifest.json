@@ -45,8 +45,8 @@
     "semantic_hash": "372f697cb11a364064c8c8cffafe539e"
   },
   "components/apps/AboutApp.tsx": {
-    "mtime": 1784756641.7822008,
-    "ast_hash": "66b1dc1596ec586d72ec4b0941510a7e",
+    "mtime": 1784759821.226053,
+    "ast_hash": "172cff8efd6bdd48424c800301f28f6e",
     "semantic_hash": ""
   },
   "components/apps/ContactApp.tsx": {
@@ -632,6 +632,11 @@
   "public/terminal-raccoon-walk.gif": {
     "mtime": 1784759344.589247,
     "ast_hash": "bf16503f5e504b97d444b4a2aab5fcc9",
+    "semantic_hash": ""
+  },
+  "public/about-raccoon.gif": {
+    "mtime": 1784759762.3017895,
+    "ast_hash": "daf1abcbc750d46eee6cdb692995ceeb",
     "semantic_hash": ""
   }
 }
