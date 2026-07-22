@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "components/apps/ProjectsApp.tsx": {
-    "mtime": 1784762350.6225853,
-    "ast_hash": "325f059a0eb4f689c69d437d9a79fb8a",
+    "mtime": 1784762728.8271573,
+    "ast_hash": "039f746a75e0ee75b728f3d4af2b4793",
     "semantic_hash": ""
   },
   "components/apps/ResumeApp.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": "64c776f3faf2c87b0b1e3f8dc9ad8c20"
   },
   "package.json": {
-    "mtime": 1784756649.6677234,
-    "ast_hash": "fb8187a5ab5f4ff199aaa919253e10eb",
+    "mtime": 1784762703.6842923,
+    "ast_hash": "aacd55181fcb7d4d6b4da731cee9b4d0",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
