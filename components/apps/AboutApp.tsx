@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { AsciiPortrait } from "@/components/ui/AsciiPortrait";
 import { socialLinks } from "@/data/profile";
 import { useWindowStore } from "@/store/window-store";
 
@@ -55,7 +54,6 @@ export function AboutApp() {
           <h3>View my complete experience timeline in a dedicated window with full role context.</h3>
           <button onClick={() => openWindow("experience")}>Open Experience <ArrowUpRight size={16} /></button>
         </section>
-        <AsciiPortrait />
       </div>
     </article>
   );

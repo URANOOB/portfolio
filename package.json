@@ -22,7 +22,6 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-markdown": "^10.1.0",
-    "ts-ascii-engine": "^0.0.4",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
