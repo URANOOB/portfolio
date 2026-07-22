@@ -1,15 +1,14 @@
 export const profile = {
   name: "William Galeano",
   initials: "WG",
-  headline: "Software Developer & Senior Logistics Coordinator",
+  headline: "Software Developer",
   location: "Bogotá, Colombia",
-  availability: "Abierto a oportunidades en tecnología y operaciones globales",
+  availability: "Abierto a oportunidades en desarrollo de software",
   languages: ["Español nativo", "Inglés B2+"],
-  intro:
-    "Construyo soluciones digitales con la misma disciplina con la que coordino operaciones internacionales: entendiendo el contexto, priorizando con claridad y cuidando cada entrega.",
+  intro: "Construyo productos web claros, rápidos y mantenibles que convierten necesidades reales en experiencias digitales útiles.",
   about: [
-    "Mi perfil combina desarrollo de software, logística internacional y atención a clientes. Esa intersección me permite traducir necesidades de negocio en flujos claros, productos útiles y decisiones operativas concretas.",
-    "He trabajado en entornos donde la comunicación, el seguimiento y la velocidad importan. Aprendo rápido, documento lo esencial y disfruto liderar conversaciones que convierten problemas ambiguos en próximos pasos accionables.",
+    "Me enfoco en desarrollo de software y en la construcción de productos digitales con interfaces claras, arquitectura mantenible y buen rendimiento.",
+    "Disfruto transformar problemas ambiguos en funcionalidades concretas, aprender herramientas nuevas y mejorar cada entrega mediante iteración, documentación y criterio de producto.",
   ],
   educationNote: "La información académica detallada y sus soportes se agregará cuando sea confirmada.",
   certificationsNote:

@@ -1,23 +1,27 @@
 "use client";
 
-import { BriefcaseBusiness, ChevronDown } from "lucide-react";
+import { ChevronDown, Truck } from "lucide-react";
 import { useState } from "react";
-import { experience } from "@/data/experience";
+import { logisticsExperience } from "@/data/experience";
 
-export function ExperienceApp() {
+export function LogisticsApp() {
   const [expanded, setExpanded] = useState(0);
 
   return (
     <article className="app-scroll experience-app">
       <header className="app-section-header">
         <div>
-          <p className="section-kicker">TRAYECTORIA</p>
-          <h2>Experiencia que conecta equipos.</h2>
+          <p className="section-kicker">LOGÍSTICA INTERNACIONAL</p>
+          <h2>Background operativo y coordinación.</h2>
+          <p>
+            Experiencia en transporte, trazabilidad, servicio bilingüe, gestión de novedades y
+            comunicación entre clientes, aliados y equipos internos.
+          </p>
         </div>
-        <span>{experience.length} entornos profesionales</span>
+        <span>{logisticsExperience.length} entornos profesionales</span>
       </header>
       <div className="timeline">
-        {experience.map((item, index) => (
+        {logisticsExperience.map((item, index) => (
           <section className={`timeline-item ${expanded === index ? "expanded" : ""}`} key={item.company}>
             <div className="timeline-rail">
               <span>{String(index + 1).padStart(2, "0")}</span>
@@ -28,7 +32,7 @@ export function ExperienceApp() {
               aria-expanded={expanded === index}
             >
               <div className="company-mark">
-                <BriefcaseBusiness size={18} />
+                <Truck size={18} />
               </div>
               <div>
                 <p>{item.period}</p>

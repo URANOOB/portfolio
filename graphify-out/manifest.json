@@ -45,24 +45,19 @@
     "semantic_hash": "372f697cb11a364064c8c8cffafe539e"
   },
   "components/apps/AboutApp.tsx": {
-    "mtime": 1784692261.461589,
-    "ast_hash": "bd4a89104dd8d170be888518fc1ebbdd",
-    "semantic_hash": "bd4a89104dd8d170be888518fc1ebbdd"
+    "mtime": 1784752951.7265832,
+    "ast_hash": "22272945e38af43e7faec84bc574f34b",
+    "semantic_hash": ""
   },
   "components/apps/ContactApp.tsx": {
     "mtime": 1784692261.4798384,
     "ast_hash": "4211293d01ef752862cc5383e7ff87a3",
     "semantic_hash": "4211293d01ef752862cc5383e7ff87a3"
   },
-  "components/apps/ExperienceApp.tsx": {
-    "mtime": 1784692261.4911897,
-    "ast_hash": "56bfbc6604d308d5d4d6f85f688b71ca",
-    "semantic_hash": "56bfbc6604d308d5d4d6f85f688b71ca"
-  },
   "components/apps/FinderApp.tsx": {
-    "mtime": 1784692261.5075285,
-    "ast_hash": "e1a75c3981c70e1e710e80e013c3c0d2",
-    "semantic_hash": "e1a75c3981c70e1e710e80e013c3c0d2"
+    "mtime": 1784752951.7265832,
+    "ast_hash": "5c389d8746bda3e9c07d89a09f54ddf6",
+    "semantic_hash": ""
   },
   "components/apps/ProjectsApp.tsx": {
     "mtime": 1784692261.5217805,
@@ -70,9 +65,9 @@
     "semantic_hash": "1e019ab0a49eb1fdf9be073a6520e3d2"
   },
   "components/apps/ResumeApp.tsx": {
-    "mtime": 1784692261.53583,
-    "ast_hash": "5d93a65e70780df900afda1d1777da1c",
-    "semantic_hash": "5d93a65e70780df900afda1d1777da1c"
+    "mtime": 1784752951.7265832,
+    "ast_hash": "33dab93064c1922ff2f9b069a6df61b5",
+    "semantic_hash": ""
   },
   "components/apps/SkillsApp.tsx": {
     "mtime": 1784692261.540765,
@@ -90,8 +85,8 @@
     "semantic_hash": "64cb9cfee110726a7e40742527695018"
   },
   "components/desktop/DesktopShell.tsx": {
-    "mtime": 1784752565.0026436,
-    "ast_hash": "d399f2262c16308358997a79ced6c0a8",
+    "mtime": 1784752960.525743,
+    "ast_hash": "ecb744c9b61066c7f7e406ed0cd71191",
     "semantic_hash": ""
   },
   "components/desktop/DesktopShortcut.tsx": {
@@ -115,9 +110,9 @@
     "semantic_hash": "ed9addb215a070abaf743d1667f5c405"
   },
   "components/windows/AppContent.tsx": {
-    "mtime": 1784691620.6211958,
-    "ast_hash": "c7c17039419f682982b7887caace7efc",
-    "semantic_hash": "c7c17039419f682982b7887caace7efc"
+    "mtime": 1784752951.7317429,
+    "ast_hash": "80c15ce208bd1acc9fcb60880a1766de",
+    "semantic_hash": ""
   },
   "components/windows/WindowFrame.tsx": {
     "mtime": 1784692261.6361024,
@@ -130,19 +125,19 @@
     "semantic_hash": "b338197fbed05d5c92d75146d795d869"
   },
   "data/experience.ts": {
-    "mtime": 1784692261.6512482,
-    "ast_hash": "e39862bde65314e54a4b71a7a04f7344",
-    "semantic_hash": "e39862bde65314e54a4b71a7a04f7344"
+    "mtime": 1784752951.7253647,
+    "ast_hash": "5811afa3ed37249312380e63d87a1397",
+    "semantic_hash": ""
   },
   "data/navigation.ts": {
-    "mtime": 1784752565.0015314,
-    "ast_hash": "1113e602d0144c69854facab10f5ba7b",
+    "mtime": 1784752951.7208648,
+    "ast_hash": "91c9c6a81d72171bf5ffaf7f74b5b9a1",
     "semantic_hash": ""
   },
   "data/profile.ts": {
-    "mtime": 1784692261.6613076,
-    "ast_hash": "a2b8873b5a8637271ba471606ae55ae3",
-    "semantic_hash": "a2b8873b5a8637271ba471606ae55ae3"
+    "mtime": 1784752951.7265832,
+    "ast_hash": "59665c00e739f33ededb696b1ef58d36",
+    "semantic_hash": ""
   },
   "data/projects.ts": {
     "mtime": 1784692261.6712809,
@@ -220,9 +215,9 @@
     "semantic_hash": "5c49ab2a11718736fe4acfac45f67a7d"
   },
   "types/portfolio.ts": {
-    "mtime": 1784692261.8875096,
-    "ast_hash": "c1404e4b8f6bb5fa0b36ecce8c904322",
-    "semantic_hash": "c1404e4b8f6bb5fa0b36ecce8c904322"
+    "mtime": 1784752951.723566,
+    "ast_hash": "b8c62377bb51269ed6e6b3b821d3f9bb",
+    "semantic_hash": ""
   },
   "vercel.json": {
     "mtime": 1784691932.32756,
@@ -602,6 +597,11 @@
   "public/scene/landscape-4k.jpg": {
     "mtime": 1784751877.7591717,
     "ast_hash": "42ee737c881ffe366c2fd37448525945",
+    "semantic_hash": ""
+  },
+  "components/apps/LogisticsApp.tsx": {
+    "mtime": 1784752951.7313926,
+    "ast_hash": "29558d8d2cb9cfee82da3cdf6b434351",
     "semantic_hash": ""
   }
 }

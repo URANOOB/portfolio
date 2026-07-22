@@ -19,6 +19,7 @@ export interface Project {
 }
 
 export interface Experience {
+  track: "software" | "logistics";
   company: string;
   role: string;
   period: string;

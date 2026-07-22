@@ -10,7 +10,7 @@ import type { AppId } from "@/types/portfolio";
 
 const folders = [
   { id: "profile", label: "Perfil", action: "about" as AppId },
-  { id: "experience", label: "Experiencia", action: "experience" as AppId },
+  { id: "experience", label: "Logística", action: "experience" as AppId },
   { id: "projects", label: "Proyectos", action: "projects" as AppId },
   { id: "education", label: "Educación" },
   { id: "certifications", label: "Certificaciones" },
@@ -22,7 +22,7 @@ const folders = [
 const notes: Record<string, string> = {
   profile: `# ${profile.name}\n\n${profile.intro}\n\n**Ubicación:** ${profile.location}\n\n**Idiomas:** ${profile.languages.join(" · ")}`,
   experience:
-    "# Experiencia\n\nTrayectoria en logística internacional, servicio bilingüe y desarrollo de soluciones digitales.",
+    "# Logística\n\nTrayectoria en coordinación de operaciones, transporte internacional, servicio bilingüe, trazabilidad y gestión de novedades.",
   projects: `# Proyectos\n\n${projects.map((project) => `- **${project.title}:** ${project.description}`).join("\n")}`,
   education: `# Educación\n\n${profile.educationNote}`,
   certifications: `# Certificaciones\n\n${profile.certificationsNote}`,
