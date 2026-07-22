@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 64 files · ~785,534 words
+- 64 files · ~785,525 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 320 nodes · 409 edges · 33 communities (23 shown, 10 thin omitted)
+- 320 nodes · 411 edges · 33 communities (23 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.6)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4eab863a`
+- Built from commit: `b8060208`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,7 +47,7 @@
 - extraction-spec.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `useWindowStore` - 19 edges
+1. `useWindowStore` - 21 edges
 2. `compilerOptions` - 17 edges
 3. `AppId` - 14 edges
 4. `What You Must Do When Invoked` - 12 edges
@@ -65,10 +65,10 @@
   lib/terminal.ts → types/portfolio.ts
 - `POST()` --calls--> `validateContactPayload()`  [EXTRACTED]
   app/api/contact/route.ts → lib/validation.ts
+- `AboutApp()` --calls--> `useWindowStore`  [EXTRACTED]
+  components/apps/AboutApp.tsx → store/window-store.ts
 - `ContactApp()` --calls--> `validateContactPayload()`  [EXTRACTED]
   components/apps/ContactApp.tsx → lib/validation.ts
-- `SearchApp()` --calls--> `useWindowStore`  [EXTRACTED]
-  components/apps/SearchApp.tsx → store/window-store.ts
 
 ## Import Cycles
 - None detected.
@@ -76,8 +76,8 @@
 ## Communities (33 total, 10 thin omitted)
 
 ### Community 0 - "DesktopShell.tsx"
-Cohesion: 0.10
-Nodes (29): metadata, searchableApps, SearchApp(), SettingsApp(), BootScreen(), DesktopShell(), DesktopShortcut(), Dock() (+21 more)
+Cohesion: 0.09
+Nodes (30): metadata, AboutApp(), searchableApps, SearchApp(), SettingsApp(), BootScreen(), DesktopShell(), DesktopShortcut() (+22 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.05
@@ -88,12 +88,12 @@ Cohesion: 0.10
 Nodes (20): dom, dom.iterable, esnext, compilerOptions, allowImportingTsExtensions, allowJs, esModuleInterop, incremental (+12 more)
 
 ### Community 3 - "terminal.ts"
-Cohesion: 0.19
-Nodes (10): POST(), ContactApp(), emptyForm, Entry, TerminalApp(), appAliases, runPortfolioCommand(), TerminalResult (+2 more)
+Cohesion: 0.13
+Nodes (14): POST(), ContactApp(), emptyForm, FinderApp(), folders, notes, Entry, TerminalApp() (+6 more)
 
 ### Community 4 - "FinderApp.tsx"
-Cohesion: 0.09
-Nodes (14): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, Variant, experience, logisticsExperience (+6 more)
+Cohesion: 0.12
+Nodes (10): generateMetadata(), ProjectPage(), Variant, experience, logisticsExperience, softwareExperience, getProject(), projects (+2 more)
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
@@ -167,12 +167,12 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`, `FinderApp.tsx`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
   _146 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09098039215686274 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
