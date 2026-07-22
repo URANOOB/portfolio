@@ -406,8 +406,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_apps_finderapp_finderapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "finderapp()"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_settingsapp",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "settingsapp.tsx"
     },
     {
@@ -582,8 +582,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_apps_settingsapp_accentoptions",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "accentoptions"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_apps_settingsapp_textsizeoptions",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "textsizeoptions"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_apps_settingsapp_settingsapp",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "settingsapp()"
     },
     {
@@ -645,7 +645,7 @@
       "label": "Entry",
       "file_type": "code",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "components_apps_terminalapp_entry",
       "community": 3,
@@ -653,21 +653,10 @@
       "norm_label": "entry"
     },
     {
-      "label": "raccoonFrames",
-      "file_type": "code",
-      "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "components_apps_terminalapp_raccoonframes",
-      "community": 3,
-      "community_name": "terminal.ts",
-      "norm_label": "raccoonframes"
-    },
-    {
       "label": "RaccoonAnimation()",
       "file_type": "code",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L59",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "components_apps_terminalapp_raccoonanimation",
       "community": 3,
@@ -678,7 +667,7 @@
       "label": "TerminalApp()",
       "file_type": "code",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L84",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "components_apps_terminalapp_terminalapp",
       "community": 3,
@@ -692,8 +681,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_bootscreen",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen.tsx"
     },
     {
@@ -703,8 +692,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_desktop_bootscreen_bootscreen",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen()"
     },
     {
@@ -791,8 +780,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_menubar",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar.tsx"
     },
     {
@@ -802,8 +791,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_desktop_menubar_menuapps",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menuapps"
     },
     {
@@ -813,8 +802,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_desktop_menubar_menubar",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar()"
     },
     {
@@ -824,8 +813,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper.tsx"
     },
     {
@@ -835,8 +824,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_wallpapersources",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "wallpapersources"
     },
     {
@@ -846,8 +835,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_compileshader",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "compileshader()"
     },
     {
@@ -857,8 +846,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_scenewallpaper",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper()"
     },
     {
@@ -868,8 +857,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark.tsx"
     },
     {
@@ -879,8 +868,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark_uranomark",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark()"
     },
     {
@@ -2133,8 +2122,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_preferences_store",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferences-store.ts"
     },
     {
@@ -2144,8 +2133,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "store_preferences_store_theme",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "theme"
     },
     {
@@ -2155,8 +2144,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "store_preferences_store_language",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "language"
     },
     {
@@ -2166,8 +2155,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "store_preferences_store_accent",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "accent"
     },
     {
@@ -2177,8 +2166,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "store_preferences_store_textsize",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "textsize"
     },
     {
@@ -2188,8 +2177,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "store_preferences_store_wallpaper",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "wallpaper"
     },
     {
@@ -2199,8 +2188,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "store_preferences_store_preferencesstore",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferencesstore"
     },
     {
@@ -2210,8 +2199,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "store_preferences_store_usepreferencesstore",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "usepreferencesstore"
     },
     {
@@ -2298,8 +2287,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_rendered_html_test",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "rendered-html.test.mjs"
     },
     {
@@ -2309,8 +2298,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "tests_rendered_html_test_render",
-      "community": 7,
-      "community_name": "preferences-store.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "render()"
     },
     {
@@ -4786,7 +4775,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4797,7 +4786,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L59",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4808,18 +4797,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_apps_terminalapp",
-      "target": "components_apps_terminalapp_raccoonframes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L84",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4831,7 +4809,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4843,7 +4821,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4855,7 +4833,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4867,7 +4845,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp",
@@ -4880,7 +4858,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L95",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp_terminalapp",
@@ -4892,7 +4870,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/apps/TerminalApp.tsx",
-      "source_location": "L87",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_terminalapp_terminalapp",
@@ -8540,5 +8518,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7f42936ea9053abc3bb96cab07c8ecf62266698c"
+  "built_at_commit": "0b3b2dfe4d9f5ec2ec82efa689b2ec571c0f17e0"
 }
