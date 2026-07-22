@@ -2291,11 +2291,18 @@ textarea:focus-visible {
   gap: 6px;
 }
 .project-case-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 8px;
   border: 1px solid var(--line-strong);
   background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
   color: var(--ink);
   font-size: 9px;
+}
+.project-case-tags span svg {
+  flex: 0 0 auto;
+  color: var(--accent-soft);
 }
 .project-task-tags span {
   color: var(--muted);

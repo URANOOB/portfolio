@@ -1,13 +1,56 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight, ExternalLink, LockKeyhole, Share2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Braces,
+  Database,
+  ExternalLink,
+  FileImage,
+  FileText,
+  Images,
+  LockKeyhole,
+  SearchCheck,
+  Table2,
+} from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import type { ElementType } from "react";
 import { useState } from "react";
+import { FaJava } from "react-icons/fa6";
+import {
+  SiEclipseide,
+  SiFramer,
+  SiGit,
+  SiNextdotjs,
+  SiOpencv,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
 const MIN_TIMELINE_SPAN = 14;
+
+const TECHNOLOGY_ICONS: Record<string, ElementType> = {
+  Python: SiPython,
+  OpenCV: SiOpencv,
+  "Procesamiento de imágenes": Images,
+  WEBP: FileImage,
+  "Next.js": SiNextdotjs,
+  React: SiReact,
+  TypeScript: SiTypescript,
+  "Base de datos": Database,
+  "Java 8": FaJava,
+  Eclipse: SiEclipseide,
+  TXT: FileText,
+  CSV: Table2,
+  Git: SiGit,
+  "Tailwind CSS": SiTailwindcss,
+  "SEO local": SearchCheck,
+  "Framer Motion": SiFramer,
+};
 
 function getTimelineBar(project: Project) {
   const actualSpan = project.timeline.end - project.timeline.start;
@@ -68,16 +111,22 @@ export function ProjectsApp() {
                 ) : (
                   <span><LockKeyhole size={13} /> Enlace pendiente</span>
                 )}
-                <Link href={`/projects/${selected.slug}`}>
-                  Ficha compartible <Share2 size={13} />
-                </Link>
               </div>
 
               <div className="project-case-facts">
                 <div>
                   <h3>Tech stack</h3>
                   <div className="project-case-tags">
-                    {selected.technologies.map((technology) => <span key={technology}>{technology}</span>)}
+                    {selected.technologies.map((technology) => {
+                      const TechnologyIcon = TECHNOLOGY_ICONS[technology] ?? Braces;
+
+                      return (
+                        <span key={technology}>
+                          <TechnologyIcon size={13} aria-hidden="true" />
+                          {technology}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
                 <div>
