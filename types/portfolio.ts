@@ -26,6 +26,8 @@ export interface Project {
   outcome: string;
   timeline: { start: number; end: number };
   technologies: string[];
+  tasks: string[];
+  visuals: Array<{ src: string; alt: string; caption: string }>;
   status: ProjectStatus;
   repository: string | null;
   demo: string | null;

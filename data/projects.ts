@@ -14,6 +14,8 @@ export const projects: Project[] = [
     longDescription:
       "Una utilidad de escritorio enfocada en procesar atlas de imágenes, detectar sus regiones y exportar PNG, máscaras y archivos preparados para composición en PSD.",
     technologies: ["Python", "OpenCV", "Procesamiento de imágenes", "WEBP"],
+    tasks: ["Desktop tool", "Computer vision", "Automation"],
+    visuals: [],
     status: "En desarrollo",
     repository: null,
     demo: null,
@@ -41,6 +43,8 @@ export const projects: Project[] = [
     longDescription:
       "Sitio y plataforma web para una organización social que conecta contenido, comunidad y oportunidades de aprendizaje de inglés con una experiencia accesible.",
     technologies: ["Next.js", "React", "TypeScript", "Base de datos"],
+    tasks: ["Product", "Frontend", "Backend", "Accessibility"],
+    visuals: [],
     status: "Activo",
     repository: null,
     demo: null,
@@ -68,6 +72,8 @@ export const projects: Project[] = [
     longDescription:
       "Proyecto desarrollado en Java para generar archivos de prueba, leer ventas por vendedor y producir reportes ordenados por recaudo y cantidad de productos vendidos.",
     technologies: ["Java 8", "Eclipse", "TXT", "CSV", "Git"],
+    tasks: ["Data generation", "Processing", "Reporting"],
+    visuals: [],
     status: "Completado",
     repository: "https://github.com/URANOOB/generacion-clasificacion-datos",
     demo: null,
@@ -95,6 +101,8 @@ export const projects: Project[] = [
     longDescription:
       "Concepto de producto para Döminiös K·Ribe: una experiencia web responsiva que presenta su propuesta gastronómica, organiza la carta por categorías y facilita la conversión mediante ubicación y llamados a la acción.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO local"],
+    tasks: ["UI design", "Frontend", "Responsive", "SEO"],
+    visuals: [],
     status: "Concepto",
     repository: "https://github.com/URANOOB/FoodProject",
     demo: "https://food-project-sjk6.vercel.app",
@@ -122,6 +130,8 @@ export const projects: Project[] = [
     longDescription:
       "Exploración de interfaz para Inglés Pa’ la Paz construida con Next.js y una arquitectura por features, enfocada en una identidad amigable, animaciones cuidadas y componentes reutilizables.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    tasks: ["UI concept", "Frontend", "Motion", "Design system"],
+    visuals: [],
     status: "Concepto",
     repository: "https://github.com/URANOOB/IPPConcept",
     demo: null,
