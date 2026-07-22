@@ -610,8 +610,8 @@
     "semantic_hash": ""
   },
   "components/apps/HelpApp.tsx": {
-    "mtime": 1784753264.529166,
-    "ast_hash": "b8723bb97c86e56a9cf1b0b5e3c02677",
+    "mtime": 1784758161.9131382,
+    "ast_hash": "fb99a137bc7510c3782e5b188a89ea31",
     "semantic_hash": ""
   },
   "components/apps/SearchApp.tsx": {

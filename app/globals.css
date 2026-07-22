@@ -1000,6 +1000,133 @@ textarea:focus-visible {
   font-size: 11px;
   line-height: 1.5;
 }
+
+/* Help */
+.help-guide {
+  min-height: 100%;
+  padding: clamp(25px, 4vw, 42px);
+  background:
+    linear-gradient(145deg, rgba(114, 167, 216, 0.06), transparent 52%),
+    var(--surface-strong);
+  color: var(--ink);
+}
+.help-guide-header {
+  max-width: 760px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.help-guide-header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.help-guide-header p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+.help-guide-section {
+  max-width: 760px;
+  padding: 21px 0;
+  border-bottom: 1px solid var(--line);
+}
+.help-guide-section h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 620;
+  letter-spacing: 0.01em;
+}
+.help-guide-section p,
+.help-guide-section li {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.help-guide-section p {
+  margin: 0;
+}
+.help-guide-section ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 20px;
+}
+.help-guide-section li::marker {
+  color: var(--accent);
+}
+.help-guide kbd,
+.help-guide code {
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-family: var(--font-geist-mono), monospace;
+}
+.help-guide kbd {
+  display: inline-block;
+  min-width: 25px;
+  padding: 1px 6px;
+  border-bottom-color: var(--line-strong);
+  border-radius: 4px;
+  font-size: 10px;
+  text-align: center;
+}
+.help-command-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+}
+.help-command-list code {
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+.help-command-examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.help-command-examples code {
+  padding: 5px 8px;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: 5px;
+  color: var(--accent-soft);
+}
+.help-guide-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 760px;
+  padding-top: 18px;
+  color: var(--muted);
+}
+.help-guide-note span {
+  color: var(--success);
+  font-size: 8px;
+}
+.help-guide-note p {
+  margin: 0;
+  font-size: 10px;
+}
+@media (max-width: 600px) {
+  .help-guide {
+    padding: 22px 17px 30px;
+  }
+  .help-guide-header p {
+    line-height: 1.6;
+  }
+  .help-guide-section {
+    padding: 18px 0;
+  }
+}
 .brand-preview {
   position: relative;
   height: 210px;
