@@ -1787,8 +1787,15 @@ textarea:focus-visible {
 }
 .works-timeline-scroll {
   overflow-x: auto;
-  padding: 0 14px 14px;
+  padding: 0 14px 16px;
   scrollbar-color: var(--line-strong) transparent;
+}
+.works-timeline-note {
+  margin: 0;
+  padding: 10px 14px 0;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.5;
 }
 .works-timeline {
   min-width: 820px;
@@ -1816,7 +1823,7 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 210px 1fr;
   width: 100%;
-  min-height: 55px;
+  min-height: 64px;
   padding: 0;
   border: 0;
   border-bottom: 1px solid var(--line-strong);
@@ -1844,20 +1851,47 @@ textarea:focus-visible {
 .works-timeline-bar {
   position: absolute;
   top: 19px;
-  height: 16px;
-  min-width: 8px;
-  background: color-mix(in srgb, var(--accent) 72%, var(--surface-strong));
-  transition: filter 150ms ease, transform 150ms ease;
+  display: flex;
+  align-items: center;
+  height: 26px;
+  min-width: 116px;
+  overflow: hidden;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--accent-soft) 42%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 82%, var(--surface-strong)),
+    color-mix(in srgb, var(--accent-soft) 60%, var(--surface-strong))
+  );
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--accent) 18%, transparent), inset 0 1px rgba(255, 255, 255, 0.16);
+  color: var(--ink);
+  font: 8px/1 var(--font-geist-mono);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: filter 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 .works-timeline-row:hover .works-timeline-bar {
-  filter: brightness(1.12);
-  transform: scaleY(1.12);
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 28%, transparent), inset 0 1px rgba(255, 255, 255, 0.2);
 }
 .works-bar-blue {
-  background: color-mix(in srgb, var(--blue) 72%, var(--surface-strong));
+  border-color: color-mix(in srgb, var(--blue) 48%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--blue) 82%, var(--surface-strong)),
+    color-mix(in srgb, var(--blue) 55%, var(--surface-strong))
+  );
 }
 .works-bar-violet {
-  background: color-mix(in srgb, var(--violet) 72%, var(--surface-strong));
+  border-color: color-mix(in srgb, var(--violet) 48%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--violet) 82%, var(--surface-strong)),
+    color-mix(in srgb, var(--violet) 55%, var(--surface-strong))
+  );
 }
 .works-timeline-now {
   position: absolute;
