@@ -2327,7 +2327,8 @@ textarea:focus-visible {
 }
 .project-case-narrative ul {
   margin: 0;
-  padding-left: 19px;
+  padding-left: 0;
+  list-style: none;
 }
 .project-case-narrative li + li {
   margin-top: 8px;
