@@ -18,7 +18,7 @@ const layerSources = [
 function prepareSvg(markup: string) {
   return markup.replace(
     "<svg ",
-    '<svg aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice" ',
+    '<svg aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" ',
   );
 }
 
@@ -26,9 +26,9 @@ export function SceneWallpaper() {
   const reduceMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
   const smoothX = useSpring(pointerX, { stiffness: 90, damping: 24, mass: 0.55 });
-  const backX = useTransform(smoothX, [-1, 1], [10, -10]);
-  const middleX = useTransform(smoothX, [-1, 1], [22, -22]);
-  const frontX = useTransform(smoothX, [-1, 1], [38, -38]);
+  const backX = useTransform(smoothX, [-1, 1], [7, -7]);
+  const middleX = useTransform(smoothX, [-1, 1], [16, -16]);
+  const frontX = useTransform(smoothX, [-1, 1], [28, -28]);
   const [layers, setLayers] = useState<SceneLayers | null>(null);
 
   useEffect(() => {

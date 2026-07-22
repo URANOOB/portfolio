@@ -116,10 +116,10 @@ textarea:focus-visible {
 }
 .scene-layer {
   position: absolute;
-  top: -3%;
-  left: -55px;
-  width: calc(100% + 110px);
-  height: 106%;
+  top: 0;
+  left: 36px;
+  width: calc(100% - 72px);
+  height: 100%;
   max-width: none;
   pointer-events: none;
   user-select: none;
@@ -1924,8 +1924,8 @@ textarea:focus-visible {
     min-height: 540px;
   }
   .scene-layer {
-    top: -2%;
-    height: 104%;
+    left: 30px;
+    width: calc(100% - 60px);
   }
   .planet-glow {
     width: 230px;
@@ -1992,8 +1992,8 @@ textarea:focus-visible {
     min-height: 480px;
   }
   .scene-layer {
-    left: -38px;
-    width: calc(100% + 76px);
+    left: 0;
+    width: 100%;
   }
   .scene-wallpaper::before {
     background: linear-gradient(90deg, rgba(7, 10, 18, 0.86), rgba(7, 10, 18, 0.42));
