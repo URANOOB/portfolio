@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 60 files · ~671,030 words
+- 60 files · ~670,546 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 315 nodes · 389 edges · 34 communities (24 shown, 10 thin omitted)
+- 312 nodes · 393 edges · 33 communities (24 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c7d6e9cf`
+- Built from commit: `a5e6c8ba`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,40 +45,39 @@
 - graphify reference: transcribe video and audio
 - AGENTS.md
 - extraction-spec.md
-- skills.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `useWindowStore` - 17 edges
 2. `compilerOptions` - 17 edges
-3. `AppId` - 14 edges
+3. `AppId` - 13 edges
 4. `What You Must Do When Invoked` - 12 edges
 5. `/graphify` - 10 edges
 6. `scripts` - 9 edges
 7. `graphify reference: extra exports and benchmark` - 8 edges
 8. `William Galeano — Urano OS` - 8 edges
 9. `include` - 7 edges
-10. `validateContactPayload()` - 6 edges
+10. `profile` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `FinderApp()` --calls--> `useWindowStore`  [EXTRACTED]
+  components/apps/FinderApp.tsx → store/window-store.ts
 - `TerminalResult` --references--> `AppId`  [EXTRACTED]
   lib/terminal.ts → types/portfolio.ts
 - `POST()` --calls--> `validateContactPayload()`  [EXTRACTED]
   app/api/contact/route.ts → lib/validation.ts
 - `ContactApp()` --calls--> `validateContactPayload()`  [EXTRACTED]
   components/apps/ContactApp.tsx → lib/validation.ts
-- `FinderApp()` --calls--> `useWindowStore`  [EXTRACTED]
-  components/apps/FinderApp.tsx → store/window-store.ts
 - `TerminalApp()` --calls--> `useWindowStore`  [EXTRACTED]
   components/apps/TerminalApp.tsx → store/window-store.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (34 total, 10 thin omitted)
+## Communities (33 total, 9 thin omitted)
 
 ### Community 0 - "DesktopShell.tsx"
-Cohesion: 0.14
-Nodes (18): FinderApp(), folders, notes, DesktopShortcut(), DockItem(), AppContent(), PointerOrigin, WindowFrame() (+10 more)
+Cohesion: 0.10
+Nodes (26): metadata, BootScreen(), copy, DesktopShell(), DesktopShortcut(), Dock(), DockItem(), menuApps (+18 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.05
@@ -93,8 +92,8 @@ Cohesion: 0.19
 Nodes (10): POST(), ContactApp(), emptyForm, Entry, TerminalApp(), appAliases, runPortfolioCommand(), TerminalResult (+2 more)
 
 ### Community 4 - "FinderApp.tsx"
-Cohesion: 0.23
-Nodes (4): Variant, experience, profile, Experience
+Cohesion: 0.17
+Nodes (7): FinderApp(), folders, notes, Variant, experience, profile, Experience
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
@@ -105,8 +104,8 @@ Cohesion: 0.13
 Nodes (15): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+7 more)
 
 ### Community 7 - "projects.ts"
-Cohesion: 0.24
-Nodes (5): generateMetadata(), ProjectPage(), getProject(), projects, Project
+Cohesion: 0.16
+Nodes (8): generateMetadata(), ProjectPage(), getProject(), projects, skillGroups, Project, ProjectStatus, SkillGroup
 
 ### Community 8 - "include"
 Cohesion: 0.17
@@ -121,8 +120,8 @@ Cohesion: 0.29
 Nodes (3): Env, ExecutionContext, worker
 
 ### Community 11 - "skills.ts"
-Cohesion: 0.11
-Nodes (18): metadata, BootScreen(), applicationIds, DesktopShell(), folders, galleryItems, initialTasks, menuApps (+10 more)
+Cohesion: 0.50
+Nodes (4): layerSources, prepareSvg(), SceneLayers, SceneWallpaper()
 
 ### Community 12 - ".prettierrc.json"
 Cohesion: 0.40
@@ -161,24 +160,24 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **151 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+146 more)
+- **147 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+142 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `useWindowStore` connect `DesktopShell.tsx` to `skills.ts`, `terminal.ts`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _151 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _147 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.13763440860215054 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09966777408637874 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
