@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Command, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { useEffect } from "react";
 import { BootScreen } from "@/components/desktop/BootScreen";
 import { DesktopShortcut } from "@/components/desktop/DesktopShortcut";
@@ -91,9 +91,6 @@ export function DesktopShell() {
           ))}
         </div>
 
-        <div className="command-hint" aria-hidden="true">
-          <Command size={14} /> K &nbsp; Explorador
-        </div>
       </section>
 
       <WindowLayer />

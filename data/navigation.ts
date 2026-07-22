@@ -22,13 +22,12 @@ export const appDefinitions = {
 } satisfies Record<AppId, { title: string; icon: typeof FolderOpen; color: string }>;
 
 export const dockApps: AppId[] = [
-  "finder",
   "about",
-  "experience",
-  "projects",
-  "terminal",
-  "resume",
   "contact",
+  "experience",
+  "skills",
+  "terminal",
+  "projects",
 ];
 
-export const desktopShortcuts: AppId[] = ["about", "projects", "resume", "contact"];
+export const desktopShortcuts: AppId[] = ["finder", "resume"];

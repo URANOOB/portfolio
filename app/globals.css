@@ -467,7 +467,7 @@ textarea:focus-visible {
   inset: 39px 0 0;
   display: flex;
   align-items: center;
-  padding: 6vh 7vw 13vh;
+  padding: 6vh 7vw 13vh max(7vw, 124px);
 }
 .hero-copy {
   width: min(660px, 49vw);
@@ -577,25 +577,12 @@ textarea:focus-visible {
   background: var(--success);
   box-shadow: 0 0 0 5px rgba(117, 215, 173, 0.1);
 }
-.command-hint {
-  position: absolute;
-  left: 7vw;
-  bottom: 95px;
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.desktop[data-theme="light"] .command-hint {
-  color: rgba(20, 25, 35, 0.45);
-}
 .desktop-shortcuts {
   position: absolute;
-  top: 7vh;
-  right: 28px;
+  top: 13px;
+  left: 16px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 .desktop-shortcut {
   width: 83px;
@@ -1969,12 +1956,6 @@ textarea:focus-visible {
     font-size: clamp(50px, 10vw, 78px);
   }
   .desktop-shortcuts {
-    top: auto;
-    bottom: 98px;
-    right: 18px;
-    grid-template-columns: repeat(2, 74px);
-  }
-  .command-hint {
     display: none;
   }
   .window-frame {
