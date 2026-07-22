@@ -483,8 +483,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_skillsapp",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 11,
+      "community_name": "skills.ts",
       "norm_label": "skillsapp.tsx"
     },
     {
@@ -494,8 +494,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_apps_skillsapp_skillsapp",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 11,
+      "community_name": "skills.ts",
       "norm_label": "skillsapp()"
     },
     {
@@ -681,52 +681,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper.tsx"
-    },
-    {
-      "label": "SceneLayers",
-      "file_type": "code",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "components_desktop_scenewallpaper_scenelayers",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "scenelayers"
-    },
-    {
-      "label": "layerSources",
-      "file_type": "code",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "components_desktop_scenewallpaper_layersources",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "layersources"
-    },
-    {
-      "label": "prepareSvg()",
-      "file_type": "code",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "components_desktop_scenewallpaper_preparesvg",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "preparesvg()"
     },
     {
       "label": "SceneWallpaper()",
       "file_type": "code",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L25",
+      "source_location": "L3",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_scenewallpaper",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper()"
     },
     {
@@ -967,8 +934,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_skills",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 11,
+      "community_name": "skills.ts",
       "norm_label": "skills.ts"
     },
     {
@@ -978,8 +945,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_skills_skillgroups",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 11,
+      "community_name": "skills.ts",
       "norm_label": "skillgroups"
     },
     {
@@ -2452,8 +2419,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "types_portfolio",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "portfolio.ts"
     },
     {
@@ -2474,8 +2441,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "types_portfolio_projectstatus",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "projectstatus"
     },
     {
@@ -2507,8 +2474,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "types_portfolio_skillgroup",
-      "community": 7,
-      "community_name": "projects.ts",
+      "community": 11,
+      "community_name": "skills.ts",
       "norm_label": "skillgroup"
     },
     {
@@ -5044,56 +5011,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_scenewallpaper",
-      "target": "components_desktop_scenewallpaper_layersources",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_scenewallpaper",
-      "target": "components_desktop_scenewallpaper_preparesvg",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_scenewallpaper",
-      "target": "components_desktop_scenewallpaper_scenelayers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L25",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper",
       "target": "components_desktop_scenewallpaper_scenewallpaper",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_scenewallpaper_scenewallpaper",
-      "target": "components_desktop_scenewallpaper_preparesvg",
       "confidence_score": 1.0
     },
     {
@@ -7939,5 +7861,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a5e6c8ba2752c39169e200d0bd68cd5d0aa12bdf"
+  "built_at_commit": "67b1c6290a8dbd2fccbe8cc94e79bc2cee3442a4"
 }
