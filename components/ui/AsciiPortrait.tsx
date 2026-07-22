@@ -1,51 +1,50 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { AsciiGenerator, CharsetPreset } from "ts-ascii-engine";
+import type { CharColor } from "ts-ascii-engine";
 
-const ramp = " .,:;irsXA253hMHGS#9B&@";
+type RenderedPortrait = {
+  characters: string[][];
+  colors: CharColor[][];
+};
 
 export function AsciiPortrait() {
   const containerRef = useRef<HTMLElement>(null);
-  const [ascii, setAscii] = useState("Rendering portrait…");
+  const [portrait, setPortrait] = useState<RenderedPortrait | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    if (!context) return;
-
     const image = new window.Image();
     image.decoding = "async";
+    let lastColumns = 0;
 
     const render = () => {
       if (!image.naturalWidth) return;
-      const columns = Math.max(42, Math.min(74, Math.floor(container.clientWidth / 3.25)));
-      const rows = Math.max(28, Math.round(columns * (image.naturalHeight / image.naturalWidth) * 0.47));
-      canvas.width = columns;
-      canvas.height = rows;
-      context.clearRect(0, 0, columns, rows);
-      context.drawImage(image, 0, 0, columns, rows);
 
-      const pixels = context.getImageData(0, 0, columns, rows).data;
-      const lines: string[] = [];
-      for (let y = 0; y < rows; y += 1) {
-        let line = "";
-        for (let x = 0; x < columns; x += 1) {
-          const index = (y * columns + x) * 4;
-          const luminance =
-            pixels[index] * 0.2126 + pixels[index + 1] * 0.7152 + pixels[index + 2] * 0.0722;
-          const characterIndex = Math.round((1 - luminance / 255) * (ramp.length - 1));
-          line += ramp[characterIndex];
-        }
-        lines.push(line.trimEnd());
-      }
-      setAscii(lines.join("\n"));
+      const columns = Math.max(42, Math.min(74, Math.floor(container.clientWidth / 3.25)));
+      if (columns === lastColumns) return;
+      lastColumns = columns;
+
+      const generator = new AsciiGenerator({
+        charset: CharsetPreset.EXTENDED,
+        width: columns,
+        aspectRatio: 0.5,
+        colored: true,
+        optimized: true,
+      });
+      const result = generator.convertImage(image);
+
+      setPortrait({
+        characters: result.characters,
+        colors: result.colors ?? [],
+      });
     };
 
     image.onload = render;
-    image.onerror = () => setAscii("WG");
+    image.onerror = () => setPortrait(null);
     image.src = "/about/william-and-cat.jpeg";
 
     const observer = new ResizeObserver(render);
@@ -65,7 +64,26 @@ export function AsciiPortrait() {
       role="img"
       aria-label="ASCII portrait of William Galeano holding his cat"
     >
-      <pre aria-hidden="true">{ascii}</pre>
+      <pre aria-hidden="true">
+        {portrait
+          ? portrait.characters.map((row, rowIndex) => (
+              <span className="about-ascii-line" key={rowIndex}>
+                {row.map((character, columnIndex) => {
+                  const color = portrait.colors[rowIndex]?.[columnIndex];
+                  const style = color
+                    ? { color: `rgb(${color.r} ${color.g} ${color.b})` }
+                    : undefined;
+
+                  return (
+                    <span style={style} key={columnIndex}>
+                      {character}
+                    </span>
+                  );
+                })}
+              </span>
+            ))
+          : "Rendering portrait…"}
+      </pre>
       <figcaption>William and his cat, rendered in ASCII.</figcaption>
     </figure>
   );

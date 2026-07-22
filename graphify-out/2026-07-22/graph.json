@@ -285,19 +285,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_aboutapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "aboutapp.tsx"
     },
     {
       "label": "AboutApp()",
       "file_type": "code",
       "source_file": "components/apps/AboutApp.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "components_apps_aboutapp_aboutapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "aboutapp()"
     },
     {
@@ -351,8 +351,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_experienceapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "experienceapp.tsx"
     },
     {
@@ -362,8 +362,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_experienceapp_experienceapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "experienceapp()"
     },
     {
@@ -373,8 +373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_finderapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp.tsx"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_apps_finderapp_folders",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "folders"
     },
     {
@@ -395,8 +395,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "components_apps_finderapp_notes",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "notes"
     },
     {
@@ -406,8 +406,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_apps_finderapp_finderapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp()"
     },
     {
@@ -439,8 +439,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_logisticsapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "logisticsapp.tsx"
     },
     {
@@ -450,8 +450,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_logisticsapp_logisticsapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "logisticsapp()"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_terminalapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminalapp.tsx"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_terminalapp_entry",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "entry"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_apps_terminalapp_terminalapp",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminalapp()"
     },
     {
@@ -796,6 +796,28 @@
       "norm_label": "scenewallpaper()"
     },
     {
+      "label": "AsciiPortrait.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/AsciiPortrait.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_ui_asciiportrait",
+      "community": 11,
+      "community_name": "SceneWallpaper",
+      "norm_label": "asciiportrait.tsx"
+    },
+    {
+      "label": "AsciiPortrait()",
+      "file_type": "code",
+      "source_file": "components/ui/AsciiPortrait.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_ui_asciiportrait_asciiportrait",
+      "community": 11,
+      "community_name": "SceneWallpaper",
+      "norm_label": "asciiportrait()"
+    },
+    {
       "label": "UranoMark.tsx",
       "file_type": "code",
       "source_file": "components/ui/UranoMark.tsx",
@@ -923,8 +945,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_experience",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "experience.ts"
     },
     {
@@ -934,8 +956,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_experience_experience",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "experience"
     },
     {
@@ -945,8 +967,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "data_experience_logisticsexperience",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "logisticsexperience"
     },
     {
@@ -956,8 +978,8 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "data_experience_softwareexperience",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "softwareexperience"
     },
     {
@@ -1000,8 +1022,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile.ts"
     },
     {
@@ -1011,8 +1033,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile_profile",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile"
     },
     {
@@ -1099,8 +1121,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_terminal",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminal.ts"
     },
     {
@@ -1110,8 +1132,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_terminal_terminalresult",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminalresult"
     },
     {
@@ -1121,8 +1143,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_terminal_appaliases",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "appaliases"
     },
     {
@@ -1132,8 +1154,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_terminal_runportfoliocommand",
-      "community": 3,
-      "community_name": "terminal.ts",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "runportfoliocommand()"
     },
     {
@@ -2584,8 +2606,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "types_portfolio_experience",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 33,
+      "community_name": "experience.ts",
       "norm_label": "experience"
     },
     {
@@ -3907,7 +3929,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/AboutApp.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_aboutapp",
@@ -3923,7 +3945,19 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_aboutapp",
-      "target": "data_profile",
+      "target": "components_ui_asciiportrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/AboutApp.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_aboutapp",
+      "target": "components_ui_asciiportrait_asciiportrait",
       "confidence_score": 1.0
     },
     {
@@ -3935,6 +3969,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_aboutapp",
+      "target": "data_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/AboutApp.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_aboutapp",
       "target": "store_window_store",
       "confidence_score": 1.0
     },
@@ -3943,7 +3989,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/apps/AboutApp.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_aboutapp",
@@ -3956,7 +4002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/apps/AboutApp.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_aboutapp_aboutapp",
@@ -5372,6 +5418,29 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper_scenewallpaper",
+      "target": "tests_rendered_html_test_render"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/AsciiPortrait.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_ui_asciiportrait",
+      "target": "components_ui_asciiportrait_asciiportrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "components/ui/AsciiPortrait.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_ui_asciiportrait_asciiportrait",
       "target": "tests_rendered_html_test_render"
     },
     {
@@ -8239,5 +8308,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b80602084c0f19113006e4e434225d93c96d26b2"
+  "built_at_commit": "dfab5dd78b47d320952a67d4ee47fe36409f17e5"
 }
