@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/apps/ExperienceApp.tsx": {
-    "mtime": 1784753264.5281587,
-    "ast_hash": "030d173417ad7934e0ea821b7b1ec067",
+    "mtime": 1784757792.28065,
+    "ast_hash": "5994b628296fb1ce6b66abf4c77996b4",
     "semantic_hash": ""
   },
   "components/apps/HelpApp.tsx": {
@@ -622,6 +622,11 @@
   "components/apps/SettingsApp.tsx": {
     "mtime": 1784753264.529166,
     "ast_hash": "0d9c255f3d704293aa339790fc6272e7",
+    "semantic_hash": ""
+  },
+  "data/software-experience.ts": {
+    "mtime": 1784757792.2814488,
+    "ast_hash": "17c3151804652e94a735f01b7c8ff18f",
     "semantic_hash": ""
   }
 }
