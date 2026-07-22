@@ -2013,7 +2013,7 @@ textarea:focus-visible {
   image-rendering: pixelated;
   filter: drop-shadow(0 7px 8px rgba(0, 0, 0, 0.24));
   transform-origin: center;
-  animation: terminal-raccoon-walk 8s linear infinite;
+  animation: terminal-raccoon-walk 7.2s linear infinite;
   will-change: left, transform;
 }
 .terminal-raccoon-status {
@@ -2041,23 +2041,11 @@ textarea:focus-visible {
 }
 @keyframes terminal-raccoon-walk {
   0% {
-    left: 0;
+    left: calc(0px - var(--raccoon-width));
     transform: scaleX(1);
-  }
-  46% {
-    left: calc(100% - var(--raccoon-width));
-    transform: scaleX(1);
-  }
-  50% {
-    left: calc(100% - var(--raccoon-width));
-    transform: scaleX(-1);
-  }
-  96% {
-    left: 0;
-    transform: scaleX(-1);
   }
   100% {
-    left: 0;
+    left: 100%;
     transform: scaleX(1);
   }
 }
