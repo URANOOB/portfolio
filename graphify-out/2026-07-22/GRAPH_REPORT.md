@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 65 files · ~793,031 words
+- 65 files · ~793,109 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 331 nodes · 425 edges · 32 communities (21 shown, 11 thin omitted)
+- 332 nodes · 427 edges · 32 communities (21 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.6)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `17e723f6`
+- Built from commit: `3df215b9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -59,6 +59,8 @@
 10. `include` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `FinderApp()` --calls--> `useWindowStore`  [EXTRACTED]
+  components/apps/FinderApp.tsx → store/window-store.ts
 - `SceneWallpaper()` --indirect_call--> `render()`  [INFERRED]
   components/desktop/SceneWallpaper.tsx → tests/rendered-html.test.mjs
 - `TerminalResult` --references--> `AppId`  [EXTRACTED]
@@ -67,8 +69,6 @@
   app/api/contact/route.ts → lib/validation.ts
 - `AboutApp()` --calls--> `useWindowStore`  [EXTRACTED]
   components/apps/AboutApp.tsx → store/window-store.ts
-- `ContactApp()` --calls--> `validateContactPayload()`  [EXTRACTED]
-  components/apps/ContactApp.tsx → lib/validation.ts
 
 ## Import Cycles
 - None detected.
@@ -77,7 +77,7 @@
 
 ### Community 0 - "DesktopShell.tsx"
 Cohesion: 0.07
-Nodes (39): metadata, AboutApp(), FinderApp(), searchableApps, SearchApp(), accentOptions, SettingsApp(), textSizeOptions (+31 more)
+Nodes (38): metadata, AboutApp(), searchableApps, SearchApp(), accentOptions, SettingsApp(), textSizeOptions, BootScreen() (+30 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.05
@@ -93,7 +93,7 @@ Nodes (10): POST(), ContactApp(), emptyForm, Entry, TerminalApp(), appAliases, r
 
 ### Community 4 - "FinderApp.tsx"
 Cohesion: 0.09
-Nodes (16): generateMetadata(), ProjectPage(), folders, notes, Variant, experience, logisticsExperience, softwareExperience (+8 more)
+Nodes (19): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, getTimelineBar(), ProjectsApp(), Variant (+11 more)
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
@@ -168,7 +168,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
   _154 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06612021857923497 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06779661016949153 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

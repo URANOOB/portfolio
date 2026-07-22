@@ -6,20 +6,7 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
-const MIN_TIMELINE_SPAN = 20;
-
-function getTimelineBar(project: Project) {
-  const actualSpan = project.timeline.end - project.timeline.start;
-
-  if (actualSpan >= MIN_TIMELINE_SPAN) {
-    return { left: project.timeline.start, width: actualSpan };
-  }
-
-  const center = (project.timeline.start + project.timeline.end) / 2;
-  const left = Math.max(0, Math.min(center - MIN_TIMELINE_SPAN / 2, 100 - MIN_TIMELINE_SPAN));
-
-  return { left, width: MIN_TIMELINE_SPAN };
-}
+const interactiveProjects = projects.filter((project) => project.repository || project.demo);
 
 function ProjectVisual({ project }: { project: Project }) {
   return (
@@ -118,15 +105,15 @@ export function ProjectsApp() {
       <header className="works-editorial-header">
         <h2>Works</h2>
         <p>
-          Explora proyectos seleccionados, sus periodos, decisiones técnicas y resultados. Selecciona
-          cualquier trabajo para ver el contexto completo.
+          Explora proyectos con repositorio o demostración disponible, sus periodos, decisiones técnicas
+          y resultados. Selecciona cualquier trabajo para ver el contexto completo.
         </p>
       </header>
 
       <section className="works-panel works-project-list" aria-labelledby="works-list-title">
         <h3 id="works-list-title">Project List</h3>
         <div>
-          {projects.map((project) => (
+          {interactiveProjects.map((project) => (
             <button key={project.slug} onClick={() => setSelected(project)}>
               <span className="works-project-heading">
                 <strong>{project.title}</strong>
@@ -140,24 +127,24 @@ export function ProjectsApp() {
       </section>
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
-        <h3 id="works-timeline-title">Timeline (from 2018)</h3>
+        <h3 id="works-timeline-title">Timeline · 2026</h3>
         <p className="works-timeline-note">
-          La posición ubica cada trabajo en su año; la etiqueta conserva el periodo exacto.
+          La posición y longitud corresponden a los meses registrados para cada proyecto.
         </p>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
               <span>Projects</span>
-              <span>2018</span>
-              <span>2020</span>
-              <span>2022</span>
-              <span>2024</span>
-              <span>2026</span>
+              <span>Mar</span>
+              <span>Abr</span>
+              <span>May</span>
+              <span>Jun</span>
+              <span>Jul</span>
             </div>
             <div className="works-timeline-chart">
               <div className="works-timeline-now"><span>Hoy</span></div>
-              {projects.map((project) => {
-                const bar = getTimelineBar(project);
+              {interactiveProjects.map((project) => {
+                const width = project.timeline.end - project.timeline.start;
 
                 return (
                   <button
@@ -170,7 +157,7 @@ export function ProjectsApp() {
                     <span className="works-timeline-grid" aria-hidden="true">
                       <i
                         className={`works-timeline-bar works-bar-${project.accent}`}
-                        style={{ left: `${bar.left}%`, width: `${bar.width}%` }}
+                        style={{ left: `${project.timeline.start}%`, width: `${width}%` }}
                       >
                         <span>{project.period}</span>
                       </i>
