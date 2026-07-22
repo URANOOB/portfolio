@@ -2,8 +2,9 @@
 
 import { Copy, Download, ExternalLink, Printer } from "lucide-react";
 import { useState } from "react";
-import { experience } from "@/data/experience";
+import { logisticsExperience } from "@/data/experience";
 import { profile, socialLinks } from "@/data/profile";
+import { projects } from "@/data/projects";
 
 type Variant = "desarrollo" | "logistica";
 
@@ -71,22 +72,30 @@ export function ResumeApp() {
             {variant === "desarrollo"
               ? "Desarrollador orientado a productos web, automatización y soluciones con contexto de negocio."
               : "Coordinador de logística con experiencia en servicio internacional, seguimiento operativo y comunicación bilingüe."}{" "}
-            {profile.intro}
+            {variant === "desarrollo" ? profile.intro : null}
           </p>
         </section>
         <section>
-          <h3>EXPERIENCIA SELECCIONADA</h3>
-          {experience.slice(0, variant === "desarrollo" ? 4 : 6).map((item) => (
-            <div className="resume-line" key={item.company}>
-              <div>
-                <strong>{item.company}</strong>
-                <span>{item.period}</span>
-              </div>
-              <p>
-                {item.role} — {item.summary}
-              </p>
-            </div>
-          ))}
+          <h3>{variant === "desarrollo" ? "PROYECTOS SELECCIONADOS" : "EXPERIENCIA SELECCIONADA"}</h3>
+          {variant === "desarrollo"
+            ? projects.map((project) => (
+                <div className="resume-line" key={project.slug}>
+                  <div>
+                    <strong>{project.title}</strong>
+                    <span>{project.status}</span>
+                  </div>
+                  <p>{project.technologies.join(" · ")} — {project.description}</p>
+                </div>
+              ))
+            : logisticsExperience.slice(0, 6).map((item) => (
+                <div className="resume-line" key={item.company}>
+                  <div>
+                    <strong>{item.company}</strong>
+                    <span>{item.period}</span>
+                  </div>
+                  <p>{item.role} — {item.summary}</p>
+                </div>
+              ))}
         </section>
         <section>
           <h3>TECNOLOGÍAS Y HERRAMIENTAS</h3>

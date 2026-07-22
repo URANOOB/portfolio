@@ -13,7 +13,7 @@ export function AboutApp() {
           <i aria-hidden="true" />
         </div>
         <div>
-          <p className="section-kicker">PERFIL HÍBRIDO</p>
+          <p className="section-kicker">DESARROLLO DE SOFTWARE</p>
           <h2>{profile.name}</h2>
           <p className="about-headline">{profile.headline}</p>
           <div className="about-meta">
@@ -30,7 +30,7 @@ export function AboutApp() {
       <section className="about-grid">
         <div className="narrative-card">
           <Sparkles size={20} />
-          <h3>Tecnología con contexto operativo</h3>
+          <h3>Software con criterio de producto</h3>
           {profile.about.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -63,18 +63,18 @@ export function AboutApp() {
         </div>
         <div>
           <strong>03</strong>
-          <h3>Coordinar</h3>
-          <p>Comunicación clara hasta cerrar el ciclo.</p>
+          <h3>Mejorar</h3>
+          <p>Iteración, aprendizaje y calidad en cada entrega.</p>
         </div>
       </section>
       <figure className="brand-preview">
         <Image
           src="/og.png"
-          alt="Urano OS: identidad visual de William Galeano, software y logística"
+          alt="Urano OS: portafolio de desarrollo de software de William Galeano"
           fill
           sizes="(max-width: 600px) 90vw, 700px"
         />
-        <figcaption>Una identidad original para conectar tecnología y operación.</figcaption>
+        <figcaption>Una identidad original para presentar productos y desarrollo de software.</figcaption>
       </figure>
       <p className="photo-note">
         La fotografía profesional se añadirá cuando el propietario proporcione el archivo original.

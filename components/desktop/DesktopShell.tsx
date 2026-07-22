@@ -1,7 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
 import { useEffect } from "react";
 import { BootScreen } from "@/components/desktop/BootScreen";
 import { DesktopShortcut } from "@/components/desktop/DesktopShortcut";
@@ -10,33 +8,12 @@ import { MenuBar } from "@/components/desktop/MenuBar";
 import { SceneWallpaper } from "@/components/desktop/SceneWallpaper";
 import { WindowLayer } from "@/components/windows/WindowLayer";
 import { desktopShortcuts } from "@/data/navigation";
-import { profile } from "@/data/profile";
 import { usePreferencesStore } from "@/store/preferences-store";
 import { useWindowStore } from "@/store/window-store";
 
-const copy = {
-  es: {
-    kicker: "PORTAFOLIO / BOGOTÁ",
-    hello: "Hola, soy William.",
-    view: "Explorar proyectos",
-    contact: "Hablemos",
-    welcome: "Bienvenido a mi espacio de trabajo.",
-  },
-  en: {
-    kicker: "PORTFOLIO / BOGOTÁ",
-    hello: "Hi, I’m William.",
-    view: "Explore projects",
-    contact: "Let’s talk",
-    welcome: "Welcome to my workspace.",
-  },
-};
-
 export function DesktopShell() {
   const theme = usePreferencesStore((state) => state.theme);
-  const language = usePreferencesStore((state) => state.language);
   const openWindow = useWindowStore((state) => state.openWindow);
-  const reduceMotion = useReducedMotion();
-  const text = copy[language];
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -58,33 +35,7 @@ export function DesktopShell() {
 
       <MenuBar />
 
-      <section className="desktop-content" id="desktop-intro" aria-label="Presentación">
-        <motion.div
-          className="hero-copy"
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: reduceMotion ? 0 : 1.02, duration: 0.5 }}
-        >
-          <p className="hero-kicker">{text.kicker}</p>
-          <h1>{text.hello}</h1>
-          <h2>{profile.headline}</h2>
-          <p className="hero-intro">{profile.intro}</p>
-          <div className="hero-location">
-            <MapPin size={15} /> {profile.location}
-          </div>
-          <div className="hero-actions">
-            <button className="primary-action" onClick={() => openWindow("projects")}>
-              {text.view} <ArrowUpRight size={17} />
-            </button>
-            <button className="secondary-action" onClick={() => openWindow("contact")}>
-              {text.contact}
-            </button>
-          </div>
-          <p className="welcome-note">
-            <span className="pulse-dot" /> {text.welcome}
-          </p>
-        </motion.div>
-
+      <section className="desktop-content" id="desktop-intro" aria-label="Escritorio del portafolio">
         <div className="desktop-shortcuts" aria-label="Accesos rápidos">
           {desktopShortcuts.map((id) => (
             <DesktopShortcut key={id} id={id} />

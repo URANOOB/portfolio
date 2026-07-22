@@ -876,7 +876,7 @@
       "label": "desktopShortcuts",
       "file_type": "code",
       "source_file": "data/navigation.ts",
-      "source_location": "L34",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "data_navigation_desktopshortcuts",
       "community": 0,
@@ -5385,7 +5385,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "data/navigation.ts",
-      "source_location": "L34",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "data_navigation",
@@ -7907,5 +7907,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e3d96155eacb5d9993addf8b3e486809d2636489"
+  "built_at_commit": "cf8d9eb7b4dc4477777ba90a424362c80e7d1bf9"
 }

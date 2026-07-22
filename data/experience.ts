@@ -2,6 +2,7 @@ import type { Experience } from "@/types/portfolio";
 
 export const experience: Experience[] = [
   {
+    track: "logistics",
     company: "Lean Group",
     role: "Coordinación logística senior",
     period: "Fechas por confirmar",
@@ -16,6 +17,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "JB Hunt",
     role: "Operaciones logísticas",
     period: "Fechas por confirmar",
@@ -25,6 +27,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "Avenger Logistics",
     role: "Operaciones logísticas",
     period: "Fechas por confirmar",
@@ -34,6 +37,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "USA Truck / DB Schenker",
     role: "Logística internacional",
     period: "Fechas por confirmar",
@@ -43,6 +47,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "Concentrix",
     role: "Servicio al cliente internacional",
     period: "Fechas por confirmar",
@@ -52,6 +57,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "Ingenio Empresarial",
     role: "Experiencia profesional",
     period: "Fechas por confirmar",
@@ -62,6 +68,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "logistics",
     company: "Nexa BPO",
     role: "Servicio y operaciones",
     period: "Fechas por confirmar",
@@ -71,6 +78,7 @@ export const experience: Experience[] = [
     achievements: [],
   },
   {
+    track: "software",
     company: "Inglés Pa’ la Paz",
     role: "Desarrollo web y contribución social",
     period: "En curso",
@@ -81,3 +89,5 @@ export const experience: Experience[] = [
     achievements: [],
   },
 ];
+
+export const logisticsExperience = experience.filter((item) => item.track === "logistics");

@@ -11,7 +11,7 @@ const apps = {
     loading: AppLoading,
   }),
   experience: dynamic(
-    () => import("@/components/apps/ExperienceApp").then((module) => module.ExperienceApp),
+    () => import("@/components/apps/LogisticsApp").then((module) => module.LogisticsApp),
     { loading: AppLoading },
   ),
   projects: dynamic(() => import("@/components/apps/ProjectsApp").then((module) => module.ProjectsApp), {

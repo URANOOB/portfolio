@@ -90,8 +90,8 @@
     "semantic_hash": "64cb9cfee110726a7e40742527695018"
   },
   "components/desktop/DesktopShell.tsx": {
-    "mtime": 1784750757.0071857,
-    "ast_hash": "2a6fe46431843b5a7d9b3c65b2c527d6",
+    "mtime": 1784752565.0026436,
+    "ast_hash": "d399f2262c16308358997a79ced6c0a8",
     "semantic_hash": ""
   },
   "components/desktop/DesktopShortcut.tsx": {
@@ -135,9 +135,9 @@
     "semantic_hash": "e39862bde65314e54a4b71a7a04f7344"
   },
   "data/navigation.ts": {
-    "mtime": 1784691503.24458,
-    "ast_hash": "1402853b1d426b0778445a0dc8afcf5c",
-    "semantic_hash": "1402853b1d426b0778445a0dc8afcf5c"
+    "mtime": 1784752565.0015314,
+    "ast_hash": "1113e602d0144c69854facab10f5ba7b",
+    "semantic_hash": ""
   },
   "data/profile.ts": {
     "mtime": 1784692261.6613076,
