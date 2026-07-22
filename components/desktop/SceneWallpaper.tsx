@@ -35,31 +35,25 @@ export function SceneWallpaper() {
 
   return (
     <div className="scene-wallpaper" aria-hidden="true">
-      <motion.img
+      <motion.object
         className="scene-layer scene-layer-back"
-        src="/scene/scene-back.svg"
-        alt=""
-        draggable={false}
-        decoding="async"
-        fetchPriority="high"
+        data="/scene/scene-back.svg"
+        type="image/svg+xml"
+        tabIndex={-1}
         style={{ x: backX }}
       />
-      <motion.img
+      <motion.object
         className="scene-layer scene-layer-middle"
-        src="/scene/scene-mid.svg"
-        alt=""
-        draggable={false}
-        decoding="async"
-        loading="eager"
+        data="/scene/scene-mid.svg"
+        type="image/svg+xml"
+        tabIndex={-1}
         style={{ x: middleX }}
       />
-      <motion.img
+      <motion.object
         className="scene-layer scene-layer-front"
-        src="/scene/scene-front.svg"
-        alt=""
-        draggable={false}
-        decoding="async"
-        loading="eager"
+        data="/scene/scene-front.svg"
+        type="image/svg+xml"
+        tabIndex={-1}
         style={{ x: frontX }}
       />
     </div>
