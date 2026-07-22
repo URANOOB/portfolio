@@ -121,8 +121,10 @@ textarea:focus-visible {
   width: calc(100% + 110px);
   height: 106%;
   max-width: none;
+  border: 0;
   object-fit: cover;
   object-position: center;
+  pointer-events: none;
   user-select: none;
   will-change: transform;
 }
