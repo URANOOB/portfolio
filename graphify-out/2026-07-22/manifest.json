@@ -45,8 +45,8 @@
     "semantic_hash": "372f697cb11a364064c8c8cffafe539e"
   },
   "components/apps/AboutApp.tsx": {
-    "mtime": 1784755387.3615868,
-    "ast_hash": "19fabe429faff3a2a924569f7032f08a",
+    "mtime": 1784756641.7822008,
+    "ast_hash": "66b1dc1596ec586d72ec4b0941510a7e",
     "semantic_hash": ""
   },
   "components/apps/ContactApp.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": "64c776f3faf2c87b0b1e3f8dc9ad8c20"
   },
   "package.json": {
-    "mtime": 1784755664.229012,
-    "ast_hash": "90380f4d1d6d31e327af09d2a3975b01",
+    "mtime": 1784756649.6677234,
+    "ast_hash": "fb8187a5ab5f4ff199aaa919253e10eb",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -622,16 +622,6 @@
   "components/apps/SettingsApp.tsx": {
     "mtime": 1784753264.529166,
     "ast_hash": "0d9c255f3d704293aa339790fc6272e7",
-    "semantic_hash": ""
-  },
-  "components/ui/AsciiPortrait.tsx": {
-    "mtime": 1784755992.2426207,
-    "ast_hash": "9a55e0ed3cf729fb522e35e48cee7f76",
-    "semantic_hash": ""
-  },
-  "public/about/william-and-cat.jpeg": {
-    "mtime": 1784755313.5598416,
-    "ast_hash": "4d4538f56d2917cf9f37aa5cb1068590",
     "semantic_hash": ""
   }
 }

@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-22)
 
 ## Corpus Check
-- 65 files · ~794,406 words
+- 64 files · ~785,525 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 324 nodes · 417 edges · 33 communities (24 shown, 9 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.65)
+- 320 nodes · 411 edges · 33 communities (23 shown, 10 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.6)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e9344a1`
+- Built from commit: `f7a365c9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -59,25 +59,25 @@
 10. `include` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `AboutApp()` --calls--> `useWindowStore`  [EXTRACTED]
-  components/apps/AboutApp.tsx → store/window-store.ts
 - `FinderApp()` --calls--> `useWindowStore`  [EXTRACTED]
   components/apps/FinderApp.tsx → store/window-store.ts
+- `TerminalResult` --references--> `AppId`  [EXTRACTED]
+  lib/terminal.ts → types/portfolio.ts
 - `POST()` --calls--> `validateContactPayload()`  [EXTRACTED]
   app/api/contact/route.ts → lib/validation.ts
+- `AboutApp()` --calls--> `useWindowStore`  [EXTRACTED]
+  components/apps/AboutApp.tsx → store/window-store.ts
 - `ContactApp()` --calls--> `validateContactPayload()`  [EXTRACTED]
   components/apps/ContactApp.tsx → lib/validation.ts
-- `SearchApp()` --calls--> `useWindowStore`  [EXTRACTED]
-  components/apps/SearchApp.tsx → store/window-store.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 9 thin omitted)
+## Communities (33 total, 10 thin omitted)
 
 ### Community 0 - "DesktopShell.tsx"
-Cohesion: 0.11
-Nodes (24): metadata, searchableApps, SearchApp(), Entry, TerminalApp(), DesktopShell(), DesktopShortcut(), Dock() (+16 more)
+Cohesion: 0.09
+Nodes (30): metadata, AboutApp(), searchableApps, SearchApp(), SettingsApp(), BootScreen(), DesktopShell(), DesktopShortcut() (+22 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.05
@@ -88,24 +88,20 @@ Cohesion: 0.10
 Nodes (20): dom, dom.iterable, esnext, compilerOptions, allowImportingTsExtensions, allowJs, esModuleInterop, incremental (+12 more)
 
 ### Community 3 - "terminal.ts"
-Cohesion: 0.36
-Nodes (5): POST(), ContactApp(), emptyForm, ContactPayload, validateContactPayload()
+Cohesion: 0.13
+Nodes (14): POST(), ContactApp(), emptyForm, FinderApp(), folders, notes, Entry, TerminalApp() (+6 more)
 
 ### Community 4 - "FinderApp.tsx"
-Cohesion: 0.08
-Nodes (17): generateMetadata(), ProjectPage(), FinderApp(), folders, notes, Variant, experience, logisticsExperience (+9 more)
+Cohesion: 0.12
+Nodes (10): generateMetadata(), ProjectPage(), Variant, experience, logisticsExperience, softwareExperience, getProject(), projects (+2 more)
 
 ### Community 5 - "scripts"
 Cohesion: 0.12
 Nodes (15): engines, node, name, private, scripts, build, build:vercel, dev (+7 more)
 
 ### Community 6 - "dependencies"
-Cohesion: 0.12
-Nodes (17): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+9 more)
-
-### Community 7 - "skills.ts"
-Cohesion: 0.21
-Nodes (9): SettingsApp(), BootScreen(), menuApps, MenuBar(), UranoMark(), Language, PreferencesStore, Theme (+1 more)
+Cohesion: 0.13
+Nodes (15): framer-motion, lucide-react, next, dependencies, framer-motion, lucide-react, next, react (+7 more)
 
 ### Community 8 - "include"
 Cohesion: 0.17
@@ -120,8 +116,8 @@ Cohesion: 0.29
 Nodes (3): Env, ExecutionContext, worker
 
 ### Community 11 - "SceneWallpaper"
-Cohesion: 0.28
-Nodes (5): AboutApp(), compileShader(), SceneWallpaper(), AsciiPortrait(), render()
+Cohesion: 0.50
+Nodes (3): compileShader(), SceneWallpaper(), render()
 
 ### Community 12 - ".prettierrc.json"
 Cohesion: 0.40
@@ -160,23 +156,23 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **147 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+142 more)
+- **146 isolated node(s):** `semi`, `singleQuote`, `trailingComma`, `printWidth`, `geistSans` (+141 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **Why does `useWindowStore` connect `DesktopShell.tsx` to `SceneWallpaper`, `FinderApp.tsx`, `skills.ts`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `useWindowStore` connect `DesktopShell.tsx` to `terminal.ts`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `semi`, `singleQuote`, `trailingComma` to the rest of the system?**
-  _147 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _146 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `DesktopShell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10512820512820513 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09098039215686274 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
