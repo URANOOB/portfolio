@@ -75,9 +75,9 @@
     "semantic_hash": "5eb8e41045dd64345dadd75ada18579f"
   },
   "components/apps/TerminalApp.tsx": {
-    "mtime": 1784692261.5517924,
-    "ast_hash": "7bf2fc984f831383d036c9aeb0b16899",
-    "semantic_hash": "7bf2fc984f831383d036c9aeb0b16899"
+    "mtime": 1784758986.9094715,
+    "ast_hash": "004bb3d8451936088e6d2d67a63436a5",
+    "semantic_hash": ""
   },
   "components/desktop/BootScreen.tsx": {
     "mtime": 1784691588.5248833,

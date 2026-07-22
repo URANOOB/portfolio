@@ -373,8 +373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_finderapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp.tsx"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_apps_finderapp_folders",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "folders"
     },
     {
@@ -395,8 +395,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "components_apps_finderapp_notes",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "notes"
     },
     {
@@ -406,8 +406,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_apps_finderapp_finderapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp()"
     },
     {
@@ -571,19 +571,41 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_settingsapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "settingsapp.tsx"
+    },
+    {
+      "label": "accentOptions",
+      "file_type": "code",
+      "source_file": "components/apps/SettingsApp.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_apps_settingsapp_accentoptions",
+      "community": 7,
+      "community_name": "preferences-store.ts",
+      "norm_label": "accentoptions"
+    },
+    {
+      "label": "textSizeOptions",
+      "file_type": "code",
+      "source_file": "components/apps/SettingsApp.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_apps_settingsapp_textsizeoptions",
+      "community": 7,
+      "community_name": "preferences-store.ts",
+      "norm_label": "textsizeoptions"
     },
     {
       "label": "SettingsApp()",
       "file_type": "code",
       "source_file": "components/apps/SettingsApp.tsx",
-      "source_location": "L6",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "components_apps_settingsapp_settingsapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "settingsapp()"
     },
     {
@@ -593,8 +615,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_skillsapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "skillsapp.tsx"
     },
     {
@@ -604,8 +626,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_apps_skillsapp_skillsapp",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "skillsapp()"
     },
     {
@@ -615,8 +637,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_terminalapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 3,
+      "community_name": "terminal.ts",
       "norm_label": "terminalapp.tsx"
     },
     {
@@ -626,8 +648,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_apps_terminalapp_entry",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 3,
+      "community_name": "terminal.ts",
       "norm_label": "entry"
     },
     {
@@ -637,8 +659,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_apps_terminalapp_terminalapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 3,
+      "community_name": "terminal.ts",
       "norm_label": "terminalapp()"
     },
     {
@@ -780,30 +802,41 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper",
-      "community": 11,
-      "community_name": "SceneWallpaper",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper.tsx"
+    },
+    {
+      "label": "wallpaperSources",
+      "file_type": "code",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_desktop_scenewallpaper_wallpapersources",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
+      "norm_label": "wallpapersources"
     },
     {
       "label": "compileShader()",
       "file_type": "code",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L73",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_compileshader",
-      "community": 11,
-      "community_name": "SceneWallpaper",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "compileshader()"
     },
     {
       "label": "SceneWallpaper()",
       "file_type": "code",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L88",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "components_desktop_scenewallpaper_scenewallpaper",
-      "community": 11,
-      "community_name": "SceneWallpaper",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "scenewallpaper()"
     },
     {
@@ -835,8 +868,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_windows_appcontent",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "appcontent.tsx"
     },
     {
@@ -846,8 +879,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "components_windows_appcontent_apploading",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "apploading()"
     },
     {
@@ -857,8 +890,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "components_windows_appcontent_appcontent",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "appcontent()"
     },
     {
@@ -868,8 +901,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_windows_windowframe",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "windowframe.tsx"
     },
     {
@@ -879,8 +912,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_windows_windowframe_pointerorigin",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "pointerorigin"
     },
     {
@@ -1011,8 +1044,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile.ts"
     },
     {
@@ -1022,8 +1055,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_profile_profile",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "profile"
     },
     {
@@ -1066,8 +1099,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_skills",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "skills.ts"
     },
     {
@@ -1077,8 +1110,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_skills_skillgroups",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "skillgroups"
     },
     {
@@ -1143,8 +1176,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_terminal",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminal.ts"
     },
     {
@@ -1154,8 +1187,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_terminal_terminalresult",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "terminalresult"
     },
     {
@@ -1165,8 +1198,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_terminal_appaliases",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "appaliases"
     },
     {
@@ -1176,8 +1209,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_terminal_runportfoliocommand",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 3,
+      "community_name": "terminal.ts",
       "norm_label": "runportfoliocommand()"
     },
     {
@@ -2078,8 +2111,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_preferences_store",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "preferences-store.ts"
     },
     {
@@ -2089,8 +2122,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "store_preferences_store_theme",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "theme"
     },
     {
@@ -2100,26 +2133,59 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "store_preferences_store_language",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "language"
+    },
+    {
+      "label": "Accent",
+      "file_type": "code",
+      "source_file": "store/preferences-store.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "store_preferences_store_accent",
+      "community": 7,
+      "community_name": "preferences-store.ts",
+      "norm_label": "accent"
+    },
+    {
+      "label": "TextSize",
+      "file_type": "code",
+      "source_file": "store/preferences-store.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "store_preferences_store_textsize",
+      "community": 7,
+      "community_name": "preferences-store.ts",
+      "norm_label": "textsize"
+    },
+    {
+      "label": "Wallpaper",
+      "file_type": "code",
+      "source_file": "store/preferences-store.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "store_preferences_store_wallpaper",
+      "community": 7,
+      "community_name": "preferences-store.ts",
+      "norm_label": "wallpaper"
     },
     {
       "label": "PreferencesStore",
       "file_type": "code",
       "source_file": "store/preferences-store.ts",
-      "source_location": "L9",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "store_preferences_store_preferencesstore",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "preferences-store.ts",
       "norm_label": "preferencesstore"
     },
     {
       "label": "usePreferencesStore",
       "file_type": "code",
       "source_file": "store/preferences-store.ts",
-      "source_location": "L16",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "store_preferences_store_usepreferencesstore",
       "community": 0,
@@ -2166,8 +2232,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "store_window_store_windowstore",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "windowstore"
     },
     {
@@ -2210,8 +2276,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_rendered_html_test",
-      "community": 11,
-      "community_name": "SceneWallpaper",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "rendered-html.test.mjs"
     },
     {
@@ -2221,8 +2287,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "tests_rendered_html_test_render",
-      "community": 11,
-      "community_name": "SceneWallpaper",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "render()"
     },
     {
@@ -2595,8 +2661,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "types_portfolio_appid",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "appid"
     },
     {
@@ -2639,8 +2705,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "types_portfolio_skillgroup",
-      "community": 4,
-      "community_name": "FinderApp.tsx",
+      "community": 11,
+      "community_name": "SceneWallpaper",
       "norm_label": "skillgroup"
     },
     {
@@ -2650,8 +2716,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "types_portfolio_windowstate",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "windowstate"
     },
     {
@@ -4598,7 +4664,29 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_settingsapp",
+      "target": "components_apps_settingsapp_accentoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/SettingsApp.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_settingsapp",
       "target": "components_apps_settingsapp_settingsapp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/apps/SettingsApp.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_apps_settingsapp",
+      "target": "components_apps_settingsapp_textsizeoptions",
       "confidence_score": 1.0
     },
     {
@@ -4631,7 +4719,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/apps/SettingsApp.tsx",
-      "source_location": "L7",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_apps_settingsapp_settingsapp",
@@ -5046,7 +5134,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell_desktopshell",
@@ -5399,7 +5487,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper",
@@ -5410,7 +5498,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L88",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper",
@@ -5418,11 +5506,46 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper",
+      "target": "components_desktop_scenewallpaper_wallpapersources",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper",
+      "target": "store_preferences_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper",
+      "target": "store_preferences_store_usepreferencesstore",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L102",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper_scenewallpaper",
@@ -5430,12 +5553,24 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/desktop/SceneWallpaper.tsx",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_scenewallpaper_scenewallpaper",
+      "target": "store_preferences_store_usepreferencesstore"
+    },
+    {
       "relation": "indirect_call",
       "context": "argument",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "components/desktop/SceneWallpaper.tsx",
-      "source_location": "L161",
+      "source_location": "L167",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_scenewallpaper_scenewallpaper",
@@ -6982,6 +7117,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "store/preferences-store.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "store_preferences_store",
+      "target": "store_preferences_store_accent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "store/preferences-store.ts",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
@@ -6993,11 +7139,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "store/preferences-store.ts",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "store_preferences_store",
       "target": "store_preferences_store_preferencesstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "store/preferences-store.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "store_preferences_store",
+      "target": "store_preferences_store_textsize",
       "confidence_score": 1.0
     },
     {
@@ -7015,11 +7172,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "store/preferences-store.ts",
-      "source_location": "L16",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "store_preferences_store",
       "target": "store_preferences_store_usepreferencesstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "store/preferences-store.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "store_preferences_store",
+      "target": "store_preferences_store_wallpaper",
       "confidence_score": 1.0
     },
     {
@@ -8328,5 +8496,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "26a6b49f3ee9b738e1fb785844c5f0ec645b4455"
+  "built_at_commit": "c24c3b8906967ff8094f236e94c0c28dd1305ec4"
 }
