@@ -112,67 +112,127 @@ textarea:focus-visible {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  background: #d9d3c6;
+  background: #2769bd;
 }
-.scene-layer {
+
+.landscape-wallpaper {
   position: absolute;
-  top: 0;
-  left: 36px;
-  width: calc(100% - 72px);
-  height: 100%;
-  max-width: none;
-  pointer-events: none;
-  user-select: none;
+  inset: -3%;
+  background-image: url("/scene/landscape-4k.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   will-change: transform;
 }
-.scene-layer > svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.scene-layer-back {
+
+.landscape-wallpaper-base {
   z-index: 0;
+  animation: landscape-scene-drift 30s ease-in-out infinite alternate;
 }
-.scene-layer-middle {
+
+.landscape-wallpaper-water {
   z-index: 1;
+  clip-path: inset(55% 0 28% 0);
+  filter: brightness(1.08) saturate(1.08);
+  mix-blend-mode: screen;
+  opacity: 0.2;
+  animation: landscape-water-flow 8s ease-in-out infinite alternate;
 }
-.scene-layer-front {
+
+.landscape-wallpaper-foliage {
   z-index: 2;
+  clip-path: inset(60% 0 0 0);
+  filter: saturate(1.12) brightness(1.02);
+  mix-blend-mode: soft-light;
+  opacity: 0.32;
+  transform-origin: 50% 100%;
+  animation: landscape-foliage-sway 5.8s ease-in-out infinite alternate;
 }
+
+.landscape-wallpaper-light {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    radial-gradient(circle at 48% 32%, rgba(161, 245, 255, 0.1), transparent 34%),
+    linear-gradient(180deg, transparent 52%, rgba(22, 166, 181, 0.05) 68%, rgba(38, 134, 64, 0.08) 100%);
+  animation: landscape-light-breathe 9s ease-in-out infinite alternate;
+}
+
 .scene-wallpaper::before,
 .scene-wallpaper::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 4;
 }
+
 .scene-wallpaper::before {
   background: linear-gradient(
     90deg,
-    rgba(7, 10, 18, 0.88) 0%,
-    rgba(7, 10, 18, 0.7) 34%,
-    rgba(7, 10, 18, 0.2) 66%,
-    rgba(7, 10, 18, 0.06) 100%
+    rgba(7, 10, 18, 0.84) 0%,
+    rgba(7, 10, 18, 0.64) 34%,
+    rgba(7, 10, 18, 0.14) 66%,
+    rgba(7, 10, 18, 0.02) 100%
   );
 }
+
 .scene-wallpaper::after {
   background:
-    linear-gradient(180deg, rgba(7, 10, 18, 0.22), transparent 25%, transparent 72%, rgba(7, 10, 18, 0.45)),
-    radial-gradient(circle at center, transparent 48%, rgba(7, 10, 18, 0.22) 100%);
+    linear-gradient(180deg, rgba(7, 10, 18, 0.16), transparent 25%, transparent 72%, rgba(7, 10, 18, 0.38)),
+    radial-gradient(circle at center, transparent 50%, rgba(7, 10, 18, 0.17) 100%);
 }
+
 .desktop[data-theme="light"] .scene-wallpaper::before {
   background: linear-gradient(
     90deg,
-    rgba(244, 247, 252, 0.9) 0%,
-    rgba(244, 247, 252, 0.72) 34%,
-    rgba(244, 247, 252, 0.16) 68%,
+    rgba(244, 247, 252, 0.84) 0%,
+    rgba(244, 247, 252, 0.62) 34%,
+    rgba(244, 247, 252, 0.1) 68%,
     transparent 100%
   );
 }
+
 .desktop[data-theme="light"] .scene-wallpaper::after {
   background:
-    linear-gradient(180deg, rgba(244, 247, 252, 0.15), transparent 25%, transparent 72%, rgba(220, 227, 239, 0.35)),
-    radial-gradient(circle at center, transparent 55%, rgba(32, 42, 62, 0.1) 100%);
+    linear-gradient(180deg, rgba(244, 247, 252, 0.1), transparent 25%, transparent 72%, rgba(220, 227, 239, 0.2)),
+    radial-gradient(circle at center, transparent 58%, rgba(32, 42, 62, 0.07) 100%);
+}
+
+@keyframes landscape-scene-drift {
+  from {
+    transform: scale(1.02) translate3d(-0.25%, -0.18%, 0);
+  }
+  to {
+    transform: scale(1.035) translate3d(0.32%, 0.2%, 0);
+  }
+}
+
+@keyframes landscape-water-flow {
+  from {
+    transform: scale(1.03, 1.018) translate3d(-0.45%, 0, 0) skewX(-0.05deg);
+  }
+  to {
+    transform: scale(1.04, 1.022) translate3d(0.5%, 0.08%, 0) skewX(0.06deg);
+  }
+}
+
+@keyframes landscape-foliage-sway {
+  from {
+    transform: scale(1.025, 1.018) translate3d(-0.12%, 0.04%, 0) skewX(-0.1deg);
+  }
+  to {
+    transform: scale(1.035, 1.026) translate3d(0.14%, -0.06%, 0) skewX(0.12deg);
+  }
+}
+
+@keyframes landscape-light-breathe {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .cosmos,
@@ -1923,10 +1983,6 @@ textarea:focus-visible {
   .desktop {
     min-height: 540px;
   }
-  .scene-layer {
-    left: 30px;
-    width: calc(100% - 60px);
-  }
   .planet-glow {
     width: 230px;
     height: 230px;
@@ -1990,10 +2046,6 @@ textarea:focus-visible {
 @media (max-width: 600px) {
   .desktop {
     min-height: 480px;
-  }
-  .scene-layer {
-    left: 0;
-    width: 100%;
   }
   .scene-wallpaper::before {
     background: linear-gradient(90deg, rgba(7, 10, 18, 0.86), rgba(7, 10, 18, 0.42));
@@ -2213,7 +2265,7 @@ textarea:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .scene-layer {
+  .landscape-wallpaper {
     transform: none !important;
     will-change: auto;
   }
