@@ -164,8 +164,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_page",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "app/page.tsx"
     },
     {
@@ -175,8 +175,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "app_page_metadata",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "metadata"
     },
     {
@@ -186,8 +186,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_page_home",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "home()"
     },
     {
@@ -373,8 +373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_finderapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp.tsx"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_apps_finderapp_folders",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "folders"
     },
     {
@@ -395,8 +395,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "components_apps_finderapp_notes",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "notes"
     },
     {
@@ -406,8 +406,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "components_apps_finderapp_finderapp",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 4,
+      "community_name": "FinderApp.tsx",
       "norm_label": "finderapp()"
     },
     {
@@ -483,8 +483,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_apps_skillsapp",
-      "community": 33,
-      "community_name": "skills.ts",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "skillsapp.tsx"
     },
     {
@@ -494,8 +494,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_apps_skillsapp_skillsapp",
-      "community": 33,
-      "community_name": "skills.ts",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "skillsapp()"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_bootscreen",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen.tsx"
     },
     {
@@ -549,8 +549,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_desktop_bootscreen_bootscreen",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "bootscreen()"
     },
     {
@@ -560,63 +560,30 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_desktopshell",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "desktopshell.tsx"
     },
     {
-      "label": "applicationIds",
+      "label": "copy",
       "file_type": "code",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L34",
+      "source_location": "L17",
       "_origin": "ast",
-      "id": "components_desktop_desktopshell_applicationids",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "applicationids"
-    },
-    {
-      "label": "initialTasks",
-      "file_type": "code",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "components_desktop_desktopshell_initialtasks",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "initialtasks"
-    },
-    {
-      "label": "galleryItems",
-      "file_type": "code",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "components_desktop_desktopshell_galleryitems",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "galleryitems"
-    },
-    {
-      "label": "folders",
-      "file_type": "code",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "components_desktop_desktopshell_folders",
-      "community": 11,
-      "community_name": "skills.ts",
-      "norm_label": "folders"
+      "id": "components_desktop_desktopshell_copy",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
+      "norm_label": "copy"
     },
     {
       "label": "DesktopShell()",
       "file_type": "code",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L61",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "components_desktop_desktopshell_desktopshell",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "desktopshell()"
     },
     {
@@ -681,8 +648,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_desktop_menubar",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar.tsx"
     },
     {
@@ -692,8 +659,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_desktop_menubar_menuapps",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menuapps"
     },
     {
@@ -703,8 +670,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_desktop_menubar_menubar",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "menubar()"
     },
     {
@@ -769,8 +736,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark.tsx"
     },
     {
@@ -780,8 +747,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_ui_uranomark_uranomark",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "uranomark()"
     },
     {
@@ -1000,8 +967,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_skills",
-      "community": 33,
-      "community_name": "skills.ts",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "skills.ts"
     },
     {
@@ -1011,8 +978,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_skills_skillgroups",
-      "community": 33,
-      "community_name": "skills.ts",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "skillgroups"
     },
     {
@@ -1979,8 +1946,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_preferences_store",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferences-store.ts"
     },
     {
@@ -1990,8 +1957,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "store_preferences_store_theme",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "theme"
     },
     {
@@ -2001,8 +1968,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "store_preferences_store_language",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "language"
     },
     {
@@ -2012,8 +1979,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "store_preferences_store_preferencesstore",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "preferencesstore"
     },
     {
@@ -2023,8 +1990,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "store_preferences_store_usepreferencesstore",
-      "community": 11,
-      "community_name": "skills.ts",
+      "community": 0,
+      "community_name": "DesktopShell.tsx",
       "norm_label": "usepreferencesstore"
     },
     {
@@ -2485,8 +2452,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "types_portfolio",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "portfolio.ts"
     },
     {
@@ -2507,8 +2474,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "types_portfolio_projectstatus",
-      "community": 0,
-      "community_name": "DesktopShell.tsx",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "projectstatus"
     },
     {
@@ -2540,8 +2507,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "types_portfolio_skillgroup",
-      "community": 33,
-      "community_name": "skills.ts",
+      "community": 7,
+      "community_name": "projects.ts",
       "norm_label": "skillgroup"
     },
     {
@@ -4449,7 +4416,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L26",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4461,7 +4428,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L26",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4472,18 +4439,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L34",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
-      "target": "components_desktop_desktopshell_applicationids",
+      "target": "components_desktop_desktopshell_copy",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L61",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4491,36 +4458,27 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L54",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
-      "target": "components_desktop_desktopshell_folders",
+      "target": "components_desktop_desktopshortcut",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L47",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
-      "target": "components_desktop_desktopshell_galleryitems",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_desktopshell",
-      "target": "components_desktop_desktopshell_initialtasks",
+      "target": "components_desktop_desktopshortcut_desktopshortcut",
       "confidence_score": 1.0
     },
     {
@@ -4528,7 +4486,55 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L27",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "components_desktop_dock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "components_desktop_dock_dock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "components_desktop_menubar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "components_desktop_menubar_menubar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4540,7 +4546,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L27",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4552,7 +4558,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L28",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4564,7 +4570,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L28",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4576,7 +4582,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L29",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4584,11 +4590,47 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "data_navigation_desktopshortcuts",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L30",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "data_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_desktop_desktopshell",
+      "target": "data_profile_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/desktop/DesktopShell.tsx",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4600,7 +4642,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L30",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4612,7 +4654,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L31",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
@@ -4624,35 +4666,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L31",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell",
       "target": "store_window_store_usewindowstore",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_desktopshell",
-      "target": "types_portfolio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_desktop_desktopshell",
-      "target": "types_portfolio_appid",
       "confidence_score": 1.0
     },
     {
@@ -4661,7 +4679,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L62",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell_desktopshell",
@@ -4673,7 +4691,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/desktop/DesktopShell.tsx",
-      "source_location": "L64",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_desktop_desktopshell_desktopshell",
@@ -7921,5 +7939,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c7d6e9cf9cddf6b6965e2a69e8626c9069de9c87"
+  "built_at_commit": "a5e6c8ba2752c39169e200d0bd68cd5d0aa12bdf"
 }
