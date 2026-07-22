@@ -1,5 +1,16 @@
 export type AppId =
-  "finder" | "about" | "experience" | "projects" | "skills" | "terminal" | "resume" | "contact";
+  | "finder"
+  | "about"
+  | "experience"
+  | "logistics"
+  | "help"
+  | "search"
+  | "settings"
+  | "projects"
+  | "skills"
+  | "terminal"
+  | "resume"
+  | "contact";
 
 export type ProjectStatus = "En desarrollo" | "Activo" | "Concepto privado";
 

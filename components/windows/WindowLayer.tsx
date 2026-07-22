@@ -5,7 +5,20 @@ import { WindowFrame } from "@/components/windows/WindowFrame";
 import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
-const ids: AppId[] = ["finder", "about", "experience", "projects", "skills", "terminal", "resume", "contact"];
+const ids: AppId[] = [
+  "finder",
+  "about",
+  "experience",
+  "logistics",
+  "help",
+  "search",
+  "settings",
+  "projects",
+  "skills",
+  "terminal",
+  "resume",
+  "contact",
+];
 
 export function WindowLayer() {
   const windows = useWindowStore((state) => state.windows);

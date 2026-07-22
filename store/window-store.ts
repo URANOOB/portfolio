@@ -8,11 +8,15 @@ const initialWindows: Record<AppId, WindowState> = {
   finder: windowState("finder", 86, 94, 920, 590, 2),
   about: windowState("about", 152, 108, 820, 570, 3),
   experience: windowState("experience", 210, 76, 880, 620, 4),
-  projects: windowState("projects", 120, 72, 980, 640, 5),
-  skills: windowState("skills", 230, 92, 860, 590, 6),
-  terminal: windowState("terminal", 190, 122, 780, 500, 7),
-  resume: windowState("resume", 170, 64, 900, 660, 8),
-  contact: windowState("contact", 240, 92, 820, 600, 9),
+  logistics: windowState("logistics", 210, 76, 880, 620, 5),
+  help: windowState("help", 250, 100, 720, 520, 6),
+  search: windowState("search", 180, 88, 820, 560, 7),
+  settings: windowState("settings", 280, 110, 680, 480, 8),
+  projects: windowState("projects", 120, 72, 980, 640, 9),
+  skills: windowState("skills", 230, 92, 860, 590, 10),
+  terminal: windowState("terminal", 190, 122, 780, 500, 11),
+  resume: windowState("resume", 170, 64, 900, 660, 12),
+  contact: windowState("contact", 240, 92, 820, 600, 13),
 };
 
 function windowState(
@@ -52,7 +56,7 @@ export const useWindowStore = create<WindowStore>()(
     (set) => ({
       windows: initialWindows,
       activeApp: null,
-      topZ: 10,
+      topZ: 14,
       openWindow: (id) =>
         set((state) => {
           const nextZ = state.topZ + 1;
@@ -135,6 +139,14 @@ export const useWindowStore = create<WindowStore>()(
       name: "urano-window-session",
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({ windows: state.windows, topZ: state.topZ }),
+      merge: (persistedState, currentState) => {
+        const persisted = persistedState as Partial<WindowStore> | undefined;
+        return {
+          ...currentState,
+          ...persisted,
+          windows: { ...initialWindows, ...persisted?.windows },
+        };
+      },
     },
   ),
 );

@@ -91,3 +91,4 @@ export const experience: Experience[] = [
 ];
 
 export const logisticsExperience = experience.filter((item) => item.track === "logistics");
+export const softwareExperience = experience.filter((item) => item.track === "software");
