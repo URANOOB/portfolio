@@ -115,6 +115,25 @@ textarea:focus-visible {
   background: #2769bd;
 }
 
+.desktop[data-accent="green"] {
+  --accent: #43b36b;
+  --accent-soft: #98e0a8;
+}
+.desktop[data-accent="blue"] {
+  --accent: #4d91e8;
+  --accent-soft: #99c7ff;
+}
+.desktop[data-accent="purple"] {
+  --accent: #8f65d8;
+  --accent-soft: #cab0ff;
+}
+.desktop[data-text-size="small"] .window-body {
+  zoom: 0.9;
+}
+.desktop[data-text-size="large"] .window-body {
+  zoom: 1.12;
+}
+
 .landscape-wallpaper-fallback,
 .landscape-wallpaper-canvas {
   position: absolute;
@@ -2661,8 +2680,7 @@ textarea:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 10px;
 }
-.utility-results button,
-.settings-options button {
+.utility-results button {
   display: flex;
   align-items: center;
   gap: 11px;
@@ -2674,9 +2692,7 @@ textarea:focus-visible {
   text-align: left;
   cursor: pointer;
 }
-.utility-results button:hover,
-.settings-options button:hover,
-.settings-options button.selected {
+.utility-results button:hover {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 12%, var(--surface-soft));
 }
@@ -2687,22 +2703,204 @@ textarea:focus-visible {
 .utility-results small {
   color: var(--muted);
 }
-.settings-options {
-  display: grid;
-  gap: 18px;
-  margin-top: 24px;
+
+/* Settings */
+.settings-editorial {
+  min-height: 100%;
+  padding: clamp(24px, 4vw, 40px);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent 48%),
+    var(--surface-strong);
 }
-.settings-options section {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface-soft);
+.settings-editorial-header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
-.settings-options section > div {
+.settings-editorial-header p {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.settings-panel {
+  margin-top: 18px;
+  border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
+}
+.settings-panel > h3 {
+  margin: 0;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+.settings-panel-body {
+  padding: 16px;
+}
+.settings-control-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.settings-control-group + .settings-control-group {
+  margin-top: 18px;
+}
+.settings-control-group legend {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.settings-segmented,
+.settings-color-options,
+.settings-text-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 12px;
+  gap: 8px;
+}
+.settings-segmented {
+  gap: 0;
+}
+.settings-segmented button,
+.settings-color-options button,
+.settings-text-options button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  font-size: 10px;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+.settings-segmented button + button {
+  border-left: 0;
+}
+.settings-segmented button:hover,
+.settings-color-options button:hover,
+.settings-text-options button:hover {
+  border-color: var(--accent);
+}
+.settings-segmented button.is-selected,
+.settings-color-options button.is-selected,
+.settings-text-options button.is-selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #11131a;
+}
+.settings-color-options button {
+  justify-content: flex-start;
+  min-width: 92px;
+}
+.settings-color-options button svg {
+  margin-left: auto;
+}
+.settings-color-swatch {
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+}
+.settings-text-options button {
+  min-width: 88px;
+}
+.settings-text-options button strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+.settings-panel-description {
+  margin: 0 0 13px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+.settings-wallpaper-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.wallpaper-option {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+button.wallpaper-option {
+  cursor: pointer;
+}
+button.wallpaper-option:hover,
+.wallpaper-option.is-selected {
+  border-color: var(--accent);
+}
+.wallpaper-preview {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, var(--surface-soft), transparent),
+    color-mix(in srgb, var(--surface-strong) 86%, var(--accent));
+  color: var(--muted);
+}
+.wallpaper-preview-landscape {
+  background-image: url("/scene/landscape-4k.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.wallpaper-option-coming {
+  border-style: dashed;
+  opacity: 0.66;
+}
+.wallpaper-option-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+}
+.wallpaper-option-label > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.wallpaper-option-label strong {
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 570;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wallpaper-option-label small {
+  color: var(--muted);
+  font-size: 9px;
+}
+.wallpaper-option.is-selected .wallpaper-option-label > svg {
+  color: var(--accent);
+}
+@media (max-width: 560px) {
+  .settings-editorial {
+    padding: 22px 14px 30px;
+  }
+  .settings-wallpaper-grid {
+    grid-template-columns: 1fr;
+  }
+  .settings-color-options button,
+  .settings-text-options button {
+    flex: 1 1 120px;
+  }
 }
 
 @media print {

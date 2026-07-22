@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePreferencesStore } from "@/store/preferences-store";
+
+const wallpaperSources = {
+  landscape: "/scene/landscape-4k.jpg",
+} as const;
 
 const vertexShaderSource = `
   attribute vec2 a_position;
@@ -87,6 +92,7 @@ function compileShader(gl: WebGLRenderingContext, type: number, source: string) 
 
 export function SceneWallpaper() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wallpaper = usePreferencesStore((state) => state.wallpaper);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -177,7 +183,7 @@ export function SceneWallpaper() {
       startedAt = performance.now();
       frame = requestAnimationFrame(render);
     };
-    image.src = "/scene/landscape-4k.jpg";
+    image.src = wallpaperSources[wallpaper];
 
     const handleMotionChange = () => {
       cancelAnimationFrame(frame);
@@ -198,11 +204,14 @@ export function SceneWallpaper() {
       gl.deleteShader(vertexShader);
       gl.deleteShader(fragmentShader);
     };
-  }, []);
+  }, [wallpaper]);
 
   return (
     <div className="scene-wallpaper" aria-hidden="true">
-      <div className="landscape-wallpaper-fallback" />
+      <div
+        className="landscape-wallpaper-fallback"
+        style={{ backgroundImage: `url(${wallpaperSources[wallpaper]})` }}
+      />
       <canvas ref={canvasRef} className="landscape-wallpaper-canvas" />
       <div className="landscape-wallpaper-light" />
     </div>

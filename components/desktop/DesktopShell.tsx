@@ -13,6 +13,8 @@ import { useWindowStore } from "@/store/window-store";
 
 export function DesktopShell() {
   const theme = usePreferencesStore((state) => state.theme);
+  const accent = usePreferencesStore((state) => state.accent);
+  const textSize = usePreferencesStore((state) => state.textSize);
   const openWindow = useWindowStore((state) => state.openWindow);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export function DesktopShell() {
   }, [openWindow]);
 
   return (
-    <main className="desktop" data-theme={theme}>
+    <main className="desktop" data-theme={theme} data-accent={accent} data-text-size={textSize}>
       <a className="skip-link" href="#desktop-intro">
         Saltar al contenido
       </a>

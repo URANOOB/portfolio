@@ -85,8 +85,8 @@
     "semantic_hash": "64cb9cfee110726a7e40742527695018"
   },
   "components/desktop/DesktopShell.tsx": {
-    "mtime": 1784752960.525743,
-    "ast_hash": "ecb744c9b61066c7f7e406ed0cd71191",
+    "mtime": 1784758649.0450647,
+    "ast_hash": "d95bfcd7e21f05aa7b29cb973d953fe3",
     "semantic_hash": ""
   },
   "components/desktop/DesktopShortcut.tsx": {
@@ -190,9 +190,9 @@
     "semantic_hash": "6cfccaf2a66d902c0e653f686ccead27"
   },
   "store/preferences-store.ts": {
-    "mtime": 1784691533.8281794,
-    "ast_hash": "f53de6128a4fec27874848a0028cb9f4",
-    "semantic_hash": "f53de6128a4fec27874848a0028cb9f4"
+    "mtime": 1784758649.0440574,
+    "ast_hash": "2c831a21b6dda0161d17b5b70e1ddf2e",
+    "semantic_hash": ""
   },
   "store/window-store.ts": {
     "mtime": 1784753264.5241325,
@@ -235,8 +235,8 @@
     "semantic_hash": "20e1db594a8244e30c95b9ea8baf027c"
   },
   "components/desktop/SceneWallpaper.tsx": {
-    "mtime": 1784752120.7927537,
-    "ast_hash": "cea4830a10ad2c3bb9bd2a6c6dfa9f53",
+    "mtime": 1784758649.0455732,
+    "ast_hash": "711bd91c123b7f7e1127c2d483d33b9d",
     "semantic_hash": ""
   },
   ".codex/skills/graphify/SKILL.md": {
@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "components/apps/SettingsApp.tsx": {
-    "mtime": 1784753264.529166,
-    "ast_hash": "0d9c255f3d704293aa339790fc6272e7",
+    "mtime": 1784758665.4143183,
+    "ast_hash": "ad2942923dd4999f6e919d09b3966a02",
     "semantic_hash": ""
   },
   "data/software-experience.ts": {
