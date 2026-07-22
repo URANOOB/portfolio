@@ -65,8 +65,8 @@
     "semantic_hash": ""
   },
   "components/apps/ResumeApp.tsx": {
-    "mtime": 1784752951.7265832,
-    "ast_hash": "33dab93064c1922ff2f9b069a6df61b5",
+    "mtime": 1784763296.0344062,
+    "ast_hash": "47844737a4cd067cec71b988a83132d2",
     "semantic_hash": ""
   },
   "components/apps/SkillsApp.tsx": {
@@ -305,13 +305,13 @@
     "semantic_hash": ""
   },
   "public/cv/william-galeano-desarrollo.pdf": {
-    "mtime": 1784692041.8183603,
-    "ast_hash": "08b15f7eff55b2dc8267d53474f17752",
+    "mtime": 1784656558.2684593,
+    "ast_hash": "51a71b6e11b74543e9cbfec9debbba81",
     "semantic_hash": ""
   },
   "public/cv/william-galeano-logistica.pdf": {
-    "mtime": 1784692041.828758,
-    "ast_hash": "f615bcb3124deacd1578dab0a9dcd2ed",
+    "mtime": 1784671150.7128177,
+    "ast_hash": "fa314150dcd78e0bae14d09a95f97b94",
     "semantic_hash": ""
   },
   "public/favicon.png": {
@@ -637,6 +637,16 @@
   "public/about-raccoon.gif": {
     "mtime": 1784759762.3017895,
     "ast_hash": "daf1abcbc750d46eee6cdb692995ceeb",
+    "semantic_hash": ""
+  },
+  "public/cv/william-galeano-desarrollo-preview.png": {
+    "mtime": 1784763135.6722255,
+    "ast_hash": "550fbeb56817c5dc60139790837739d5",
+    "semantic_hash": ""
+  },
+  "public/cv/william-galeano-logistica-preview.png": {
+    "mtime": 1784763136.0248044,
+    "ast_hash": "7aee6f63997719c84b1f231a61d9074f",
     "semantic_hash": ""
   }
 }
