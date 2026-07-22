@@ -1169,6 +1169,10 @@ textarea:focus-visible {
   letter-spacing: 0;
   white-space: pre;
   text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 30%, transparent);
+  filter: saturate(0.8) contrast(1.08) brightness(1.05);
+}
+.about-ascii-line {
+  display: block;
 }
 .about-ascii-portrait figcaption {
   margin-top: 8px;
