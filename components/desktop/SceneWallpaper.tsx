@@ -101,6 +101,10 @@ export function SceneWallpaper() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (reducedMotion.matches || connection?.saveData || window.innerWidth < 640) return;
+
     const gl = canvas.getContext("webgl", {
       alpha: false,
       antialias: false,
@@ -138,7 +142,6 @@ export function SceneWallpaper() {
     const imageSize = gl.getUniformLocation(program, "u_imageSize");
     const time = gl.getUniformLocation(program, "u_time");
     const imageSampler = gl.getUniformLocation(program, "u_image");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     let startedAt = performance.now();
     let ready = false;
@@ -167,7 +170,8 @@ export function SceneWallpaper() {
       gl.uniform1f(time, (now - startedAt) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       canvas.classList.add("is-ready");
-      if (!reducedMotion.matches) frame = requestAnimationFrame(render);
+      if (!reducedMotion.matches && document.visibilityState === "visible")
+        frame = requestAnimationFrame(render);
     };
 
     const image = new Image();
@@ -194,13 +198,22 @@ export function SceneWallpaper() {
       frame = requestAnimationFrame(render);
     };
     const handleResize = () => resize();
+    const handleVisibility = () => {
+      cancelAnimationFrame(frame);
+      if (document.visibilityState === "visible" && ready) {
+        startedAt = performance.now();
+        frame = requestAnimationFrame(render);
+      }
+    };
     reducedMotion.addEventListener("change", handleMotionChange);
     window.addEventListener("resize", handleResize, { passive: true });
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(frame);
       reducedMotion.removeEventListener("change", handleMotionChange);
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibility);
       gl.deleteTexture(texture);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);

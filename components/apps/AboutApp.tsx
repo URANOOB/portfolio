@@ -49,15 +49,15 @@ export function AboutApp() {
         <p>
           {language === "es" ? (
             <>
-              Colombiano, <strong>“Rolo”</strong> —nacido en la capital— y latinoamericano. Soy un ingeniero
-              de software full-stack que disfruta construyendo productos digitales de alta calidad. Me encanta
-              traducir ideas complejas en interfaces que se sientan claras, confiables y rápidas.
+              Colombiano, <strong>“Rolo”</strong> —de la capital— y latinoamericano. Soy un desarrollador de
+              software full stack y estudiante de Ingeniería de Software. Disfruto traducir ideas complejas en
+              interfaces claras, confiables y rápidas.
             </>
           ) : (
             <>
-              Colombian, <strong>“Rolo”</strong>—meaning from the capital—and Latin American. I am a
-              full-stack software engineer who enjoys building thoughtful, high-quality digital products. I
-              love translating complex ideas into interfaces that feel clear, reliable, and fast.
+              Colombian, <strong>“Rolo”</strong>—meaning from the capital—and Latin American. I am a full
+              stack software developer and Software Engineering student. I enjoy translating complex ideas
+              into interfaces that feel clear, reliable, and fast.
             </>
           )}
         </p>

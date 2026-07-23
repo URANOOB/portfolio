@@ -1,7 +1,7 @@
 export const profile = {
   name: "William Galeano",
   initials: "WG",
-  headline: "Software Developer",
+  headline: "Desarrollador de Software Full Stack",
   location: "Bogotá, Colombia",
   availability: "Abierto a oportunidades en desarrollo de software",
   languages: ["Español nativo", "Inglés B2+"],
@@ -18,7 +18,7 @@ export const profile = {
 
 export const socialLinks = {
   github: "https://github.com/URANOOB",
-  linkedin: null,
+  linkedin: "https://www.linkedin.com/in/william-eduardo-galeano-ramirez-861549368/",
   email: "mailto:will21@hotmail.es",
   phone: null,
   whatsapp: null,

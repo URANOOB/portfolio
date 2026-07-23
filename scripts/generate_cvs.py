@@ -33,12 +33,12 @@ styles.add(ParagraphStyle(name="Footer", parent=styles["Normal"], fontName="Helv
 
 
 COMMON_EXPERIENCE = [
-    ("Lean Group", "Coordinacion logistica senior", "Fechas por confirmar", "Coordinacion de operaciones, prioridades y comunicacion con clientes y aliados internacionales."),
-    ("JB Hunt", "Operaciones logisticas", "Fechas por confirmar", "Seguimiento de cargas, comunicacion operativa y gestion de novedades."),
-    ("Avenger Logistics", "Operaciones logisticas", "Fechas por confirmar", "Soporte a transporte y atencion a requerimientos de clientes internacionales."),
-    ("USA Truck / DB Schenker", "Logistica internacional", "Fechas por confirmar", "Trazabilidad, gestion de excepciones y coordinacion entre actores de transporte."),
-    ("Concentrix", "Servicio al cliente internacional", "Fechas por confirmar", "Resolucion de solicitudes y seguimiento de casos en un entorno bilingue."),
-    ("Nexa BPO", "Servicio y operaciones", "Fechas por confirmar", "Atencion, documentacion de casos y cumplimiento de procesos operativos."),
+    ("Lean Group", "Coordinacion logistica senior", "", "Coordinacion de operaciones, prioridades y comunicacion con clientes y aliados internacionales."),
+    ("JB Hunt", "Operaciones logisticas", "", "Seguimiento de cargas, comunicacion operativa y gestion de novedades."),
+    ("Avenger Logistics", "Operaciones logisticas", "", "Soporte a transporte y atencion a requerimientos de clientes internacionales."),
+    ("USA Truck / DB Schenker", "Logistica internacional", "", "Trazabilidad, gestion de excepciones y coordinacion entre actores de transporte."),
+    ("Concentrix", "Servicio al cliente internacional", "", "Resolucion de solicitudes y seguimiento de casos en un entorno bilingue."),
+    ("Nexa BPO", "Servicio y operaciones", "", "Atencion, documentacion de casos y cumplimiento de procesos operativos."),
 ]
 
 DEV_EXPERIENCE = [

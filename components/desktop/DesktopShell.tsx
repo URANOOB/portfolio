@@ -27,6 +27,7 @@ export function DesktopShell() {
   const theme = usePreferencesStore((state) => state.theme);
   const accent = usePreferencesStore((state) => state.accent);
   const textSize = usePreferencesStore((state) => state.textSize);
+  const language = usePreferencesStore((state) => state.language);
   const openWindow = useWindowStore((state) => state.openWindow);
 
   useEffect(() => {
@@ -64,6 +65,10 @@ export function DesktopShell() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [openWindow]);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <main className="desktop" data-theme={theme} data-accent={accent} data-text-size={textSize}>

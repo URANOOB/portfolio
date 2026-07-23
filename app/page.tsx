@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { DesktopShell } from "@/components/desktop/DesktopShell";
 
 export const metadata: Metadata = {
-  title: "Escritorio",
+  title: { absolute: "William Galeano | Software Developer | R/COON OS" },
   description:
-    "Explora el trabajo, la experiencia y el perfil profesional de William Galeano en R/COON Porfolio.",
+    "Portafolio interactivo de William Galeano, desarrollador de software full stack en Bogotá con experiencia en Next.js, React, TypeScript, Python, Java y soluciones digitales.",
 };
 
 export default function Home() {
