@@ -10,11 +10,13 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { appDefinitions, dockApps } from "@/data/navigation";
+import { usePreferencesStore } from "@/store/preferences-store";
 import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
 function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
   const ref = useRef<HTMLButtonElement>(null);
+  const language = usePreferencesStore((state) => state.language);
   const windowState = useWindowStore((state) => state.windows[id]);
   const openWindow = useWindowStore((state) => state.openWindow);
   const focusWindow = useWindowStore((state) => state.focusWindow);
@@ -42,12 +44,12 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
         }
       }
       onClick={activate}
-      aria-label={`${windowState.isOpen ? "Enfocar" : "Abrir"} ${definition.title}`}
+      aria-label={`${windowState.isOpen ? "Enfocar" : "Abrir"} ${definition.title[language]}`}
     >
       <motion.span className="dock-icon" style={{ width: size, height: size }} aria-hidden="true">
         <Icon size={34} strokeWidth={1.6} />
       </motion.span>
-      <span className="dock-label">{definition.title}</span>
+      <span className="dock-label">{definition.title[language]}</span>
       {windowState.isOpen ? <span className="open-indicator" aria-hidden="true" /> : null}
     </motion.button>
   );

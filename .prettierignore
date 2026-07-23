@@ -6,3 +6,5 @@ build
 output
 public/cv
 package-lock.json
+.codex
+graphify-out

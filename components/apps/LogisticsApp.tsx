@@ -2,23 +2,37 @@
 
 import { ChevronDown, Truck } from "lucide-react";
 import { useState } from "react";
-import { logisticsExperience } from "@/data/experience";
+import { logisticsExperience as logisticsExperienceEs } from "@/data/experience";
+import { logisticsExperience as logisticsExperienceEn } from "@/data/experience-en";
+import { usePreferencesStore } from "@/store/preferences-store";
 
 export function LogisticsApp() {
   const [expanded, setExpanded] = useState(0);
+  const language = usePreferencesStore((state) => state.language);
+  const logisticsExperience = language === "es" ? logisticsExperienceEs : logisticsExperienceEn;
 
   return (
     <article className="app-scroll experience-app">
       <header className="app-section-header">
         <div>
-          <p className="section-kicker">LOGÍSTICA INTERNACIONAL</p>
-          <h2>Background operativo y coordinación.</h2>
+          <p className="section-kicker">
+            {language === "es" ? "LOGÍSTICA INTERNACIONAL" : "INTERNATIONAL LOGISTICS"}
+          </p>
+          <h2>
+            {language === "es"
+              ? "Background operativo y coordinación."
+              : "Operational background & coordination."}
+          </h2>
           <p>
-            Experiencia en transporte, trazabilidad, servicio bilingüe, gestión de novedades y
-            comunicación entre clientes, aliados y equipos internos.
+            {language === "es"
+              ? "Experiencia en transporte, trazabilidad, servicio bilingüe, gestión de novedades y comunicación entre clientes, aliados y equipos internos."
+              : "Experience in transport, traceability, bilingual service, issue management, and communication between clients, partners, and internal teams."}
           </p>
         </div>
-        <span>{logisticsExperience.length} entornos profesionales</span>
+        <span>
+          {logisticsExperience.length}{" "}
+          {language === "es" ? "entornos profesionales" : "professional environments"}
+        </span>
       </header>
       <div className="timeline">
         {logisticsExperience.map((item, index) => (
@@ -60,8 +74,9 @@ export function LogisticsApp() {
         ))}
       </div>
       <p className="data-note">
-        Los cargos y periodos se muestran de forma prudente hasta validar el CV fuente. No se publican
-        métricas inventadas.
+        {language === "es"
+          ? "Los cargos y periodos se muestran de forma prudente hasta validar el CV fuente. No se publican métricas inventadas."
+          : "Roles and periods are shown cautiously until validating the source CV. No invented metrics are published."}
       </p>
     </article>
   );

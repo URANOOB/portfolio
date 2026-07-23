@@ -13,14 +13,14 @@ async function render(pathname = "/") {
   );
 }
 
-test("server-renders the Urano desktop with portfolio content", async () => {
+test("server-renders the R/COON desktop with portfolio content", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
   assert.match(html, /William Galeano/);
   assert.match(html, /Software Developer/);
-  assert.match(html, /Urano/);
+  assert.match(html, /R\/COON/);
   assert.match(html, /Arrastra para mover/);
   assert.doesNotMatch(html, /Explorador/);
   assert.doesNotMatch(html, /codex-preview/);

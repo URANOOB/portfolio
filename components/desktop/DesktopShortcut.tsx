@@ -3,6 +3,7 @@
 import { motion, type MotionStyle, type PanInfo } from "framer-motion";
 import { useRef, type RefObject } from "react";
 import { appDefinitions } from "@/data/navigation";
+import { usePreferencesStore } from "@/store/preferences-store";
 import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
@@ -16,6 +17,7 @@ interface DesktopShortcutProps {
 export function DesktopShortcut({ id, position, constraintsRef, onMove }: DesktopShortcutProps) {
   const dragged = useRef(false);
   const openWindow = useWindowStore((state) => state.openWindow);
+  const language = usePreferencesStore((state) => state.language);
   const definition = appDefinitions[id];
   const Icon = definition.icon;
 
@@ -51,7 +53,7 @@ export function DesktopShortcut({ id, position, constraintsRef, onMove }: Deskto
       <span className="shortcut-icon">
         <Icon size={28} strokeWidth={1.7} />
       </span>
-      <span>{definition.title}</span>
+      <span className="shortcut-label">{appDefinitions[id].title[language]}</span>
     </motion.button>
   );
 }

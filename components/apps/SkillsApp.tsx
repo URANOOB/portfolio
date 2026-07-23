@@ -1,14 +1,23 @@
 "use client";
 
-import { skillGroups, skillsExperienceNote } from "@/data/skills";
+import { skillGroups as skillGroupsEs, skillsExperienceNote as noteEs } from "@/data/skills";
+import { skillGroups as skillGroupsEn, skillsExperienceNote as noteEn } from "@/data/skills-en";
+import { usePreferencesStore } from "@/store/preferences-store";
 
 export function SkillsApp() {
+  const language = usePreferencesStore((state) => state.language);
+  const skillGroups = language === "es" ? skillGroupsEs : skillGroupsEn;
+  const skillsExperienceNote = language === "es" ? noteEs : noteEn;
   return (
     <article className="app-scroll skills-app">
       <header className="app-section-header">
         <div>
           <p className="section-kicker">STACK</p>
-          <h2>Herramientas para resolver, no para decorar.</h2>
+          <h2>
+            {language === "es"
+              ? "Herramientas para resolver, no para decorar."
+              : "Tools to solve, not just decorate."}
+          </h2>
         </div>
       </header>
       <div className="skill-groups">

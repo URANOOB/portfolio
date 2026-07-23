@@ -14,7 +14,7 @@ import { useWindowStore } from "@/store/window-store";
 type ShortcutId = (typeof desktopShortcuts)[number];
 type ShortcutPosition = { x: number; y: number };
 
-const shortcutStorageKey = "urano-desktop-shortcuts";
+const shortcutStorageKey = "rcoon-desktop-shortcuts";
 const defaultShortcutPositions: Record<ShortcutId, ShortcutPosition> = {
   resume: { x: 16, y: 18 },
   logistics: { x: 16, y: 112 },

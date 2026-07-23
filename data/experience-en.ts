@@ -1,0 +1,92 @@
+import type { Experience } from "@/types/portfolio";
+
+export const experience: Experience[] = [
+  {
+    track: "logistics",
+    company: "Lean Group",
+    role: "Senior Logistics Coordinator",
+    period: "Dates to be confirmed",
+    summary:
+      "Operations coordination, priority tracking, and communication with international clients and allies.",
+    responsibilities: [
+      "Providing visibility to operations status and exceptions.",
+      "Coordinating conversations between clients, carriers, and internal teams.",
+      "Prioritizing incidents in high-speed environments.",
+    ],
+    tools: ["TMS", "CRM", "Spreadsheets", "Professional English"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "JB Hunt",
+    role: "Logistics Operations",
+    period: "Dates to be confirmed",
+    summary: "Experience related to operational tracking, service, and transport coordination.",
+    responsibilities: ["Freight tracking", "Operational communication", "Issue management"],
+    tools: ["Logistics platforms", "Professional English"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "Avenger Logistics",
+    role: "Logistics Operations",
+    period: "Dates to be confirmed",
+    summary: "Support for transport operations and attention to international client requirements.",
+    responsibilities: ["Operations coordination", "Customer service", "Delivery tracking"],
+    tools: ["TMS", "Email", "Spreadsheets"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "USA Truck / DB Schenker",
+    role: "International Logistics",
+    period: "Dates to be confirmed",
+    summary: "Experience in transport and logistics ecosystems with multiple stakeholders.",
+    responsibilities: ["Traceability", "Exception management", "International coordination"],
+    tools: ["Logistics platforms", "Professional English"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "Concentrix",
+    role: "International Customer Service",
+    period: "Dates to be confirmed",
+    summary: "Customer service in an environment of processes, metrics, and bilingual communication.",
+    responsibilities: ["Request resolution", "Case tracking", "Bilingual communication"],
+    tools: ["CRM", "Ticketing systems"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "Ingenio Empresarial",
+    role: "Professional Experience",
+    period: "Dates to be confirmed",
+    summary: "Participation in business and technology initiatives; contract details pending validation.",
+    responsibilities: ["Collaborative work", "Fast learning", "Results orientation"],
+    tools: ["Digital tools"],
+    achievements: [],
+  },
+  {
+    track: "logistics",
+    company: "Nexa BPO",
+    role: "Service and Operations",
+    period: "Dates to be confirmed",
+    summary: "Experience in service, tracking, and compliance of operational processes.",
+    responsibilities: ["Request attention", "Case documentation", "Process compliance"],
+    tools: ["CRM", "Telephony", "Email"],
+    achievements: [],
+  },
+  {
+    track: "software",
+    company: "Inglés Pa’ la Paz",
+    role: "Web Development and Social Contribution",
+    period: "Ongoing",
+    summary: "Building a digital experience for an English education initiative with social impact.",
+    responsibilities: ["Frontend development", "Content architecture", "Continuous improvement"],
+    tools: ["Next.js", "React", "TypeScript"],
+    achievements: [],
+  },
+];
+
+export const logisticsExperience = experience.filter((item) => item.track === "logistics");
+export const softwareExperience = experience.filter((item) => item.track === "software");

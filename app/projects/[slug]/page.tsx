@@ -29,7 +29,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="share-cosmos" aria-hidden="true" />
       <article className="share-card">
         <Link href="/">
-          <ArrowLeft size={16} /> Volver a Urano OS
+          <ArrowLeft size={16} /> Volver a R/COON
         </Link>
         <div className={`share-visual visual-${project.accent}`}>
           <span />
@@ -81,6 +81,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <LockKeyhole size={15} /> Demo y repositorio pendientes de verificación
             </span>
           ) : null}
+          {project.links?.map((link) => (
+            <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+              <ExternalLink size={16} /> {link.label}
+            </a>
+          ))}
         </footer>
       </article>
     </main>

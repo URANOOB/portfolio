@@ -6,6 +6,7 @@ import { validateContactPayload } from "../lib/validation.ts";
 test("terminal accepts only known portfolio commands", () => {
   assert.equal(runPortfolioCommand("open atlas-splitter").action?.appId, "projects");
   assert.equal(runPortfolioCommand("education").action?.appId, "resume");
+  assert.equal(runPortfolioCommand("github").action?.href, "https://github.com/URANOOB");
   assert.match(runPortfolioCommand("rm -rf /").lines.join(" "), /no reconocido/i);
   assert.equal(runPortfolioCommand("clear").action?.type, "clear");
 });

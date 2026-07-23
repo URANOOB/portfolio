@@ -5,6 +5,7 @@ import { Maximize2, Minus, X } from "lucide-react";
 import { useRef } from "react";
 import { AppContent } from "@/components/windows/AppContent";
 import { appDefinitions } from "@/data/navigation";
+import { usePreferencesStore } from "@/store/preferences-store";
 import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
@@ -26,6 +27,7 @@ export function WindowFrame({ id }: { id: AppId }) {
   const dragOrigin = useRef<PointerOrigin | null>(null);
   const resizeOrigin = useRef<PointerOrigin | null>(null);
   const reduceMotion = useReducedMotion();
+  const language = usePreferencesStore((state) => state.language);
   const definition = appDefinitions[id];
   const Icon = definition.icon;
 
@@ -94,7 +96,7 @@ export function WindowFrame({ id }: { id: AppId }) {
         bounce: 0.18,
       }}
       onPointerDown={() => focusWindow(id)}
-      aria-label={`Ventana ${definition.title}`}
+      aria-label={`${language === "es" ? "Ventana" : "Window"} ${definition.title[language]}`}
     >
       <div
         className="window-titlebar"
@@ -107,28 +109,28 @@ export function WindowFrame({ id }: { id: AppId }) {
           <button
             className="window-close"
             onClick={() => closeWindow(id)}
-            aria-label={`Cerrar ${definition.title}`}
+            aria-label={`${language === "es" ? "Cerrar" : "Close"} ${definition.title[language]}`}
           >
             <X size={11} />
           </button>
           <button
             className="window-minimize"
             onClick={() => minimizeWindow(id)}
-            aria-label={`Minimizar ${definition.title}`}
+            aria-label={`${language === "es" ? "Minimizar" : "Minimize"} ${definition.title[language]}`}
           >
             <Minus size={11} />
           </button>
           <button
             className="window-maximize"
             onClick={() => toggleMaximize(id)}
-            aria-label={`Maximizar ${definition.title}`}
+            aria-label={`${language === "es" ? "Maximizar" : "Maximize"} ${definition.title[language]}`}
           >
             <Maximize2 size={9} />
           </button>
         </div>
         <div className="window-title">
-          <Icon size={16} style={{ color: definition.color }} />
-          <span>{definition.title}</span>
+          <Icon size={16} />
+          <span>{definition.title[language]}</span>
         </div>
         <span className="titlebar-spacer" />
       </div>
@@ -138,7 +140,7 @@ export function WindowFrame({ id }: { id: AppId }) {
       {!windowState.isMaximized ? (
         <button
           className="resize-handle"
-          aria-label={`Cambiar tamaño de ${definition.title}`}
+          aria-label={`${language === "es" ? "Cambiar tamaño de" : "Resize"} ${definition.title[language]}`}
           onPointerDown={startResize}
           onPointerMove={resize}
           onPointerUp={() => (resizeOrigin.current = null)}

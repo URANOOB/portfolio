@@ -7,7 +7,6 @@
   "5": "scripts",
   "6": "dependencies",
   "7": "preferences-store.ts",
-  "8": "include",
   "9": "layout.tsx",
   "10": "index.ts",
   "11": "skills.ts",
@@ -32,7 +31,7 @@
   "30": "graphify reference: transcribe video and audio",
   "31": "AGENTS.md",
   "32": "extraction-spec.md",
-  "33": "ExperienceApp.tsx",
   "34": "experience.ts",
-  "35": "ResumeApp.tsx"
+  "36": "Q: 6:40:59 p. m. [vite] Internal server error: Cannot read properties of undefined (reading 'fetch') at Object.fetchAsset (C:/Users/will2/OneDrive/Desktop/Portfolio/worker/index.ts:41:44) at handleImageOptimization (C:/Users/will2/OneDrive/Desktop/Portfolio/node_modules/vinext/src/server/image-optimization.ts:237:33)",
+  "37": "Q: Quita esta caja de ayuda por favor."
 }

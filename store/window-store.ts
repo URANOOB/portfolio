@@ -28,7 +28,7 @@ function windowState(
 ): WindowState {
   return {
     id,
-    isOpen: false,
+    isOpen: id === "about" || id === "experience" || id === "help",
     isMinimized: false,
     isMaximized: false,
     position: { x, y },
@@ -143,7 +143,23 @@ export const useWindowStore = create<WindowStore>()(
         return {
           ...currentState,
           ...persisted,
-          windows: { ...initialWindows, ...persisted?.windows },
+          windows: {
+            ...initialWindows,
+            ...persisted?.windows,
+            about: {
+              ...initialWindows.about,
+              ...persisted?.windows?.about,
+              isOpen: true,
+              isMinimized: false,
+            },
+            experience: {
+              ...initialWindows.experience,
+              ...persisted?.windows?.experience,
+              isOpen: true,
+              isMinimized: false,
+            },
+            help: { ...initialWindows.help, ...persisted?.windows?.help, isOpen: true, isMinimized: false },
+          },
         };
       },
     },

@@ -5,7 +5,8 @@ export const profile = {
   location: "Bogotá, Colombia",
   availability: "Abierto a oportunidades en desarrollo de software",
   languages: ["Español nativo", "Inglés B2+"],
-  intro: "Construyo productos web claros, rápidos y mantenibles que convierten necesidades reales en experiencias digitales útiles.",
+  intro:
+    "Construyo productos web claros, rápidos y mantenibles que convierten necesidades reales en experiencias digitales útiles.",
   about: [
     "Me enfoco en desarrollo de software y en la construcción de productos digitales con interfaces claras, arquitectura mantenible y buen rendimiento.",
     "Disfruto transformar problemas ambiguos en funcionalidades concretas, aprender herramientas nuevas y mejorar cada entrega mediante iteración, documentación y criterio de producto.",
@@ -16,8 +17,9 @@ export const profile = {
 } as const;
 
 export const socialLinks = {
-  github: null,
+  github: "https://github.com/URANOOB",
   linkedin: null,
-  email: null,
+  email: "mailto:will21@hotmail.es",
+  phone: null,
   whatsapp: null,
 } satisfies Record<string, string | null>;

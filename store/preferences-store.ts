@@ -7,7 +7,7 @@ export type Theme = "dark" | "light";
 export type Language = "es" | "en";
 export type Accent = "orange" | "green" | "blue" | "purple";
 export type TextSize = "small" | "medium" | "large";
-export type Wallpaper = "landscape";
+export type Wallpaper = "landscape" | "summerSea" | "animeSea";
 
 interface PreferencesStore {
   theme: Theme;
@@ -25,9 +25,9 @@ interface PreferencesStore {
 export const usePreferencesStore = create<PreferencesStore>()(
   persist(
     (set) => ({
-      theme: "dark",
+      theme: "light",
       language: "es",
-      accent: "orange",
+      accent: "green",
       textSize: "medium",
       wallpaper: "landscape",
       setTheme: (theme) => set({ theme }),
