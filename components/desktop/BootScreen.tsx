@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { getBootDelay, isBootDismissalKey } from "@/lib/boot";
 import { usePreferencesStore } from "@/store/preferences-store";
 
 export function BootScreen() {
@@ -17,9 +18,9 @@ export function BootScreen() {
       setVisible(false);
     };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (["Enter", "Escape", " ", "Spacebar"].includes(event.key)) close();
+      if (isBootDismissalKey(event.key)) close();
     };
-    const timer = window.setTimeout(close, seen || reduceMotion ? 0 : 1_000);
+    const timer = window.setTimeout(close, getBootDelay(seen, Boolean(reduceMotion)));
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.clearTimeout(timer);

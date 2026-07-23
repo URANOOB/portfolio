@@ -8,7 +8,13 @@ export interface ContactPayload {
   turnstileToken?: string;
 }
 
-const limits = { name: 100, email: 254, company: 120, subject: 160, message: 4_000 };
+export const contactFieldLimits = {
+  name: 100,
+  email: 254,
+  company: 120,
+  subject: 160,
+  message: 4_000,
+} as const;
 
 export function normalizeContactPayload(payload: Partial<ContactPayload>): ContactPayload {
   const clean = (value: unknown, max: number) =>
@@ -20,33 +26,50 @@ export function normalizeContactPayload(payload: Partial<ContactPayload>): Conta
           .slice(0, max)
       : "";
   return {
-    name: clean(payload.name, limits.name),
-    email: clean(payload.email, limits.email).toLowerCase(),
-    company: clean(payload.company, limits.company),
-    subject: clean(payload.subject, limits.subject),
-    message: clean(payload.message, limits.message),
+    name: clean(payload.name, contactFieldLimits.name),
+    email: clean(payload.email, contactFieldLimits.email).toLowerCase(),
+    company: clean(payload.company, contactFieldLimits.company),
+    subject: clean(payload.subject, contactFieldLimits.subject),
+    message: clean(payload.message, contactFieldLimits.message),
     website: clean(payload.website, 200),
     turnstileToken: clean(payload.turnstileToken, 2_048),
   };
 }
 
 export function validateContactPayload(payload: Partial<ContactPayload>) {
-  payload = normalizeContactPayload(payload);
+  const normalized = normalizeContactPayload(payload);
   const errors: Partial<Record<keyof ContactPayload, string>> = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const exceeds = (value: unknown, limit: number) => typeof value === "string" && value.length > limit;
 
-  if (!payload.name?.trim() || payload.name.trim().length < 2) {
+  if (exceeds(payload.name, contactFieldLimits.name) || !normalized.name || normalized.name.length < 2) {
     errors.name = "Escribe tu nombre.";
   }
-  if (!payload.email?.trim() || !emailPattern.test(payload.email)) {
+  if (exceeds(payload.email, contactFieldLimits.email) || !emailPattern.test(normalized.email)) {
     errors.email = "Escribe un correo válido.";
   }
-  if (!payload.subject?.trim() || payload.subject.trim().length < 3) {
+  if (
+    exceeds(payload.subject, contactFieldLimits.subject) ||
+    !normalized.subject ||
+    normalized.subject.length < 3
+  ) {
     errors.subject = "Cuéntame brevemente el motivo.";
   }
-  if (!payload.message?.trim() || payload.message.trim().length < 20) {
+  if (
+    exceeds(payload.message, contactFieldLimits.message) ||
+    !normalized.message ||
+    normalized.message.length < 20
+  ) {
     errors.message = "El mensaje debe tener al menos 20 caracteres.";
   }
 
   return { valid: Object.keys(errors).length === 0, errors };
+}
+
+export function serializeContactPayload(
+  form: ContactPayload,
+  turnstileToken: string,
+  turnstileEnabled: boolean,
+) {
+  return { ...form, ...(turnstileEnabled ? { turnstileToken } : {}) };
 }

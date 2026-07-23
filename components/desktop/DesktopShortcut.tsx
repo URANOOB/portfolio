@@ -40,8 +40,12 @@ export function DesktopShortcut({ id, position, constraintsRef, onMove }: Deskto
       onClick={() => {
         if (!dragged.current) openWindow(id);
       }}
-      aria-label={`Abrir ${definition.title}`}
-      title={`Arrastra para mover · Clic para abrir ${definition.title}`}
+      aria-label={`${language === "es" ? "Abrir" : "Open"} ${definition.title[language]}`}
+      title={
+        language === "es"
+          ? `Arrastra para mover · Clic para abrir ${definition.title[language]}`
+          : `Drag to move · Click to open ${definition.title[language]}`
+      }
       style={
         {
           x: position.x,

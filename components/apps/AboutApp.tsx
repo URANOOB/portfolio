@@ -129,7 +129,7 @@ export function AboutApp() {
         <figure className="about-raccoon">
           <Image
             src="/about-raccoon.gif"
-            alt="Mapache animado en pixel art"
+            alt={language === "es" ? "Mapache animado en pixel art" : "Animated pixel-art raccoon"}
             width={970}
             height={610}
             unoptimized

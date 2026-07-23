@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { usePreferencesStore } from "@/store/preferences-store";
 import type { AppId } from "@/types/portfolio";
 
 const apps = {
@@ -42,10 +43,18 @@ const apps = {
 } satisfies Record<AppId, React.ComponentType>;
 
 function AppLoading() {
+  const language = usePreferencesStore((state) => state.language);
+
   return (
     <div className="app-loading" role="status">
-      <Image src="/terminal-raccoon-walk.gif" alt="Mapache corriendo" width={76} height={76} unoptimized />
-      <span>Preparando aplicación…</span>
+      <Image
+        src="/terminal-raccoon-walk.gif"
+        alt={language === "es" ? "Mapache corriendo" : "Running raccoon"}
+        width={76}
+        height={76}
+        unoptimized
+      />
+      <span>{language === "es" ? "Preparando aplicación…" : "Preparing application…"}</span>
     </div>
   );
 }

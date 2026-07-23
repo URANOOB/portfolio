@@ -16,7 +16,7 @@ export const projects: Project[] = [
     technologies: ["Python", "OpenCV", "Image Processing", "WEBP"],
     tasks: ["Desktop tool", "Computer vision", "Automation"],
     status: "In development",
-    repository: null,
+    repository: "https://github.com/URANOOB/atlas-splitter",
     demo: null,
     challenges: [
       "Detecting regions with transparencies and irregular borders.",
