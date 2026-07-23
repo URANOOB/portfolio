@@ -28,7 +28,7 @@ function windowState(
 ): WindowState {
   return {
     id,
-    isOpen: id === "about" || id === "experience" || id === "help",
+    isOpen: id === "about",
     isMinimized: false,
     isMaximized: false,
     position: { x, y },
@@ -68,6 +68,7 @@ export const useWindowStore = create<WindowStore>()(
                 ...state.windows[id],
                 isOpen: true,
                 isMinimized: false,
+                isMaximized: window.innerWidth <= 700 ? true : state.windows[id].isMaximized,
                 zIndex: nextZ,
               },
             },
@@ -135,7 +136,7 @@ export const useWindowStore = create<WindowStore>()(
         })),
     }),
     {
-      name: "urano-window-session",
+      name: "rcoon-window-session",
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({ windows: state.windows, topZ: state.topZ }),
       merge: (persistedState, currentState) => {
@@ -146,19 +147,6 @@ export const useWindowStore = create<WindowStore>()(
           windows: {
             ...initialWindows,
             ...persisted?.windows,
-            about: {
-              ...initialWindows.about,
-              ...persisted?.windows?.about,
-              isOpen: true,
-              isMinimized: false,
-            },
-            experience: {
-              ...initialWindows.experience,
-              ...persisted?.windows?.experience,
-              isOpen: true,
-              isMinimized: false,
-            },
-            help: { ...initialWindows.help, ...persisted?.windows?.help, isOpen: true, isMinimized: false },
           },
         };
       },

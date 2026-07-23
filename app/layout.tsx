@@ -19,25 +19,39 @@ export async function generateMetadata(): Promise<Metadata> {
   const socialImage = `${origin}/og.png`;
   return {
     metadataBase: new URL(origin),
-    title: { default: "William Galeano — R/COON Porfolio", template: "%s · William Galeano" },
+    title: { default: "William Galeano | Software Developer | R/COON OS", template: "%s | William Galeano" },
     description:
-      "Portafolio de William Galeano, Software Developer y Senior Logistics Coordinator en Bogotá.",
-    keywords: ["William Galeano", "Software Developer", "Logística", "Next.js", "Bogotá"],
+      "Portafolio interactivo de William Galeano, desarrollador de software full stack en Bogotá con experiencia en Next.js, React, TypeScript, Python, Java y soluciones digitales.",
+    keywords: [
+      "William Galeano",
+      "Software Developer",
+      "Full Stack Developer",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "Java",
+      "Bogotá",
+      "logística internacional",
+      "portafolio bilingüe",
+    ],
     authors: [{ name: "William Galeano" }],
+    creator: "William Galeano",
+    publisher: "William Galeano",
+    alternates: { canonical: "/" },
     openGraph: {
       type: "website",
       locale: "es_CO",
-      siteName: "William Galeano — R/COON Porfolio",
-      title: "William Galeano — R/COON Porfolio",
+      siteName: "R/COON OS",
+      title: "William Galeano | Software Developer | R/COON OS",
       description:
-        "Tecnología, logística internacional y productos digitales en una experiencia interactiva.",
+        "Portafolio interactivo de William Galeano, desarrollador de software full stack en Bogotá.",
       images: [{ url: socialImage, width: 1734, height: 908, alt: "William Galeano — Software y logística" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "William Galeano — R/COON Porfolio",
-      description:
-        "Tecnología, logística internacional y productos digitales en una experiencia interactiva.",
+      title: "William Galeano | Software Developer | R/COON OS",
+      description: "Interactive portfolio of William Galeano, a full stack software developer in Bogotá.",
       images: [socialImage],
     },
     icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
@@ -60,9 +74,24 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     "@context": "https://schema.org",
     "@type": "Person",
     name: "William Galeano",
-    jobTitle: ["Software Developer", "Senior Logistics Coordinator"],
+    jobTitle: "Full Stack Software Developer",
+    description:
+      "Software developer and Software Engineering student with experience in web development, technical support, and international operations.",
     address: { "@type": "PostalAddress", addressLocality: "Bogotá", addressCountry: "CO" },
     knowsLanguage: ["Spanish", "English"],
+    sameAs: [
+      "https://github.com/URANOOB",
+      "https://www.linkedin.com/in/william-eduardo-galeano-ramirez-861549368/",
+    ],
+    knowsAbout: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "Java",
+      "Web development",
+      "International logistics",
+    ],
     url: siteUrl,
   };
 

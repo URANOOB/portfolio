@@ -9,11 +9,9 @@ import {
   FileImage,
   FileText,
   Images,
-  LockKeyhole,
   SearchCheck,
   Table2,
 } from "lucide-react";
-import Image from "next/image";
 import type { ElementType } from "react";
 import { useState } from "react";
 import { FaJava } from "react-icons/fa6";
@@ -67,21 +65,6 @@ function getTimelineBar(project: Project) {
   return { left, width: MIN_TIMELINE_SPAN };
 }
 
-function ProjectVisual({ project }: { project: Project }) {
-  return (
-    <div className={`project-visual visual-${project.accent}`} aria-hidden="true">
-      <span className="visual-orbit" />
-      <span className="visual-panel panel-one" />
-      <span className="visual-panel panel-two" />
-      <p>
-        {project.title.split(" ").map((word) => (
-          <span key={word}>{word}</span>
-        ))}
-      </p>
-    </div>
-  );
-}
-
 export function ProjectsApp() {
   const [selected, setSelected] = useState<Project | null>(null);
   const language = usePreferencesStore((state) => state.language);
@@ -96,137 +79,100 @@ export function ProjectsApp() {
       : language === "es"
         ? "Abrir repositorio"
         : "Open repository";
-    const visualSlides = Array.from({ length: 3 }, (_, index) => selected.visuals[index] ?? null);
-
     return (
       <article className="app-scroll project-case-study">
-        <div className="project-case-layout">
-          <section className="project-case-copy">
-            <header className="project-case-intro">
-              <button className="text-button" onClick={() => setSelected(null)}>
-                <ArrowLeft size={15} /> {language === "es" ? "Todos los proyectos" : "All projects"}
-              </button>
-              <div className="project-case-title-row">
-                <p className="section-kicker">{selected.eyebrow}</p>
-                <span className="status-badge">{selected.status}</span>
-              </div>
-              <h2>{selected.title}</h2>
-              <p className="project-case-meta">
-                {selected.role} · {selected.period}
-              </p>
-
-              <div className="project-case-actions">
-                {primaryLink ? (
-                  <a href={primaryLink} target="_blank" rel="noreferrer">
-                    {primaryLabel} <ExternalLink size={13} />
-                  </a>
-                ) : (
-                  <span>
-                    <LockKeyhole size={13} /> {language === "es" ? "Enlace pendiente" : "Link pending"}
-                  </span>
-                )}
-                {selected.repository && selected.demo ? (
-                  <a href={selected.repository} target="_blank" rel="noreferrer">
-                    {language === "es" ? "Repositorio" : "Repository"} <ExternalLink size={13} />
-                  </a>
-                ) : null}
-                {selected.links?.map((link) => (
-                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
-                    {link.label} <ExternalLink size={13} />
-                  </a>
-                ))}
-              </div>
-
-              <div className="project-case-facts">
-                <div>
-                  <h3>Tech stack</h3>
-                  <div className="project-case-tags">
-                    {selected.technologies.map((technology) => {
-                      const TechnologyIcon = TECHNOLOGY_ICONS[technology] ?? Braces;
-
-                      return (
-                        <span key={technology}>
-                          <TechnologyIcon size={13} aria-hidden="true" />
-                          {technology}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div>
-                  <h3>Tasks</h3>
-                  <div className="project-case-tags project-task-tags">
-                    {selected.tasks.map((task) => (
-                      <span key={task}>{task}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </header>
-
-            <div className="project-case-narrative">
-              <section>
-                <h3>{language === "es" ? "Resumen" : "Overview"}</h3>
-                <p>{selected.longDescription}</p>
-              </section>
-              <section>
-                <h3>Stack</h3>
-                <p>
-                  {selected.outcome} {language === "es" ? "El stack combina" : "The stack combines"}{" "}
-                  {selected.technologies.join(", ")}{" "}
-                  {language === "es"
-                    ? "para sostener el flujo principal del producto."
-                    : "to support the product's main workflow."}
-                </p>
-              </section>
-              <section>
-                <h3>{language === "es" ? "Desafíos técnicos" : "Technical challenges"}</h3>
-                <ul>
-                  {selected.challenges.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-              <section>
-                <h3>{language === "es" ? "Decisiones clave" : "Key decisions"}</h3>
-                <ul>
-                  {selected.learnings.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
+        <section className="project-case-copy">
+          <header className="project-case-intro">
+            <button className="text-button" onClick={() => setSelected(null)}>
+              <ArrowLeft size={15} /> {language === "es" ? "Todos los proyectos" : "All projects"}
+            </button>
+            <div className="project-case-title-row">
+              <p className="section-kicker">{selected.eyebrow}</p>
+              <span className="status-badge">{selected.status}</span>
             </div>
-          </section>
+            <h2>{selected.title}</h2>
+            <p className="project-case-meta">
+              {selected.role} · {selected.period}
+            </p>
 
-          <aside className="project-case-visuals">
-            <header>
-              <strong>{language === "es" ? "Imágenes" : "Visuals"}</strong>
-              <span>3 slides</span>
-            </header>
-            <div className="project-case-gallery">
-              {visualSlides.map((visual, index) => (
-                <figure key={visual?.src ?? `placeholder-${index}`}>
-                  <div className="project-case-frame">
-                    {visual ? (
-                      <Image src={visual.src} alt={visual.alt} fill sizes="(max-width: 800px) 100vw, 58vw" />
-                    ) : (
-                      <div className="project-case-placeholder">
-                        <ProjectVisual project={selected} />
-                        <span>Screenshot slot {String(index + 1).padStart(2, "0")}</span>
-                        <strong>{language === "es" ? "Captura pendiente" : "Missing capture"}</strong>
-                        <p>{selected.challenges[index] ?? selected.description}</p>
-                      </div>
-                    )}
-                  </div>
-                  <figcaption>
-                    {visual?.caption ??
-                      `Slide ${index + 1} · ${language === "es" ? "Visual pendiente" : "Missing visual"}`}
-                  </figcaption>
-                </figure>
+            <div className="project-case-actions">
+              {primaryLink ? (
+                <a href={primaryLink} target="_blank" rel="noreferrer">
+                  {primaryLabel} <ExternalLink size={13} />
+                </a>
+              ) : null}
+              {selected.repository && selected.demo ? (
+                <a href={selected.repository} target="_blank" rel="noreferrer">
+                  {language === "es" ? "Repositorio" : "Repository"} <ExternalLink size={13} />
+                </a>
+              ) : null}
+              {selected.links?.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                  {link.label} <ExternalLink size={13} />
+                </a>
               ))}
             </div>
-          </aside>
-        </div>
+
+            <div className="project-case-facts">
+              <div>
+                <h3>Tech stack</h3>
+                <div className="project-case-tags">
+                  {selected.technologies.map((technology) => {
+                    const TechnologyIcon = TECHNOLOGY_ICONS[technology] ?? Braces;
+
+                    return (
+                      <span key={technology}>
+                        <TechnologyIcon size={13} aria-hidden="true" />
+                        {technology}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+              <div>
+                <h3>Tasks</h3>
+                <div className="project-case-tags project-task-tags">
+                  {selected.tasks.map((task) => (
+                    <span key={task}>{task}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div className="project-case-narrative">
+            <section>
+              <h3>{language === "es" ? "Resumen" : "Overview"}</h3>
+              <p>{selected.longDescription}</p>
+            </section>
+            <section>
+              <h3>Stack</h3>
+              <p>
+                {selected.outcome} {language === "es" ? "El stack combina" : "The stack combines"}{" "}
+                {selected.technologies.join(", ")}{" "}
+                {language === "es"
+                  ? "para sostener el flujo principal del producto."
+                  : "to support the product's main workflow."}
+              </p>
+            </section>
+            <section>
+              <h3>{language === "es" ? "Desafíos técnicos" : "Technical challenges"}</h3>
+              <ul>
+                {selected.challenges.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+            <section>
+              <h3>{language === "es" ? "Decisiones clave" : "Key decisions"}</h3>
+              <ul>
+                {selected.learnings.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </section>
       </article>
     );
   }

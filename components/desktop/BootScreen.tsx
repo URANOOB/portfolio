@@ -11,8 +11,20 @@ export function BootScreen() {
   const language = usePreferencesStore((state) => state.language);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setVisible(false), reduceMotion ? 100 : 5000);
-    return () => window.clearTimeout(timer);
+    const seen = sessionStorage.getItem("rcoon-boot-seen") === "true";
+    const close = () => {
+      sessionStorage.setItem("rcoon-boot-seen", "true");
+      setVisible(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (["Enter", "Escape", " ", "Spacebar"].includes(event.key)) close();
+    };
+    const timer = window.setTimeout(close, seen || reduceMotion ? 0 : 1_000);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [reduceMotion]);
 
   return (
@@ -21,7 +33,15 @@ export function BootScreen() {
         <motion.div
           className="boot-screen"
           role="status"
-          aria-label="Iniciando R/COON Porfolio"
+          aria-label={
+            language === "es"
+              ? "Iniciando R/COON OS. Pulsa una tecla o toca para continuar."
+              : "Starting R/COON OS. Press a key or tap to continue."
+          }
+          onClick={() => {
+            sessionStorage.setItem("rcoon-boot-seen", "true");
+            setVisible(false);
+          }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: reduceMotion ? 1 : 1.015 }}
           transition={{ duration: reduceMotion ? 0 : 0.45 }}
@@ -34,8 +54,12 @@ export function BootScreen() {
             priority
             unoptimized
           />
-          <p>R/COON</p>
-          <span>{language === "es" ? "Preparando el espacio de trabajo" : "Preparing workspace"}</span>
+          <p>R/COON OS</p>
+          <span>
+            {language === "es"
+              ? "Preparando el espacio de trabajo · toca para continuar"
+              : "Preparing workspace · tap to continue"}
+          </span>
         </motion.div>
       ) : null}
     </AnimatePresence>

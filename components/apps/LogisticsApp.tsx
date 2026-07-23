@@ -49,7 +49,7 @@ export function LogisticsApp() {
                 <Truck size={18} />
               </div>
               <div>
-                <p>{item.period}</p>
+                {item.period ? <p>{item.period}</p> : null}
                 <h3>{item.company}</h3>
                 <span>{item.role}</span>
               </div>
@@ -73,11 +73,6 @@ export function LogisticsApp() {
           </section>
         ))}
       </div>
-      <p className="data-note">
-        {language === "es"
-          ? "Los cargos y periodos se muestran de forma prudente hasta validar el CV fuente. No se publican métricas inventadas."
-          : "Roles and periods are shown cautiously until validating the source CV. No invented metrics are published."}
-      </p>
     </article>
   );
 }

@@ -1,4 +1,4 @@
-# R/COON Portfolio
+# R/COON OS
 
 Plantilla de portafolio interactivo inspirada en un escritorio de sistema operativo. Convierte secciones habituales —perfil, experiencia, proyectos, habilidades, CV y contacto— en aplicaciones dentro de una interfaz personalizable, accesible y bilingüe.
 
@@ -7,7 +7,7 @@ Plantilla de portafolio interactivo inspirada en un escritorio de sistema operat
 ## Vista previa
 
 <p align="center">
-  <img src="public/readme/desktop.png" alt="Escritorio principal de R/COON Portfolio" width="900" />
+  <img src="public/readme/desktop.png" alt="Escritorio principal de R/COON OS" width="900" />
 </p>
 
 <p align="center">

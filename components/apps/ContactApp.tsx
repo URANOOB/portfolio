@@ -155,6 +155,16 @@ export function ContactApp() {
             onChange={(event) => update("message", event.target.value)}
           />
         </Field>
+        <div className="contact-honeypot" aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            id="contact-website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website ?? ""}
+            onChange={(event) => update("website", event.target.value)}
+          />
+        </div>
         <div className="form-submit-row">
           <p aria-live="polite" className={`form-status ${status}`}>
             {status === "success" ? <CheckCircle2 size={16} /> : null}
