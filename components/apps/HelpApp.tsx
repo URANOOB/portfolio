@@ -89,7 +89,7 @@ const technologyGroups: TechnologyGroup[] = [
   {
     id: "interface",
     label: "Interfaz y experiencia",
-    summary: "Estilos, movimiento, estado e iconografía que dan vida a Urano.",
+    summary: "Estilos, movimiento, estado e iconografía que dan vida a R/COON.",
     tone: "orange",
     items: [
       {
@@ -228,7 +228,7 @@ export function HelpApp() {
   return (
     <article className="app-scroll help-guide">
       <header className="help-guide-header">
-        <span>URANO / DOCUMENTACIÓN</span>
+        <span>R/COON / DOCUMENTACIÓN</span>
         <h2>Guía del portafolio</h2>
         <p>
           Este sitio funciona como un escritorio interactivo. Abre aplicaciones, mueve y organiza ventanas,
@@ -240,7 +240,7 @@ export function HelpApp() {
         <header className="help-stack-intro">
           <div>
             <span>STACK DEL PROYECTO</span>
-            <h3 id="help-stack">Tecnologías que hacen funcionar Urano</h3>
+            <h3 id="help-stack">Tecnologías que hacen funcionar R/COON</h3>
           </div>
           <p>
             Del componente que ves en pantalla al despliegue en el edge: estas son las piezas del proyecto y

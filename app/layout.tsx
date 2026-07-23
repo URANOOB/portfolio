@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./bento.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -18,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const socialImage = `${origin}/og.png`;
   return {
     metadataBase: new URL(origin),
-    title: { default: "William Galeano — Urano OS", template: "%s · William Galeano" },
+    title: { default: "William Galeano — R/COON Porfolio", template: "%s · William Galeano" },
     description:
       "Portafolio de William Galeano, Software Developer y Senior Logistics Coordinator en Bogotá.",
     keywords: ["William Galeano", "Software Developer", "Logística", "Next.js", "Bogotá"],
@@ -26,15 +27,15 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: "es_CO",
-      siteName: "William Galeano — Urano OS",
-      title: "William Galeano — Urano OS",
+      siteName: "William Galeano — R/COON Porfolio",
+      title: "William Galeano — R/COON Porfolio",
       description:
         "Tecnología, logística internacional y productos digitales en una experiencia interactiva.",
       images: [{ url: socialImage, width: 1734, height: 908, alt: "William Galeano — Software y logística" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "William Galeano — Urano OS",
+      title: "William Galeano — R/COON Porfolio",
       description:
         "Tecnología, logística internacional y productos digitales en una experiencia interactiva.",
       images: [socialImage],

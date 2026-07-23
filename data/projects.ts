@@ -35,7 +35,8 @@ export const projects: Project[] = [
     role: "Full Stack Software Developer",
     period: "2026 - Present",
     context: "Volunteer · Social impact",
-    outcome: "Ships an accessible education platform with secure APIs, SEO, analytics, and deployment workflows.",
+    outcome:
+      "Ships an accessible education platform with secure APIs, SEO, analytics, and deployment workflows.",
     timeline: { start: 0, end: 100 },
     title: "Inglés Pa’ la Paz",
     eyebrow: "Social impact platform",
@@ -47,7 +48,8 @@ export const projects: Project[] = [
     visuals: [],
     status: "Activo",
     repository: null,
-    demo: null,
+    demo: "https://inglespalapaz.com/",
+    links: [{ label: "Instagram", href: "https://www.instagram.com/ingles.pa.lapaz/" }],
     challenges: [
       "Priorizar accesibilidad y desempeño en dispositivos diversos.",
       "Estructurar contenido fácil de mantener por el equipo.",
@@ -135,6 +137,10 @@ export const projects: Project[] = [
     status: "Concepto",
     repository: "https://github.com/URANOOB/IPPConcept",
     demo: null,
+    links: [
+      { label: "Sitio web de IPP", href: "https://inglespalapaz.com/" },
+      { label: "Instagram de IPP", href: "https://www.instagram.com/ingles.pa.lapaz/" },
+    ],
     challenges: [
       "Traducir una identidad educativa cálida a un sistema visual coherente.",
       "Organizar rutas y componentes por features sin sobreestructurar el proyecto.",

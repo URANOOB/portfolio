@@ -5,6 +5,8 @@ import { usePreferencesStore } from "@/store/preferences-store";
 
 const wallpaperSources = {
   landscape: "/scene/landscape-4k.jpg",
+  summerSea: "/wallpapers/summer-sea.gif",
+  animeSea: "/wallpapers/anime-sea.mp4",
 } as const;
 
 const vertexShaderSource = `
@@ -95,6 +97,7 @@ export function SceneWallpaper() {
   const wallpaper = usePreferencesStore((state) => state.wallpaper);
 
   useEffect(() => {
+    if (wallpaper !== "landscape") return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -208,12 +211,34 @@ export function SceneWallpaper() {
 
   return (
     <div className="scene-wallpaper" aria-hidden="true">
-      <div
-        className="landscape-wallpaper-fallback"
-        style={{ backgroundImage: `url(${wallpaperSources[wallpaper]})` }}
-      />
-      <canvas ref={canvasRef} className="landscape-wallpaper-canvas" />
-      <div className="landscape-wallpaper-light" />
+      {wallpaper === "summerSea" ? (
+        <div
+          className="scene-wallpaper-media"
+          style={{ backgroundImage: `url(${wallpaperSources.summerSea})` }}
+        />
+      ) : null}
+      {wallpaper === "animeSea" ? (
+        <video
+          className="scene-wallpaper-media"
+          src={wallpaperSources.animeSea}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/wallpapers/anime-sea-preview.jpg"
+        />
+      ) : null}
+      {wallpaper !== "landscape" ? null : (
+        <>
+          <div
+            className="landscape-wallpaper-fallback"
+            style={{ backgroundImage: `url(${wallpaperSources[wallpaper]})` }}
+          />
+          <canvas ref={canvasRef} className="landscape-wallpaper-canvas" />
+          <div className="landscape-wallpaper-light" />
+        </>
+      )}
     </div>
   );
 }

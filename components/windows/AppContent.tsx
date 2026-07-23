@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import type { AppId } from "@/types/portfolio";
 
 const apps = {
@@ -43,7 +44,8 @@ const apps = {
 function AppLoading() {
   return (
     <div className="app-loading" role="status">
-      <span /> Preparando aplicación…
+      <Image src="/terminal-raccoon-walk.gif" alt="Mapache corriendo" width={76} height={76} unoptimized />
+      <span>Preparando aplicación…</span>
     </div>
   );
 }

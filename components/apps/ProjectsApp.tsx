@@ -28,7 +28,9 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { projects } from "@/data/projects";
+import { projects as projectsEs } from "@/data/projects";
+import { projects as projectsEn } from "@/data/projects-en";
+import { usePreferencesStore } from "@/store/preferences-store";
 import type { Project } from "@/types/portfolio";
 
 const MIN_TIMELINE_SPAN = 14;
@@ -82,10 +84,18 @@ function ProjectVisual({ project }: { project: Project }) {
 
 export function ProjectsApp() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const language = usePreferencesStore((state) => state.language);
+  const projects = language === "es" ? projectsEs : projectsEn;
 
   if (selected) {
     const primaryLink = selected.demo ?? selected.repository;
-    const primaryLabel = selected.demo ? "Visitar proyecto" : "Abrir repositorio";
+    const primaryLabel = selected.demo
+      ? language === "es"
+        ? "Visitar proyecto"
+        : "Visit project"
+      : language === "es"
+        ? "Abrir repositorio"
+        : "Open repository";
     const visualSlides = Array.from({ length: 3 }, (_, index) => selected.visuals[index] ?? null);
 
     return (
@@ -94,14 +104,16 @@ export function ProjectsApp() {
           <section className="project-case-copy">
             <header className="project-case-intro">
               <button className="text-button" onClick={() => setSelected(null)}>
-                <ArrowLeft size={15} /> Todos los proyectos
+                <ArrowLeft size={15} /> {language === "es" ? "Todos los proyectos" : "All projects"}
               </button>
               <div className="project-case-title-row">
                 <p className="section-kicker">{selected.eyebrow}</p>
                 <span className="status-badge">{selected.status}</span>
               </div>
               <h2>{selected.title}</h2>
-              <p className="project-case-meta">{selected.role} · {selected.period}</p>
+              <p className="project-case-meta">
+                {selected.role} · {selected.period}
+              </p>
 
               <div className="project-case-actions">
                 {primaryLink ? (
@@ -109,8 +121,20 @@ export function ProjectsApp() {
                     {primaryLabel} <ExternalLink size={13} />
                   </a>
                 ) : (
-                  <span><LockKeyhole size={13} /> Enlace pendiente</span>
+                  <span>
+                    <LockKeyhole size={13} /> {language === "es" ? "Enlace pendiente" : "Link pending"}
+                  </span>
                 )}
+                {selected.repository && selected.demo ? (
+                  <a href={selected.repository} target="_blank" rel="noreferrer">
+                    {language === "es" ? "Repositorio" : "Repository"} <ExternalLink size={13} />
+                  </a>
+                ) : null}
+                {selected.links?.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                    {link.label} <ExternalLink size={13} />
+                  </a>
+                ))}
               </div>
 
               <div className="project-case-facts">
@@ -132,7 +156,9 @@ export function ProjectsApp() {
                 <div>
                   <h3>Tasks</h3>
                   <div className="project-case-tags project-task-tags">
-                    {selected.tasks.map((task) => <span key={task}>{task}</span>)}
+                    {selected.tasks.map((task) => (
+                      <span key={task}>{task}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -140,30 +166,43 @@ export function ProjectsApp() {
 
             <div className="project-case-narrative">
               <section>
-                <h3>Overview</h3>
+                <h3>{language === "es" ? "Resumen" : "Overview"}</h3>
                 <p>{selected.longDescription}</p>
               </section>
               <section>
                 <h3>Stack</h3>
-                <p>{selected.outcome} El stack combina {selected.technologies.join(", ")} para sostener el flujo principal del producto.</p>
+                <p>
+                  {selected.outcome} {language === "es" ? "El stack combina" : "The stack combines"}{" "}
+                  {selected.technologies.join(", ")}{" "}
+                  {language === "es"
+                    ? "para sostener el flujo principal del producto."
+                    : "to support the product's main workflow."}
+                </p>
               </section>
               <section>
-                <h3>Technical challenges</h3>
+                <h3>{language === "es" ? "Desafíos técnicos" : "Technical challenges"}</h3>
                 <ul>
-                  {selected.challenges.map((item) => <li key={item}>{item}</li>)}
+                  {selected.challenges.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </section>
               <section>
-                <h3>Key decisions</h3>
+                <h3>{language === "es" ? "Decisiones clave" : "Key decisions"}</h3>
                 <ul>
-                  {selected.learnings.map((item) => <li key={item}>{item}</li>)}
+                  {selected.learnings.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </section>
             </div>
           </section>
 
           <aside className="project-case-visuals">
-            <header><strong>Visuals</strong><span>3 slides</span></header>
+            <header>
+              <strong>{language === "es" ? "Imágenes" : "Visuals"}</strong>
+              <span>3 slides</span>
+            </header>
             <div className="project-case-gallery">
               {visualSlides.map((visual, index) => (
                 <figure key={visual?.src ?? `placeholder-${index}`}>
@@ -174,12 +213,15 @@ export function ProjectsApp() {
                       <div className="project-case-placeholder">
                         <ProjectVisual project={selected} />
                         <span>Screenshot slot {String(index + 1).padStart(2, "0")}</span>
-                        <strong>Captura pendiente</strong>
+                        <strong>{language === "es" ? "Captura pendiente" : "Missing capture"}</strong>
                         <p>{selected.challenges[index] ?? selected.description}</p>
                       </div>
                     )}
                   </div>
-                  <figcaption>{visual?.caption ?? `Slide ${index + 1} · Visual pendiente`}</figcaption>
+                  <figcaption>
+                    {visual?.caption ??
+                      `Slide ${index + 1} · ${language === "es" ? "Visual pendiente" : "Missing visual"}`}
+                  </figcaption>
                 </figure>
               ))}
             </div>
@@ -192,29 +234,35 @@ export function ProjectsApp() {
   return (
     <article className="app-scroll works-editorial">
       <header className="works-editorial-header">
-        <h2>Works</h2>
+        <h2>{language === "es" ? "Proyectos" : "Works"}</h2>
         <p>
-          Explora proyectos seleccionados, sus periodos, decisiones técnicas y resultados. Cada tarjeta
-          abre una ficha con el contexto completo del trabajo.
+          {language === "es"
+            ? "Explora proyectos seleccionados, sus periodos, decisiones técnicas y resultados. Cada tarjeta abre una ficha con el contexto completo del trabajo."
+            : "Explore selected projects, their periods, technical decisions, and outcomes. Each card opens a file with full context of the work."}
         </p>
       </header>
 
       <section className="works-panel works-project-list" aria-labelledby="works-list-title">
-        <h3 id="works-list-title">Project List</h3>
+        <h3 id="works-list-title">{language === "es" ? "Lista de Proyectos" : "Project List"}</h3>
         <div>
           {projects.map((project) => (
             <button key={project.slug} onClick={() => setSelected(project)}>
               <span className="works-project-card-top">
                 <span className="works-project-heading">
                   <strong>{project.title}</strong>
-                  <span>{project.role} · {project.context}</span>
+                  <span>
+                    {project.role} · {project.context}
+                  </span>
                 </span>
                 <span className="works-project-status">{project.status}</span>
               </span>
               <span className="works-project-outcome">{project.outcome}</span>
               <span className="works-project-card-action">
                 <span>{project.period}</span>
-                <span>Ver proyecto <ArrowUpRight size={14} aria-hidden="true" /></span>
+                <span>
+                  {language === "es" ? "Ver proyecto" : "View project"}{" "}
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </span>
               </span>
             </button>
           ))}
@@ -222,24 +270,28 @@ export function ProjectsApp() {
       </section>
 
       <section className="works-panel works-timeline-panel" aria-labelledby="works-timeline-title">
-        <h3 id="works-timeline-title">Timeline · 2026</h3>
+        <h3 id="works-timeline-title">{language === "es" ? "Línea de tiempo · 2026" : "Timeline · 2026"}</h3>
         <p className="works-timeline-note">
-          La posición muestra los meses activos; el periodo exacto aparece dentro de cada barra.
+          {language === "es"
+            ? "La posición muestra los meses activos; el periodo exacto aparece dentro de cada barra."
+            : "Position shows active months; exact period appears inside each bar."}
         </p>
         <div className="works-timeline-scroll">
           <div className="works-timeline">
             <div className="works-timeline-years" aria-hidden="true">
-              <span>Projects</span>
-              <span>Ene</span>
-              <span>Feb</span>
-              <span>Mar</span>
-              <span>Abr</span>
-              <span>May</span>
-              <span>Jun</span>
-              <span>Jul</span>
+              <span>{language === "es" ? "Proyectos" : "Projects"}</span>
+              <span>{language === "es" ? "Ene" : "Jan"}</span>
+              <span>{language === "es" ? "Feb" : "Feb"}</span>
+              <span>{language === "es" ? "Mar" : "Mar"}</span>
+              <span>{language === "es" ? "Abr" : "Apr"}</span>
+              <span>{language === "es" ? "May" : "May"}</span>
+              <span>{language === "es" ? "Jun" : "Jun"}</span>
+              <span>{language === "es" ? "Jul" : "Jul"}</span>
             </div>
             <div className="works-timeline-chart">
-              <div className="works-timeline-now"><span>Hoy</span></div>
+              <div className="works-timeline-now">
+                <span>{language === "es" ? "Hoy" : "Today"}</span>
+              </div>
               {projects.map((project) => {
                 const bar = getTimelineBar(project);
 
