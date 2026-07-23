@@ -1,0 +1,269 @@
+/* BENTO / CREAM AESTHETIC OVERRIDES (THEME AWARE) */
+:root {
+  /* DARK MODE DEFAULTS */
+  --ink: #f4f5f8 !important;
+  --surface: #1a1a1a !important;
+  --surface-strong: #111 !important;
+  --surface-soft: #2a2a2a !important;
+  --line: #444 !important;
+  --line-strong: #666 !important;
+
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow: 0 12px 32px var(--shadow-color) !important;
+
+  --border-radius: 16px;
+  --border-width: 1px;
+}
+
+.desktop[data-theme="light"] {
+  /* LIGHT MODE (Cream/Beige Bento) */
+  --ink: #111 !important;
+  --surface: #f4ebd9 !important;
+  --surface-strong: #fff !important;
+  --surface-soft: #ebdcc2 !important;
+  --line: #111 !important;
+  --line-strong: #111 !important;
+
+  --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.window-frame {
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow) !important;
+  background: var(--surface) !important;
+  color: var(--ink);
+}
+.window-frame::before {
+  display: none !important;
+}
+
+.window-titlebar {
+  border-bottom: var(--border-width) solid var(--line) !important;
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+}
+.window-titlebar * {
+  color: var(--ink);
+}
+
+.window-controls button {
+  border: var(--border-width) solid var(--line) !important;
+  opacity: 1 !important;
+}
+.window-close {
+  background: #ff5f56 !important;
+}
+.window-minimize {
+  background: #ffbd2e !important;
+}
+.window-maximize {
+  background: #27c93f !important;
+}
+
+.menu-bar {
+  border-bottom: var(--border-width) solid var(--line) !important;
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+}
+
+.primary-action,
+.secondary-action {
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  background: var(--ink) !important;
+  color: var(--surface) !important;
+  transition: opacity 0.1s !important;
+}
+.secondary-action {
+  background: var(--surface-strong) !important;
+  color: var(--ink) !important;
+}
+.primary-action:hover,
+.secondary-action:hover {
+  opacity: 0.8 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.glass-panel {
+  background: var(--surface) !important;
+  border: var(--border-width) solid var(--line) !important;
+  box-shadow: var(--shadow) !important;
+  border-radius: var(--border-radius) !important;
+  color: var(--ink) !important;
+}
+
+/* Bright colorful accents */
+.desktop-shortcut:nth-child(5n + 1) .shortcut-icon {
+  background: #0055ff !important;
+}
+.desktop-shortcut:nth-child(5n + 2) .shortcut-icon {
+  background: #ffb700 !important;
+}
+.desktop-shortcut:nth-child(5n + 3) .shortcut-icon {
+  background: #ff5500 !important;
+}
+.desktop-shortcut:nth-child(5n + 4) .shortcut-icon {
+  background: #00cc66 !important;
+}
+.desktop-shortcut:nth-child(5n) .shortcut-icon {
+  background: #a200ff !important;
+}
+
+.shortcut-icon,
+.dock-icon {
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.shortcut-icon svg,
+.dock-icon svg {
+  color: #fff !important;
+}
+
+.dock-item:nth-child(5n + 1) .dock-icon {
+  background: #0055ff !important;
+}
+.dock-item:nth-child(5n + 2) .dock-icon {
+  background: #ffb700 !important;
+}
+.dock-item:nth-child(5n + 3) .dock-icon {
+  background: #ff5500 !important;
+}
+.dock-item:nth-child(5n + 4) .dock-icon {
+  background: #00cc66 !important;
+}
+.dock-item:nth-child(5n) .dock-icon {
+  background: #a200ff !important;
+}
+
+.dock {
+  background: var(--surface) !important;
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--shadow) !important;
+}
+.dock-label {
+  color: var(--surface) !important;
+  text-shadow: none !important;
+  background: var(--ink) !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  border: var(--border-width) solid var(--line) !important;
+  margin-bottom: 4px;
+}
+
+.desktop-shortcut {
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+.desktop-shortcut span {
+  background: var(--surface) !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  border: var(--border-width) solid var(--line) !important;
+}
+
+.scene-wallpaper::before,
+.scene-wallpaper::after {
+  display: none !important;
+}
+
+/* Grid matches the chosen accent color */
+.cosmos,
+.share-cosmos {
+  background: var(--accent) !important;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px) !important;
+  background-size: 50px 50px !important;
+  background-position: center center !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transition: background 0.3s ease;
+}
+
+/* In dark mode, make the grid background much darker but keep the accent tint */
+.desktop:not([data-theme="light"]) .cosmos,
+.desktop:not([data-theme="light"]) .share-cosmos {
+  background: color-mix(in srgb, var(--accent) 15%, #080808) !important;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+}
+
+.cosmos::before {
+  display: none !important;
+}
+.orbit,
+.planet-glow,
+.grain {
+  display: none !important;
+}
+
+input,
+textarea,
+select {
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: 8px !important;
+  background: var(--surface-strong) !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  transform: none !important;
+  box-shadow: 0 0 0 2px var(--line) !important;
+  outline: none !important;
+}
+
+.project-card,
+.experience-card,
+.share-card,
+.skill-group {
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: none !important;
+  background: var(--surface-strong) !important;
+  color: var(--ink) !important;
+}
+.project-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px var(--shadow-color) !important;
+}
+
+.terminal-form {
+  border-top: var(--border-width) solid var(--line) !important;
+}
+.terminal-window {
+  border-radius: 0 !important;
+}
+
+.boot-screen {
+  background: var(--surface) !important;
+  border: var(--border-width) solid var(--line) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow) !important;
+  color: var(--ink) !important;
+}
+
+.rcoon-mark {
+  border-width: var(--border-width) !important;
+  color: var(--ink) !important;
+}
+.rcoon-mark::before {
+  border-width: var(--border-width) !important;
+}
+.rcoon-mark > span {
+  box-shadow: none !important;
+  border: var(--border-width) solid var(--line) !important;
+  background: var(--ink) !important;
+}
