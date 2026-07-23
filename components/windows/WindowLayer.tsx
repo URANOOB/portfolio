@@ -6,7 +6,6 @@ import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
 const ids: AppId[] = [
-  "finder",
   "about",
   "experience",
   "logistics",

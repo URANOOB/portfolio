@@ -5,7 +5,6 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { AppId, WindowState } from "@/types/portfolio";
 
 const initialWindows: Record<AppId, WindowState> = {
-  finder: windowState("finder", 86, 94, 920, 590, 2),
   about: windowState("about", 152, 108, 820, 570, 3),
   experience: windowState("experience", 210, 76, 880, 620, 4),
   logistics: windowState("logistics", 210, 76, 880, 620, 5),

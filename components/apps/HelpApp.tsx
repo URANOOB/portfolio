@@ -7,7 +7,6 @@ import {
   SiFramer,
   SiGit,
   SiLucide,
-  SiMarkdown,
   SiNextdotjs,
   SiNodedotjs,
   SiPostcss,
@@ -127,12 +126,6 @@ const technologyGroups: TechnologyGroup[] = [
         version: "5.7",
         description: "Reúne logotipos de tecnologías para proyectos y esta guía visual.",
         icon: Shapes,
-      },
-      {
-        name: "React Markdown",
-        version: "10.1",
-        description: "Convierte las notas del Explorador en contenido HTML seguro y legible.",
-        icon: SiMarkdown,
       },
     ],
   },
@@ -304,7 +297,7 @@ export function HelpApp() {
         <h3 id="help-open-apps">Cómo abrir aplicaciones</h3>
         <ul>
           <li>Selecciona un icono del dock para abrir su ventana o traerla al frente.</li>
-          <li>Usa los accesos del escritorio para entrar a Explorador, Currículum y Logística.</li>
+          <li>Usa los accesos movibles del escritorio para entrar a Currículum y Logística.</li>
           <li>
             Arrastra una ventana desde su barra superior; también puedes minimizarla, ampliarla o cerrarla.
           </li>
@@ -312,10 +305,10 @@ export function HelpApp() {
       </section>
 
       <section className="help-guide-section" aria-labelledby="help-search">
-        <h3 id="help-search">Explorador y búsqueda</h3>
+        <h3 id="help-search">Búsqueda rápida</h3>
         <p>
-          Presiona <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir el Explorador. Desde Búsqueda puedes localizar
-          rápidamente secciones como Sobre mí, Experiencia, Logística, Works o Contacto.
+          Presiona <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir Búsqueda y localizar rápidamente secciones como
+          Sobre mí, Experiencia, Logística, Works o Contacto.
         </p>
       </section>
 
