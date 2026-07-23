@@ -115,7 +115,7 @@ export function ProjectsApp() {
 
             <div className="project-case-facts">
               <div>
-                <h3>Tech stack</h3>
+                <h3>{language === "es" ? "Stack tecnológico" : "Tech stack"}</h3>
                 <div className="project-case-tags">
                   {selected.technologies.map((technology) => {
                     const TechnologyIcon = TECHNOLOGY_ICONS[technology] ?? Braces;
@@ -130,7 +130,7 @@ export function ProjectsApp() {
                 </div>
               </div>
               <div>
-                <h3>Tasks</h3>
+                <h3>{language === "es" ? "Responsabilidades" : "Tasks"}</h3>
                 <div className="project-case-tags project-task-tags">
                   {selected.tasks.map((task) => (
                     <span key={task}>{task}</span>
@@ -246,7 +246,11 @@ export function ProjectsApp() {
                     className="works-timeline-row"
                     key={project.slug}
                     onClick={() => setSelected(project)}
-                    aria-label={`Abrir ${project.title}, ${project.period}`}
+                    aria-label={
+                      language === "es"
+                        ? `Abrir ${project.title}, ${project.period}`
+                        : `Open ${project.title}, ${project.period}`
+                    }
                   >
                     <span className="works-timeline-name">{project.title}</span>
                     <span className="works-timeline-grid" aria-hidden="true">

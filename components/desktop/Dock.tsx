@@ -44,7 +44,7 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
         }
       }
       onClick={activate}
-      aria-label={`${windowState.isOpen ? "Enfocar" : "Abrir"} ${definition.title[language]}`}
+      aria-label={`${windowState.isOpen ? (language === "es" ? "Enfocar" : "Focus") : language === "es" ? "Abrir" : "Open"} ${definition.title[language]}`}
     >
       <motion.span className="dock-icon" style={{ width: size, height: size }} aria-hidden="true">
         <Icon size={34} strokeWidth={1.6} />
@@ -57,9 +57,10 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
 
 export function Dock() {
   const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
+  const language = usePreferencesStore((state) => state.language);
 
   return (
-    <nav aria-label="Aplicaciones" className="dock-wrap">
+    <nav aria-label={language === "es" ? "Aplicaciones" : "Applications"} className="dock-wrap">
       <motion.div
         className="dock glass-panel"
         onMouseMove={(event) => mouseX.set(event.pageX)}

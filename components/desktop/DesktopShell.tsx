@@ -28,6 +28,7 @@ export function DesktopShell() {
   const accent = usePreferencesStore((state) => state.accent);
   const textSize = usePreferencesStore((state) => state.textSize);
   const language = usePreferencesStore((state) => state.language);
+  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const openWindow = useWindowStore((state) => state.openWindow);
 
   useEffect(() => {
@@ -70,17 +71,30 @@ export function DesktopShell() {
     document.documentElement.lang = language;
   }, [language]);
 
+  useEffect(() => {
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    if (requestedLanguage === "es" || requestedLanguage === "en") setLanguage(requestedLanguage);
+  }, [setLanguage]);
+
   return (
     <main className="desktop" data-theme={theme} data-accent={accent} data-text-size={textSize}>
       <a className="skip-link" href="#desktop-intro">
-        Saltar al contenido
+        {language === "es" ? "Saltar al contenido" : "Skip to content"}
       </a>
       <SceneWallpaper />
 
       <MenuBar />
 
-      <section className="desktop-content" id="desktop-intro" aria-label="Escritorio del portafolio">
-        <div ref={shortcutAreaRef} className="desktop-shortcuts" aria-label="Accesos rápidos movibles">
+      <section
+        className="desktop-content"
+        id="desktop-intro"
+        aria-label={language === "es" ? "Escritorio del portafolio" : "Portfolio desktop"}
+      >
+        <div
+          ref={shortcutAreaRef}
+          className="desktop-shortcuts"
+          aria-label={language === "es" ? "Accesos rápidos movibles" : "Movable shortcuts"}
+        >
           {desktopShortcuts.map((id) => (
             <DesktopShortcut
               key={id}

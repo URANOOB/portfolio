@@ -23,7 +23,7 @@ Plantilla de portafolio interactivo inspirada en un escritorio de sistema operat
 - Fondos animados y estáticos; soporte de `prefers-reduced-motion`.
 - Terminal con comandos seguros para explorar el contenido y abrir enlaces.
 - Rutas SEO para cada proyecto, sitemap, robots y metadatos.
-- Formulario de contacto validado en cliente y servidor, listo para entrega de correo con Resend.
+- Formulario de contacto validado en cliente y servidor, listo para entrega de correo con Resend, Turnstile opcional y límite de intentos.
 - Descarga y visualización de CVs.
 - Navegación por teclado, estados de foco visibles y controles con etiquetas accesibles.
 
@@ -129,14 +129,32 @@ CONTACT_FROM_EMAIL=Portfolio <contacto@tu-dominio-verificado.com>
 - `CONTACT_FROM_EMAIL` debe usar un dominio verificado en Resend.
 - El visitante queda como `reply_to`, para responderle directamente.
 
-Para producción conviene añadir una protección anti-spam como Cloudflare Turnstile y validarla desde `app/api/contact/route.ts`.
+### Protección anti-spam opcional
+
+El formulario funciona sin Turnstile. Para activarlo, crea un widget administrado en Cloudflare Turnstile y configura **ambas** variables; el valor público se carga en el navegador y el secreto se conserva únicamente en el servidor:
+
+```env
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAA...
+TURNSTILE_SECRET_KEY=0x4AAAA...
+```
+
+Cuando el secreto existe, el servidor exige y valida el token de Turnstile antes de enviar el correo. El widget se reinicia después de cada intento para evitar reutilizar tokens expirados.
+
+El endpoint permite hasta cinco intentos por IP cada diez minutos. Para un límite distribuido entre instancias de Vercel, crea una base de datos de Upstash Redis y añade estas variables opcionales:
+
+```env
+UPSTASH_REDIS_REST_URL=https://example.upstash.io
+UPSTASH_REDIS_REST_TOKEN=tu_token
+```
+
+Sin Upstash se usa un fallback limitado en memoria, útil para desarrollo pero no como protección distribuida en producción.
 
 ## Desplegar en Vercel
 
 1. Haz fork de este repositorio o impórtalo desde tu cuenta de GitHub.
 2. En Vercel, selecciona **Add New → Project** e importa el repositorio.
 3. Vercel detectará Next.js. Este proyecto ya incluye `vercel.json` y usa `npm run build:vercel`.
-4. En **Settings → Environment Variables**, añade las cuatro variables de la sección anterior para `Production`.
+4. En **Settings → Environment Variables**, añade `RESEND_API_KEY`, `CONTACT_EMAIL` y `CONTACT_FROM_EMAIL` para `Production`. Añade las variables de Turnstile o Upstash sólo si has configurado esos servicios.
 5. Despliega y prueba el formulario desde la URL pública.
 6. Asigna tu dominio y actualiza `NEXT_PUBLIC_SITE_URL`; después vuelve a desplegar.
 

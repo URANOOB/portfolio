@@ -11,9 +11,6 @@ export const profile = {
     "Me enfoco en desarrollo de software y en la construcción de productos digitales con interfaces claras, arquitectura mantenible y buen rendimiento.",
     "Disfruto transformar problemas ambiguos en funcionalidades concretas, aprender herramientas nuevas y mejorar cada entrega mediante iteración, documentación y criterio de producto.",
   ],
-  educationNote: "La información académica detallada y sus soportes se agregará cuando sea confirmada.",
-  certificationsNote:
-    "Las certificaciones se publicarán con sus enlaces verificables cuando estén disponibles.",
 } as const;
 
 export const socialLinks = {

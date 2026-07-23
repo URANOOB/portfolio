@@ -1,13 +1,47 @@
 "use client";
 
 import { CheckCircle2, LoaderCircle, Mail, Phone, Send, ShieldCheck } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { validateContactPayload, type ContactPayload } from "@/lib/validation";
 import { socialLinks } from "@/data/profile";
+import {
+  contactFieldLimits,
+  serializeContactPayload,
+  validateContactPayload,
+  type ContactPayload,
+} from "@/lib/validation";
 import { usePreferencesStore } from "@/store/preferences-store";
 
+type TurnstileApi = {
+  render: (container: HTMLElement, options: Record<string, unknown>) => string | number;
+  reset: (widgetId?: string | number) => void;
+  remove?: (widgetId?: string | number) => void;
+};
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
+const turnstileScriptId = "cloudflare-turnstile-script";
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const emptyForm: ContactPayload = { name: "", email: "", company: "", subject: "", message: "" };
+
+const formErrors = {
+  es: {
+    name: "Escribe tu nombre.",
+    email: "Escribe un correo válido.",
+    subject: "Cuéntame brevemente el motivo.",
+    message: "El mensaje debe tener al menos 20 caracteres.",
+  },
+  en: {
+    name: "Enter your name.",
+    email: "Enter a valid email address.",
+    subject: "Briefly tell me what this is about.",
+    message: "Your message must contain at least 20 characters.",
+  },
+} as const;
 
 export function ContactApp() {
   const language = usePreferencesStore((state) => state.language);
@@ -15,6 +49,66 @@ export function ContactApp() {
   const [errors, setErrors] = useState<Partial<Record<keyof ContactPayload, string>>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetRef = useRef<string | number | undefined>(undefined);
+  const turnstileEnabled = Boolean(turnstileSiteKey);
+
+  const resetTurnstile = useCallback(() => {
+    const widgetId = turnstileWidgetRef.current;
+    if (widgetId !== undefined) window.turnstile?.reset(widgetId);
+    setTurnstileToken("");
+  }, []);
+
+  useEffect(() => {
+    if (!turnstileSiteKey) return;
+
+    let cancelled = false;
+    let script: HTMLScriptElement | null = null;
+    const renderWidget = () => {
+      const container = turnstileContainerRef.current;
+      if (cancelled || !container || !window.turnstile || turnstileWidgetRef.current !== undefined) return;
+      turnstileWidgetRef.current = window.turnstile.render(container, {
+        sitekey: turnstileSiteKey,
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": resetTurnstile,
+        "error-callback": resetTurnstile,
+        "timeout-callback": resetTurnstile,
+      });
+    };
+
+    const existingScript = document.getElementById(turnstileScriptId) as HTMLScriptElement | null;
+    if (existingScript) {
+      script = existingScript;
+      if (window.turnstile) renderWidget();
+      else script.addEventListener("load", renderWidget);
+    } else {
+      script = document.createElement("script");
+      script.id = turnstileScriptId;
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      script.addEventListener("load", renderWidget);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      cancelled = true;
+      script?.removeEventListener("load", renderWidget);
+      if (turnstileWidgetRef.current !== undefined) {
+        window.turnstile?.remove?.(turnstileWidgetRef.current);
+        turnstileWidgetRef.current = undefined;
+      }
+      if (
+        script &&
+        script.id === turnstileScriptId &&
+        document.querySelectorAll(".cf-turnstile").length === 0
+      ) {
+        script.remove();
+      }
+    };
+  }, [resetTurnstile]);
+
   const contactMethods = [
     socialLinks.github
       ? { label: "GitHub", value: "@URANOOB", href: socialLinks.github, Icon: FaGithub }
@@ -49,24 +143,45 @@ export function ContactApp() {
     event.preventDefault();
     const validation = validateContactPayload(form);
     if (!validation.valid) {
-      setErrors(validation.errors);
+      const translatedErrors = Object.fromEntries(
+        Object.keys(validation.errors).map((field) => [
+          field,
+          formErrors[language][field as keyof typeof formErrors.es],
+        ]),
+      ) as Partial<Record<keyof ContactPayload, string>>;
+      setErrors(translatedErrors);
       return;
     }
+    if (turnstileEnabled && !turnstileToken) return;
+
     setStatus("loading");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(serializeContactPayload(form, turnstileToken, turnstileEnabled)),
       });
-      const data = (await response.json()) as { message?: string };
-      if (!response.ok) throw new Error(data.message ?? "No fue posible enviar el mensaje.");
+      if (!response.ok) {
+        throw new Error(
+          response.status === 429
+            ? language === "es"
+              ? "Inténtalo de nuevo más tarde."
+              : "Please try again later."
+            : language === "es"
+              ? "No fue posible enviar el mensaje."
+              : "Your message could not be sent.",
+        );
+      }
       setStatus("success");
-      setStatusMessage(data.message ?? "Mensaje enviado correctamente.");
+      setStatusMessage(
+        language === "es" ? "Mensaje enviado. Gracias por escribir." : "Message sent. Thanks for writing.",
+      );
       setForm(emptyForm);
+      if (turnstileEnabled) resetTurnstile();
     } catch (error) {
       setStatus("error");
-      setStatusMessage(error instanceof Error ? error.message : "No fue posible enviar el mensaje.");
+      setStatusMessage(error instanceof Error ? error.message : "Your message could not be sent.");
+      if (turnstileEnabled) resetTurnstile();
     }
   };
 
@@ -120,6 +235,7 @@ export function ContactApp() {
               value={form.name}
               onChange={(event) => update("name", event.target.value)}
               autoComplete="name"
+              maxLength={contactFieldLimits.name}
             />
           </Field>
           <Field label={language === "es" ? "Correo" : "Email"} id="contact-email" error={errors.email}>
@@ -129,6 +245,7 @@ export function ContactApp() {
               value={form.email}
               onChange={(event) => update("email", event.target.value)}
               autoComplete="email"
+              maxLength={contactFieldLimits.email}
             />
           </Field>
         </div>
@@ -138,6 +255,7 @@ export function ContactApp() {
             value={form.company}
             onChange={(event) => update("company", event.target.value)}
             autoComplete="organization"
+            maxLength={contactFieldLimits.company}
           />
         </Field>
         <Field label={language === "es" ? "Asunto" : "Subject"} id="contact-subject" error={errors.subject}>
@@ -145,6 +263,7 @@ export function ContactApp() {
             id="contact-subject"
             value={form.subject}
             onChange={(event) => update("subject", event.target.value)}
+            maxLength={contactFieldLimits.subject}
           />
         </Field>
         <Field label={language === "es" ? "Mensaje" : "Message"} id="contact-message" error={errors.message}>
@@ -153,6 +272,7 @@ export function ContactApp() {
             rows={5}
             value={form.message}
             onChange={(event) => update("message", event.target.value)}
+            maxLength={contactFieldLimits.message}
           />
         </Field>
         <div className="contact-honeypot" aria-hidden="true">
@@ -165,12 +285,21 @@ export function ContactApp() {
             onChange={(event) => update("website", event.target.value)}
           />
         </div>
+        {turnstileEnabled ? (
+          <div
+            ref={turnstileContainerRef}
+            aria-label={language === "es" ? "Verificación anti-bots" : "Bot verification"}
+          />
+        ) : null}
         <div className="form-submit-row">
           <p aria-live="polite" className={`form-status ${status}`}>
             {status === "success" ? <CheckCircle2 size={16} /> : null}
             {statusMessage}
           </p>
-          <button className="primary-action" disabled={status === "loading"}>
+          <button
+            className="primary-action"
+            disabled={status === "loading" || (turnstileEnabled && !turnstileToken)}
+          >
             {status === "loading" ? <LoaderCircle className="spin" size={17} /> : <Send size={17} />}{" "}
             {status === "loading"
               ? language === "es"

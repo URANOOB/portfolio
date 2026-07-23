@@ -65,11 +65,11 @@ export function MenuBar() {
   const locale = language === "es" ? "es-CO" : "en-US";
 
   return (
-    <header className="menu-bar" aria-label="Barra superior">
+    <header className="menu-bar" aria-label={language === "es" ? "Barra superior" : "Top bar"}>
       <div className="menu-left" ref={menuRef}>
         <button className="brand-button" onClick={() => setMenuOpen((v) => !v)} aria-expanded={menuOpen}>
           <RcoonMark size={36} />
-          <span>R/COON</span>
+          <span>R/COON OS</span>
           <ChevronDown size={13} />
         </button>
 
@@ -108,7 +108,10 @@ export function MenuBar() {
       </div>
 
       <div className="menu-status">
-        <span className="connection-status" title="Conexión disponible">
+        <span
+          className="connection-status"
+          title={language === "es" ? "Conexión disponible" : "Connection available"}
+        >
           <Signal size={15} /> <span>Online</span>
         </span>
 
@@ -116,7 +119,7 @@ export function MenuBar() {
         <button
           className="language-toggle"
           onClick={() => setLanguage(language === "es" ? "en" : "es")}
-          aria-label="Cambiar idioma"
+          aria-label={language === "es" ? "Cambiar idioma" : "Change language"}
         >
           {language.toUpperCase()}
         </button>
@@ -126,7 +129,7 @@ export function MenuBar() {
           <button
             className={`brand-button settings-btn${settingsOpen ? " is-active" : ""}`}
             onClick={() => setSettingsOpen((v) => !v)}
-            aria-label="Ajustes rápidos"
+            aria-label={language === "es" ? "Ajustes rápidos" : "Quick settings"}
             aria-expanded={settingsOpen}
           >
             <Settings size={15} />
