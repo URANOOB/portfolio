@@ -604,12 +604,14 @@ textarea:focus-visible {
 }
 .desktop-shortcuts {
   position: absolute;
-  top: 13px;
-  left: 16px;
-  display: grid;
-  gap: 8px;
+  inset: 0 0 96px;
+  z-index: 2;
+  pointer-events: none;
 }
 .desktop-shortcut {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 83px;
   border: 0;
   background: transparent;
@@ -618,10 +620,13 @@ textarea:focus-visible {
   gap: 6px;
   padding: 7px;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: grab;
   color: white;
   font-size: 11px;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+  touch-action: none;
+  user-select: none;
+  pointer-events: auto;
 }
 .desktop[data-theme="light"] .desktop-shortcut {
   color: #1b2030;
@@ -629,6 +634,9 @@ textarea:focus-visible {
 }
 .desktop-shortcut:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+.desktop-shortcut:active {
+  cursor: grabbing;
 }
 .shortcut-icon {
   width: 48px;
@@ -651,60 +659,65 @@ textarea:focus-visible {
 .dock-wrap {
   position: fixed;
   z-index: 900;
-  bottom: 12px;
+  bottom: 9px;
   left: 50%;
   transform: translateX(-50%);
 }
 .dock {
   display: flex;
   align-items: flex-end;
-  gap: 5px;
-  height: 69px;
-  padding: 8px 10px;
-  border-radius: 20px;
+  gap: 3px;
+  min-height: 100px;
+  padding: 8px 10px 9px;
+  border-radius: 24px;
 }
 .dock-item {
   position: relative;
-  min-width: 44px;
-  max-width: 66px;
+  width: 76px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 0 2px 4px;
+  color: white;
+  cursor: pointer;
+  transform-origin: bottom center;
+}
+.dock-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 15px;
+  border-radius: 17px;
   background: linear-gradient(
     145deg,
     color-mix(in srgb, var(--app-color) 84%, white),
     color-mix(in srgb, var(--app-color) 56%, #111)
   );
-  display: grid;
-  place-items: center;
   color: white;
-  cursor: pointer;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
     0 8px 18px rgba(0, 0, 0, 0.25);
-  transform-origin: bottom center;
 }
-.dock-tooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
+.dock-label {
+  max-width: 74px;
+  overflow: hidden;
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
   white-space: nowrap;
-  padding: 5px 8px;
-  border-radius: 7px;
-  background: var(--surface-strong);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  font-size: 10px;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 0.15s,
-    transform 0.15s;
 }
-.dock-item:hover .dock-tooltip,
-.dock-item:focus-visible .dock-tooltip {
-  opacity: 1;
-  transform: translate(-50%, -3px);
+.desktop[data-theme="light"] .dock-label {
+  color: #1b2030;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.75);
 }
 .open-indicator {
   position: absolute;
@@ -712,7 +725,7 @@ textarea:focus-visible {
   height: 4px;
   border-radius: 50%;
   background: currentColor;
-  bottom: -7px;
+  bottom: -2px;
   box-shadow: 0 0 8px white;
 }
 
@@ -1479,130 +1492,6 @@ textarea:focus-visible {
     width: min(78vw, 280px);
     justify-self: center;
   }
-}
-
-/* Finder */
-.finder-app {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 180px 1fr;
-}
-.finder-sidebar {
-  padding: 18px 10px;
-  border-right: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.025);
-}
-.finder-sidebar p {
-  margin: 0 10px 8px;
-  color: var(--muted);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-.finder-sidebar button {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 8px 10px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 12px;
-}
-.finder-sidebar button.selected {
-  background: rgba(116, 167, 255, 0.16);
-  color: var(--ink);
-}
-.finder-main {
-  display: grid;
-  grid-template-rows: 46px auto 1fr;
-  min-width: 0;
-}
-.finder-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-  padding: 0 14px;
-}
-.finder-toolbar > div,
-.finder-toolbar label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--muted);
-  font-size: 11px;
-}
-.finder-toolbar label {
-  padding: 6px 8px;
-  background: var(--surface-soft);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.finder-toolbar input {
-  width: 92px;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--ink);
-  font-size: 11px;
-}
-.folder-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(85px, 1fr));
-  gap: 7px;
-  padding: 16px;
-  border-bottom: 1px solid var(--line);
-}
-.folder-grid button {
-  min-height: 84px;
-  border: 1px solid transparent;
-  background: transparent;
-  border-radius: 11px;
-  display: grid;
-  justify-items: center;
-  align-content: center;
-  gap: 5px;
-  cursor: pointer;
-  font-size: 10px;
-}
-.folder-grid button:hover,
-.folder-grid button.selected {
-  background: rgba(116, 167, 255, 0.1);
-  border-color: rgba(116, 167, 255, 0.23);
-}
-.folder-shape {
-  color: var(--blue);
-  filter: drop-shadow(0 6px 10px rgba(46, 104, 201, 0.25));
-}
-.finder-preview {
-  overflow-y: auto;
-  padding: 19px 24px;
-}
-.markdown-content h1 {
-  margin: 0 0 12px;
-  font-size: 23px;
-  letter-spacing: -0.04em;
-}
-.markdown-content p,
-.markdown-content li {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.65;
-}
-.markdown-content button {
-  margin-top: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 8px 10px;
-  background: var(--surface-soft);
-  cursor: pointer;
 }
 
 /* Experience */
@@ -3378,23 +3267,29 @@ textarea:focus-visible {
   }
   .dock {
     width: 100%;
-    height: 65px;
-    justify-content: space-around;
+    min-height: 78px;
+    justify-content: flex-start;
     gap: 2px;
-    padding: 8px 6px;
+    padding: 6px;
     overflow-x: auto;
   }
   .dock-item {
-    width: 45px !important;
-    height: 45px !important;
-    min-width: 45px;
-    border-radius: 13px;
+    flex: 0 0 58px;
+    width: 58px;
+    padding-bottom: 3px;
   }
-  .dock-item svg {
-    width: 23px;
+  .dock-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px;
   }
-  .dock-tooltip {
-    display: none;
+  .dock-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .dock-label {
+    max-width: 56px;
+    font-size: 8px;
   }
   .app-scroll {
     padding: 20px 17px;
@@ -3427,22 +3322,6 @@ textarea:focus-visible {
   }
   .principles div {
     padding: 13px 3px;
-  }
-  .finder-app {
-    grid-template-columns: 1fr;
-  }
-  .finder-sidebar {
-    display: none;
-  }
-  .finder-toolbar > div span {
-    display: none;
-  }
-  .folder-grid {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
-  }
-  .finder-preview {
-    padding: 16px;
   }
   .timeline-item {
     grid-template-columns: 37px 1fr;

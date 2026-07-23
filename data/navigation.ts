@@ -4,7 +4,6 @@ import {
   Code2,
   Contact,
   FileText,
-  FolderOpen,
   LayoutGrid,
   Search,
   Settings,
@@ -12,10 +11,10 @@ import {
   Truck,
   UserRound,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { AppId } from "@/types/portfolio";
 
 export const appDefinitions = {
-  finder: { title: "Explorador", icon: FolderOpen, color: "#75a8ff" },
   about: { title: "Sobre mí", icon: UserRound, color: "#ffb56b" },
   experience: { title: "Experiencia", icon: BriefcaseBusiness, color: "#9b8cff" },
   logistics: { title: "Logística", icon: Truck, color: "#58b89b" },
@@ -27,7 +26,7 @@ export const appDefinitions = {
   terminal: { title: "Terminal", icon: SquareTerminal, color: "#a9b3c7" },
   resume: { title: "Currículum", icon: FileText, color: "#ffd166" },
   contact: { title: "Contacto", icon: Contact, color: "#69d2ff" },
-} satisfies Record<AppId, { title: string; icon: typeof FolderOpen; color: string }>;
+} satisfies Record<AppId, { title: string; icon: LucideIcon; color: string }>;
 
 export const dockApps: AppId[] = [
   "about",
@@ -40,4 +39,4 @@ export const dockApps: AppId[] = [
   "projects",
 ];
 
-export const desktopShortcuts: AppId[] = ["finder", "resume", "logistics"];
+export const desktopShortcuts = ["resume", "logistics"] as const satisfies readonly AppId[];

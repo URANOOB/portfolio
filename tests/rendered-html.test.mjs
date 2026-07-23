@@ -21,6 +21,8 @@ test("server-renders the Urano desktop with portfolio content", async () => {
   assert.match(html, /William Galeano/);
   assert.match(html, /Software Developer/);
   assert.match(html, /Urano/);
+  assert.match(html, /Arrastra para mover/);
+  assert.doesNotMatch(html, /Explorador/);
   assert.doesNotMatch(html, /codex-preview/);
   assert.doesNotMatch(html, /react-loading-skeleton/);
 });

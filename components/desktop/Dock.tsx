@@ -24,8 +24,8 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
     const bounds = ref.current?.getBoundingClientRect();
     return bounds ? value - (bounds.left + bounds.width / 2) : 200;
   });
-  const widthSync = useTransform(distance, [-120, 0, 120], [46, 64, 46]);
-  const size = useSpring(widthSync, { mass: 0.12, stiffness: 210, damping: 16 });
+  const sizeSync = useTransform(distance, [-140, 0, 140], [58, 78, 58]);
+  const size = useSpring(sizeSync, { mass: 0.12, stiffness: 210, damping: 16 });
 
   const activate = () => {
     if (windowState.isOpen) focusWindow(id);
@@ -37,17 +37,17 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
       ref={ref}
       className="dock-item"
       style={
-        { width: size, height: size, "--app-color": definition.color } as MotionStyle & {
+        { "--app-color": definition.color } as MotionStyle & {
           "--app-color": string;
         }
       }
       onClick={activate}
       aria-label={`${windowState.isOpen ? "Enfocar" : "Abrir"} ${definition.title}`}
     >
-      <span className="dock-tooltip" role="tooltip">
-        {definition.title}
-      </span>
-      <Icon size={27} strokeWidth={1.65} />
+      <motion.span className="dock-icon" style={{ width: size, height: size }} aria-hidden="true">
+        <Icon size={34} strokeWidth={1.6} />
+      </motion.span>
+      <span className="dock-label">{definition.title}</span>
       {windowState.isOpen ? <span className="open-indicator" aria-hidden="true" /> : null}
     </motion.button>
   );

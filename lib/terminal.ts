@@ -12,7 +12,7 @@ const appAliases: Record<string, AppId> = {
   about: "about",
   experience: "experience",
   projects: "projects",
-  education: "finder",
+  education: "resume",
   contact: "contact",
   skills: "skills",
 };
@@ -46,7 +46,7 @@ export function runPortfolioCommand(rawCommand: string): TerminalResult {
   if (command === "education") {
     return {
       lines: [profile.educationNote],
-      action: { type: "open", appId: "finder" },
+      action: { type: "open", appId: "resume" },
     };
   }
   if (["skills", "experience", "projects", "contact"].includes(command)) {
