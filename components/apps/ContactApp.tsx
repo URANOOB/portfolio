@@ -77,7 +77,10 @@ export function ContactApp() {
 
   const resetTurnstile = useCallback(() => {
     const widgetId = turnstileWidgetRef.current;
-    if (widgetId !== undefined) window.turnstile?.reset(widgetId);
+    if (widgetId !== undefined) {
+      window.turnstile?.reset(widgetId);
+      setTurnstileStatus("ready");
+    }
     setTurnstileToken("");
   }, []);
 

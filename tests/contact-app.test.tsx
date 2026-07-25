@@ -119,7 +119,29 @@ describe("ContactApp with Turnstile", () => {
     expect(fetchMock.mock.calls[0]?.[1]?.body).toContain("valid-token");
     expect(api.reset).toHaveBeenCalledWith("widget-1");
     expect(submit).toBeDisabled();
+    options.callback("new-token");
+    await waitFor(() => expect(submit).toBeEnabled());
     expect(document.querySelectorAll("#cloudflare-turnstile-script")).toHaveLength(1);
+  });
+
+  it("resets to ready after a contact delivery error", async () => {
+    const api = installTurnstile();
+    const fetchMock = vi.fn().mockResolvedValue({ ok: false, status: 500 });
+    vi.stubGlobal("fetch", fetchMock);
+    await renderContact("test-site-key");
+    fireEvent.load(getScript());
+    const options = renderOptions(api);
+    const user = await fillValidForm();
+    options.callback("valid-token");
+    const submit = screen.getByRole("button", { name: "Enviar mensaje" });
+    await waitFor(() => expect(submit).toBeEnabled());
+    await user.click(submit);
+
+    await waitFor(() => expect(screen.getByText("No fue posible enviar el mensaje.")).toBeVisible());
+    expect(api.reset).toHaveBeenCalledWith("widget-1");
+    expect(submit).toBeDisabled();
+    options.callback("new-token");
+    await waitFor(() => expect(submit).toBeEnabled());
   });
 
   it("shows an accessible recovery state when the script fails", async () => {
@@ -165,6 +187,8 @@ describe("ContactApp with Turnstile", () => {
     options["expired-callback"]?.();
     expect(api.reset).toHaveBeenCalledWith("widget-1");
     await waitFor(() => expect(submit).toBeDisabled());
+    options.callback("new-token");
+    await waitFor(() => expect(submit).toBeEnabled());
     await user.tab();
     expect(document.activeElement).not.toHaveAttribute("id", "contact-website");
   });
