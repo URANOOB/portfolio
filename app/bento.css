@@ -171,6 +171,32 @@
   border: var(--border-width) solid var(--line) !important;
 }
 
+@media (max-width: 600px) {
+  .desktop-shortcuts {
+    display: block !important;
+  }
+  .desktop-shortcut {
+    width: 76px;
+    gap: 4px;
+    padding: 4px;
+  }
+  .shortcut-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .desktop-shortcut span {
+    max-width: 72px;
+    padding: 2px 4px !important;
+    font-size: 9px;
+  }
+  .dock-label {
+    max-width: 42px !important;
+    margin-bottom: 2px;
+    padding: 2px 3px !important;
+    font-size: 7px !important;
+  }
+}
+
 .scene-wallpaper::before,
 .scene-wallpaper::after {
   display: none !important;

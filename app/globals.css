@@ -3399,7 +3399,7 @@ textarea:focus-visible {
     left: 8px !important;
     top: 47px !important;
     width: calc(100vw - 16px) !important;
-    height: calc(100dvh - 126px) !important;
+    height: calc(100dvh - 173px) !important;
     max-width: none;
     max-height: none;
     border-radius: 17px;
@@ -3472,7 +3472,7 @@ textarea:focus-visible {
     max-width: 390px;
   }
   .desktop-shortcuts {
-    display: none;
+    display: block;
   }
   .planet-glow {
     width: 190px;
@@ -3490,29 +3490,31 @@ textarea:focus-visible {
   }
   .dock {
     width: 100%;
-    min-height: 78px;
-    justify-content: flex-start;
-    gap: 2px;
-    padding: 6px;
-    overflow-x: auto;
+    min-height: 70px;
+    justify-content: space-between;
+    gap: 0;
+    padding: 5px 4px 6px;
+    overflow: hidden;
   }
   .dock-item {
-    flex: 0 0 58px;
-    width: 58px;
-    padding-bottom: 3px;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    gap: 3px;
+    padding-bottom: 2px;
   }
   .dock-icon {
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 14px;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 11px;
   }
   .dock-icon svg {
-    width: 27px;
-    height: 27px;
+    width: 23px;
+    height: 23px;
   }
   .dock-label {
-    max-width: 56px;
-    font-size: 8px;
+    max-width: 42px;
+    font-size: 7px;
   }
   .app-scroll {
     padding: 20px 17px;
