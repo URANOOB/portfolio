@@ -188,9 +188,9 @@ npm audit --omit=dev --audit-level=high
 
 La verificación revisa lint, formato, pruebas de lógica, API y componentes, el build de Vinext, las pruebas de HTML renderizado y el build de Vercel. Los comandos de auditoría se ejecutan por separado; no forman parte de `npm run verify`.
 
-La auditoría de dependencias se ejecuta en CI y sus hallazgos permanecen visibles. Actualmente es informativa para evitar que vulnerabilidades transitivas de herramientas de desarrollo y dependencias de producción, cuya corrección disponible requiere cambios mayores incompatibles, bloqueen lint, pruebas y builds.
+La auditoría de dependencias se ejecuta en CI y bloquea el flujo cuando detecta vulnerabilidades de severidad alta o crítica. Las versiones transitivas de `postcss` y `sharp` se fijan mediante `overrides` para mantener el árbol de Next.js parcheado.
 
-La última auditoría completa reporta 12 vulnerabilidades de severidad alta; la auditoría de producción reporta 3 vulnerabilidades de severidad alta a través de las dependencias transitivas `postcss` y `sharp` de Next.js. La actualización automática propuesta exige cambios mayores incompatibles de ESLint o Next.js, por lo que la excepción es temporal y está documentada.
+La última auditoría completa y la auditoría de producción reportan cero vulnerabilidades de severidad alta o crítica.
 
 Lint, formato, pruebas y compilaciones continúan siendo verificaciones obligatorias.
 
