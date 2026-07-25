@@ -1,3 +1,5 @@
+"use client";
+
 import { Boxes, Braces, CloudCog, Images, ServerCog, Shapes, Terminal, Workflow, Zap } from "lucide-react";
 import type { ElementType } from "react";
 import {
@@ -17,6 +19,11 @@ import {
   SiVercel,
   SiVite,
 } from "react-icons/si";
+import { usePreferencesStore, type Language } from "@/store/preferences-store";
+
+type LocalizedText = Record<Language, string>;
+
+const text = (es: string, en: string): LocalizedText => ({ es, en });
 
 const terminalCommands = [
   "help",
@@ -35,14 +42,14 @@ const terminalCommands = [
 interface Technology {
   name: string;
   version?: string;
-  description: string;
+  description: LocalizedText;
   icon: ElementType;
 }
 
 interface TechnologyGroup {
   id: string;
-  label: string;
-  summary: string;
+  label: LocalizedText;
+  summary: LocalizedText;
   tone: string;
   items: Technology[];
 }
@@ -50,202 +57,345 @@ interface TechnologyGroup {
 const technologyGroups: TechnologyGroup[] = [
   {
     id: "core",
-    label: "Núcleo de la aplicación",
-    summary: "La base que organiza las rutas, componentes y contratos de datos.",
+    label: text("Núcleo de la aplicación", "Application core"),
+    summary: text(
+      "La base que organiza las rutas, componentes y contratos de datos.",
+      "The foundation that organizes routes, components, and data contracts.",
+    ),
     tone: "blue",
     items: [
       {
         name: "Next.js",
         version: "16.2",
-        description: "App Router, páginas de proyectos, metadata, imágenes y la API de contacto.",
+        description: text(
+          "App Router, páginas de proyectos, metadata, imágenes y la API de contacto.",
+          "App Router, project pages, metadata, images, and the contact API.",
+        ),
         icon: SiNextdotjs,
       },
       {
         name: "React",
         version: "19.2",
-        description: "Construye las aplicaciones, ventanas y controles interactivos del escritorio.",
+        description: text(
+          "Construye las aplicaciones, ventanas y controles interactivos del escritorio.",
+          "Builds the desktop applications, windows, and interactive controls.",
+        ),
         icon: SiReact,
       },
       {
         name: "React DOM",
         version: "19.2",
-        description: "Hidrata la interfaz en el navegador y conecta los componentes con el DOM.",
+        description: text(
+          "Hidrata la interfaz en el navegador y conecta los componentes con el DOM.",
+          "Hydrates the browser interface and connects components to the DOM.",
+        ),
         icon: SiReact,
       },
       {
         name: "TypeScript",
         version: "5.9",
-        description: "Tipa componentes, stores, datos y contratos para reducir errores al desarrollar.",
+        description: text(
+          "Tipa componentes, stores, datos y contratos para reducir errores al desarrollar.",
+          "Types components, stores, data, and contracts to reduce development errors.",
+        ),
         icon: SiTypescript,
       },
       {
         name: "React Server Components",
         version: "RSC",
-        description: "Separa trabajo de servidor y cliente para entregar una carga inicial más eficiente.",
+        description: text(
+          "Separa trabajo de servidor y cliente para entregar una carga inicial más eficiente.",
+          "Separates server and client work for a more efficient initial load.",
+        ),
         icon: ServerCog,
       },
     ],
   },
   {
     id: "interface",
-    label: "Interfaz y experiencia",
-    summary: "Estilos, movimiento, estado e iconografía que dan vida a R/COON.",
+    label: text("Interfaz y experiencia", "Interface and experience"),
+    summary: text(
+      "Estilos, movimiento, estado e iconografía que dan vida a R/COON.",
+      "Styles, motion, state, and iconography that bring R/COON to life.",
+    ),
     tone: "orange",
     items: [
       {
         name: "CSS",
-        description: "Define temas, variables, ventanas, diseño responsive y la apariencia del escritorio.",
+        description: text(
+          "Define temas, variables, ventanas, diseño responsive y la apariencia del escritorio.",
+          "Defines themes, variables, windows, responsive layout, and the desktop appearance.",
+        ),
         icon: SiCss,
       },
       {
         name: "Tailwind CSS",
         version: "4.2",
-        description: "Aporta la base de utilidades y se integra al CSS global mediante PostCSS.",
+        description: text(
+          "Aporta la base de utilidades y se integra al CSS global mediante PostCSS.",
+          "Provides the utility foundation and integrates with global CSS through PostCSS.",
+        ),
         icon: SiTailwindcss,
       },
       {
         name: "Framer Motion",
         version: "12.42",
-        description: "Anima el arranque, el dock, los menús y las transiciones de las ventanas.",
+        description: text(
+          "Anima el arranque, el dock, los menús y las transiciones de las ventanas.",
+          "Animates startup, the dock, menus, and window transitions.",
+        ),
         icon: SiFramer,
       },
       {
         name: "Zustand",
         version: "5.0",
-        description: "Guarda el estado de ventanas y preferencias visuales de forma ligera y persistente.",
+        description: text(
+          "Guarda el estado de ventanas y preferencias visuales de forma ligera y persistente.",
+          "Stores window state and visual preferences in a lightweight, persistent way.",
+        ),
         icon: Boxes,
       },
       {
         name: "Lucide React",
         version: "1.25",
-        description: "Proporciona los iconos funcionales para acciones, aplicaciones y navegación.",
+        description: text(
+          "Proporciona los iconos funcionales para acciones, aplicaciones y navegación.",
+          "Provides functional icons for actions, applications, and navigation.",
+        ),
         icon: SiLucide,
       },
       {
         name: "React Icons",
         version: "5.7",
-        description: "Reúne logotipos de tecnologías para proyectos y esta guía visual.",
+        description: text(
+          "Reúne logotipos de tecnologías para proyectos y esta guía visual.",
+          "Supplies technology logos for projects and this visual guide.",
+        ),
         icon: Shapes,
       },
     ],
   },
   {
     id: "tooling",
-    label: "Desarrollo y compilación",
-    summary: "El sistema que ejecuta, transforma y empaqueta el proyecto.",
+    label: text("Desarrollo y compilación", "Development and builds"),
+    summary: text(
+      "El sistema que ejecuta, transforma y empaqueta el proyecto.",
+      "The system that runs, transforms, and packages the project.",
+    ),
     tone: "violet",
     items: [
       {
         name: "Vinext",
         version: "0.0.50",
-        description: "Ejecuta la aplicación compatible con Next.js sobre Vite y Cloudflare Workers.",
+        description: text(
+          "Ejecuta la aplicación compatible con Next.js sobre Vite y Cloudflare Workers.",
+          "Runs the Next.js-compatible application on Vite and Cloudflare Workers.",
+        ),
         icon: Zap,
       },
       {
         name: "Vite",
         version: "8.0",
-        description: "Ofrece el servidor de desarrollo, HMR y el empaquetado de producción.",
+        description: text(
+          "Ofrece el servidor de desarrollo, HMR y el empaquetado de producción.",
+          "Provides the development server, HMR, and production packaging.",
+        ),
         icon: SiVite,
       },
       {
         name: "Vite React + RSC",
-        description: "Integra React y los entornos de Server Components dentro del pipeline de Vite.",
+        description: text(
+          "Integra React y los entornos de Server Components dentro del pipeline de Vite.",
+          "Integrates React and Server Component environments in the Vite pipeline.",
+        ),
         icon: Braces,
       },
       {
         name: "Node.js",
         version: "22+",
-        description: "Ejecuta scripts, compilaciones y las pruebas automatizadas del proyecto.",
+        description: text(
+          "Ejecuta scripts, compilaciones y las pruebas automatizadas del proyecto.",
+          "Runs the project's scripts, builds, and automated tests.",
+        ),
         icon: SiNodedotjs,
       },
       {
         name: "PostCSS",
-        description: "Procesa Tailwind y transforma la hoja global durante la compilación.",
+        description: text(
+          "Procesa Tailwind y transforma la hoja global durante la compilación.",
+          "Processes Tailwind and transforms the global stylesheet during builds.",
+        ),
         icon: SiPostcss,
       },
       {
         name: "Cross-env",
         version: "10.1",
-        description: "Mantiene las variables de los scripts compatibles entre Windows y otros sistemas.",
+        description: text(
+          "Mantiene las variables de los scripts compatibles entre Windows y otros sistemas.",
+          "Keeps script variables compatible between Windows and other systems.",
+        ),
         icon: Terminal,
       },
     ],
   },
   {
     id: "delivery",
-    label: "Despliegue y calidad",
-    summary: "Servicios y controles que permiten publicar el sitio con confianza.",
+    label: text("Despliegue y calidad", "Delivery and quality"),
+    summary: text(
+      "Servicios y controles que permiten publicar el sitio con confianza.",
+      "Services and checks that make it possible to publish the site with confidence.",
+    ),
     tone: "green",
     items: [
       {
         name: "Cloudflare Workers",
-        description: "Ejecuta la aplicación en el edge y sirve las respuestas del portafolio.",
+        description: text(
+          "Ejecuta la aplicación en el edge y sirve las respuestas del portafolio.",
+          "Runs the application at the edge and serves portfolio responses.",
+        ),
         icon: SiCloudflareworkers,
       },
       {
         name: "Cloudflare Images",
-        description: "Optimiza imágenes bajo demanda y entrega formatos modernos como WebP.",
+        description: text(
+          "Optimiza imágenes bajo demanda y entrega formatos modernos como WebP.",
+          "Optimizes images on demand and delivers modern formats such as WebP.",
+        ),
         icon: Images,
       },
       {
         name: "Wrangler",
         version: "4.92",
-        description: "Simula bindings localmente y prepara la configuración del Worker.",
+        description: text(
+          "Simula bindings localmente y prepara la configuración del Worker.",
+          "Simulates bindings locally and prepares Worker configuration.",
+        ),
         icon: CloudCog,
       },
       {
         name: "OpenAI Sites",
-        description: "Conecta la compilación del sitio con su infraestructura de hosting en Cloudflare.",
+        description: text(
+          "Conecta la compilación del sitio con su infraestructura de hosting en Cloudflare.",
+          "Connects the site build to its Cloudflare hosting infrastructure.",
+        ),
         icon: Workflow,
       },
       {
         name: "Vercel",
-        description: "Mantiene una ruta alternativa de compilación y despliegue para Next.js.",
+        description: text(
+          "Mantiene una ruta alternativa de compilación y despliegue para Next.js.",
+          "Keeps an alternative Next.js build and deployment path.",
+        ),
         icon: SiVercel,
       },
       {
         name: "ESLint",
         version: "9.39",
-        description: "Detecta problemas de código y aplica reglas compatibles con Next.js.",
+        description: text(
+          "Detecta problemas de código y aplica reglas compatibles con Next.js.",
+          "Finds code issues and applies rules compatible with Next.js.",
+        ),
         icon: SiEslint,
       },
       {
         name: "Prettier",
         version: "3.9",
-        description: "Uniforma automáticamente el formato del código y los estilos.",
+        description: text(
+          "Uniforma automáticamente el formato del código y los estilos.",
+          "Keeps code and style formatting consistent automatically.",
+        ),
         icon: SiPrettier,
       },
       {
         name: "Git",
-        description: "Registra la evolución del proyecto y facilita revisar cada cambio.",
+        description: text(
+          "Registra la evolución del proyecto y facilita revisar cada cambio.",
+          "Records the project's evolution and makes each change easier to review.",
+        ),
         icon: SiGit,
       },
     ],
   },
 ];
 
+const helpCopy = {
+  es: {
+    eyebrow: "R/COON / DOCUMENTACIÓN",
+    title: "Guía del portafolio",
+    intro:
+      "Este sitio funciona como un escritorio interactivo. Abre aplicaciones, mueve y organiza ventanas, explora mi trabajo y recorre el portafolio desde la búsqueda o la Terminal.",
+    stackEyebrow: "STACK DEL PROYECTO",
+    stackTitle: "Tecnologías que hacen funcionar R/COON",
+    stackIntro:
+      "Del componente que ves en pantalla al despliegue en el edge: estas son las piezas del proyecto y la función que cumple cada una.",
+    stackNote:
+      "Los paquetes de tipos y configuración se agrupan con TypeScript, Vite, ESLint y Prettier para evitar repetir herramientas que cumplen la misma función.",
+    openTitle: "Cómo abrir aplicaciones",
+    openItems: [
+      "Selecciona un icono del dock para abrir su ventana o traerla al frente.",
+      "Usa los accesos movibles del escritorio para entrar a Currículum y Logística.",
+      "Arrastra una ventana desde su barra superior; también puedes minimizarla, ampliarla o cerrarla.",
+    ],
+    searchTitle: "Búsqueda rápida",
+    search: "Presiona",
+    searchEnd:
+      "para abrir Búsqueda y localizar rápidamente secciones como Sobre mí, Experiencia, Logística, Works o Contacto.",
+    terminalTitle: "Inicio rápido de Terminal",
+    terminalIntro: "Abre Terminal desde el dock, escribe un comando y presiona",
+    terminalEnd: "Estos son los comandos disponibles:",
+    commandsLabel: "Comandos disponibles",
+    examples: "También puedes abrir proyectos directamente:",
+    tip: "Consejo: el punto debajo de un icono indica que la aplicación está abierta.",
+  },
+  en: {
+    eyebrow: "R/COON / DOCUMENTATION",
+    title: "Portfolio guide",
+    intro:
+      "This site works as an interactive desktop. Open applications, move and organize windows, explore my work, and navigate the portfolio through Search or Terminal.",
+    stackEyebrow: "PROJECT STACK",
+    stackTitle: "Technologies that power R/COON",
+    stackIntro:
+      "From the component on screen to edge deployment: these are the project pieces and the role each one plays.",
+    stackNote:
+      "Type packages and configuration are grouped with TypeScript, Vite, ESLint, and Prettier to avoid repeating tools with the same purpose.",
+    openTitle: "How to open applications",
+    openItems: [
+      "Select an icon in the dock to open its window or bring it to the front.",
+      "Use the movable desktop shortcuts to open Resume and Logistics.",
+      "Drag a window from its title bar; you can also minimize, maximize, or close it.",
+    ],
+    searchTitle: "Quick search",
+    search: "Press",
+    searchEnd:
+      "to open Search and quickly find sections such as About me, Experience, Logistics, Works, or Contact.",
+    terminalTitle: "Terminal quick start",
+    terminalIntro: "Open Terminal from the dock, type a command, and press",
+    terminalEnd: "These commands are available:",
+    commandsLabel: "Available commands",
+    examples: "You can also open projects directly:",
+    tip: "Tip: the dot beneath an icon shows that the application is open.",
+  },
+} satisfies Record<Language, Record<string, string | string[]>>;
+
 export function HelpApp() {
+  const language = usePreferencesStore((state) => state.language);
+  const copy = helpCopy[language];
+
   return (
     <article className="app-scroll help-guide">
       <header className="help-guide-header">
-        <span>R/COON / DOCUMENTACIÓN</span>
-        <h2>Guía del portafolio</h2>
-        <p>
-          Este sitio funciona como un escritorio interactivo. Abre aplicaciones, mueve y organiza ventanas,
-          explora mi trabajo y recorre el portafolio desde la búsqueda o la Terminal.
-        </p>
+        <span>{copy.eyebrow}</span>
+        <h2>{copy.title}</h2>
+        <p>{copy.intro}</p>
       </header>
 
       <section className="help-stack-section" aria-labelledby="help-stack">
         <header className="help-stack-intro">
           <div>
-            <span>STACK DEL PROYECTO</span>
-            <h3 id="help-stack">Tecnologías que hacen funcionar R/COON</h3>
+            <span>{copy.stackEyebrow}</span>
+            <h3 id="help-stack">{copy.stackTitle}</h3>
           </div>
-          <p>
-            Del componente que ves en pantalla al despliegue en el edge: estas son las piezas del proyecto y
-            la función que cumple cada una.
-          </p>
+          <p>{copy.stackIntro}</p>
         </header>
 
         <div className="help-tech-groups">
@@ -259,9 +409,9 @@ export function HelpApp() {
               <header>
                 <div>
                   <span aria-hidden="true">{String(groupIndex + 1).padStart(2, "0")}</span>
-                  <h4 id={`help-tech-${group.id}`}>{group.label}</h4>
+                  <h4 id={`help-tech-${group.id}`}>{group.label[language]}</h4>
                 </div>
-                <p>{group.summary}</p>
+                <p>{group.summary[language]}</p>
               </header>
               <ul className="help-tech-grid">
                 {group.items.map((technology) => {
@@ -277,7 +427,7 @@ export function HelpApp() {
                           <strong>{technology.name}</strong>
                           {technology.version ? <span>{technology.version}</span> : null}
                         </div>
-                        <p>{technology.description}</p>
+                        <p>{technology.description[language]}</p>
                       </div>
                     </li>
                   );
@@ -287,44 +437,37 @@ export function HelpApp() {
           ))}
         </div>
 
-        <p className="help-stack-note">
-          Los paquetes de tipos y configuración se agrupan con TypeScript, Vite, ESLint y Prettier para evitar
-          repetir herramientas que cumplen la misma función.
-        </p>
+        <p className="help-stack-note">{copy.stackNote}</p>
       </section>
 
       <section className="help-guide-section" aria-labelledby="help-open-apps">
-        <h3 id="help-open-apps">Cómo abrir aplicaciones</h3>
+        <h3 id="help-open-apps">{copy.openTitle}</h3>
         <ul>
-          <li>Selecciona un icono del dock para abrir su ventana o traerla al frente.</li>
-          <li>Usa los accesos movibles del escritorio para entrar a Currículum y Logística.</li>
-          <li>
-            Arrastra una ventana desde su barra superior; también puedes minimizarla, ampliarla o cerrarla.
-          </li>
+          {copy.openItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
       </section>
 
       <section className="help-guide-section" aria-labelledby="help-search">
-        <h3 id="help-search">Búsqueda rápida</h3>
+        <h3 id="help-search">{copy.searchTitle}</h3>
         <p>
-          Presiona <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir Búsqueda y localizar rápidamente secciones como
-          Sobre mí, Experiencia, Logística, Works o Contacto.
+          {copy.search} <kbd>Ctrl</kbd> + <kbd>K</kbd> {copy.searchEnd}
         </p>
       </section>
 
       <section className="help-guide-section" aria-labelledby="help-terminal">
-        <h3 id="help-terminal">Inicio rápido de Terminal</h3>
+        <h3 id="help-terminal">{copy.terminalTitle}</h3>
         <p>
-          Abre Terminal desde el dock, escribe un comando y presiona <kbd>Enter</kbd>. Estos son los comandos
-          disponibles:
+          {copy.terminalIntro} <kbd>Enter</kbd>. {copy.terminalEnd}
         </p>
-        <div className="help-command-list" aria-label="Comandos disponibles">
+        <div className="help-command-list" aria-label={copy.commandsLabel}>
           {terminalCommands.map((command) => (
             <code key={command}>{command}</code>
           ))}
         </div>
         <div className="help-command-examples">
-          <span>También puedes abrir proyectos directamente:</span>
+          <span>{copy.examples}</span>
           <code>open atlas-splitter</code>
           <code>open ingles-pa-la-paz</code>
         </div>
@@ -332,7 +475,7 @@ export function HelpApp() {
 
       <footer className="help-guide-note">
         <span aria-hidden="true">●</span>
-        <p>Consejo: el punto debajo de un icono indica que la aplicación está abierta.</p>
+        <p>{copy.tip}</p>
       </footer>
     </article>
   );
