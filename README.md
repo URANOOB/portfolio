@@ -171,10 +171,10 @@ Nunca guardes claves de Resend en archivos versionados. `.env.local` está ignor
 | `npm run lint`            | Revisa el código con ESLint                                 |
 | `npm run format:check`    | Comprueba formato con Prettier                              |
 | `npm run format`          | Aplica formato con Prettier                                 |
-| `npm run test:logic`      | Ejecuta pruebas de lógica y del API de contacto            |
+| `npm run test:logic`      | Ejecuta pruebas de lógica y del API de contacto             |
 | `npm run test:components` | Ejecuta pruebas de componentes en jsdom                     |
 | `npm run test:rendered`   | Comprueba el HTML renderizado tras `npm run build`          |
-| `npm test`                | Ejecuta pruebas de lógica y componentes sin compilar       |
+| `npm test`                | Ejecuta pruebas de lógica y componentes sin compilar        |
 | `npm run verify`          | Ejecuta calidad, pruebas y ambos builds sin repetir Vinext  |
 
 ## Verificación local
