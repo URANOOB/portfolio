@@ -12,8 +12,16 @@ import {
 } from "@/lib/validation";
 import { usePreferencesStore } from "@/store/preferences-store";
 
-type TurnstileApi = {
-  render: (container: HTMLElement, options: Record<string, unknown>) => string | number;
+export type TurnstileRenderOptions = {
+  sitekey: string;
+  callback: (token: string) => void;
+  "expired-callback"?: () => void;
+  "error-callback"?: (errorCode?: string) => boolean | void;
+  "timeout-callback"?: () => boolean | void;
+};
+
+export type TurnstileApi = {
+  render: (container: HTMLElement, options: TurnstileRenderOptions) => string | number;
   reset: (widgetId?: string | number) => void;
   remove?: (widgetId?: string | number) => void;
 };
@@ -80,10 +88,11 @@ export function ContactApp() {
     let script: HTMLScriptElement | null = null;
 
     const fail = () => {
-      if (cancelled) return;
+      if (cancelled) return true;
       window.clearTimeout(loadingTimeout);
       setTurnstileToken("");
       setTurnstileStatus("error");
+      return true;
     };
 
     const renderWidget = () => {
@@ -102,8 +111,8 @@ export function ContactApp() {
             resetTurnstile();
             setTurnstileStatus("ready");
           },
-          "error-callback": fail,
-          "timeout-callback": fail,
+          "error-callback": () => fail(),
+          "timeout-callback": () => fail(),
         });
       } catch {
         fail();

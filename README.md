@@ -1,5 +1,7 @@
 # R/COON OS
 
+[![CI](https://github.com/URANOOB/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/URANOOB/portfolio/actions/workflows/ci.yml)
+
 Plantilla de portafolio interactivo inspirada en un escritorio de sistema operativo. Convierte secciones habituales —perfil, experiencia, proyectos, habilidades, CV y contacto— en aplicaciones dentro de una interfaz personalizable, accesible y bilingüe.
 
 > Este repositorio incluye una licencia MIT para el código. Consulta la sección [Activos y atribución](#activos-y-atribución) antes de redistribuir imágenes, vídeos o fondos.
@@ -162,16 +164,35 @@ Nunca guardes claves de Resend en archivos versionados. `.env.local` está ignor
 
 ## Comandos
 
-| Comando                | Uso                                                         |
-| ---------------------- | ----------------------------------------------------------- |
-| `npm run dev`          | Desarrollo local con Vinext                                 |
-| `npm run build`        | Compilación para el entorno compatible con Cloudflare/Sites |
-| `npm run build:vercel` | Compilación estándar de Next.js para Vercel                 |
-| `npm run start`        | Ejecuta la compilación local                                |
-| `npm run lint`         | Revisa el código con ESLint                                 |
-| `npm run format:check` | Comprueba formato con Prettier                              |
-| `npm run format`       | Aplica formato con Prettier                                 |
-| `npm test`             | Compila y ejecuta las pruebas                               |
+| Comando                   | Uso                                                         |
+| ------------------------- | ----------------------------------------------------------- |
+| `npm run dev`             | Desarrollo local con Vinext                                 |
+| `npm run build`           | Compilación para el entorno compatible con Cloudflare/Sites |
+| `npm run build:vercel`    | Compilación estándar de Next.js para Vercel                 |
+| `npm run start`           | Ejecuta la compilación local                                |
+| `npm run lint`            | Revisa el código con ESLint                                 |
+| `npm run format:check`    | Comprueba formato con Prettier                              |
+| `npm run format`          | Aplica formato con Prettier                                 |
+| `npm run test:logic`      | Ejecuta pruebas de lÃ³gica y del API de contacto            |
+| `npm run test:components` | Ejecuta pruebas de componentes en jsdom                     |
+| `npm run test:rendered`   | Comprueba el HTML renderizado tras `npm run build`          |
+| `npm test`                | Ejecuta pruebas de lÃ³gica y componentes sin compilar       |
+| `npm run verify`          | Ejecuta calidad, pruebas y ambos builds sin repetir Vinext  |
+
+## VerificaciÃ³n local
+
+```bash
+npm ci
+npm run verify
+```
+
+La verificaciÃ³n revisa lint, formato, pruebas de lÃ³gica, API y componentes, el build de Vinext, las pruebas de HTML renderizado y el build de Vercel. Para comprobar vulnerabilidades altas o crÃ­ticas se ejecuta por separado:
+
+```bash
+npm audit --audit-level=high
+```
+
+Actualmente npm reporta vulnerabilidades transitivas de alta severidad cuya correcciÃ³n disponible exige actualizaciones mayores incompatibles de ESLint o Next.js. El workflow de CI las deja visibles y falla de forma intencionada hasta que exista una correcciÃ³n compatible; no se silencian con `continue-on-error`.
 
 ## Estructura del proyecto
 
