@@ -28,6 +28,16 @@ export const appDefinitions = {
   contact: { title: { es: "Contacto", en: "Contact" }, icon: Contact, color: "#69d2ff" },
 } satisfies Record<AppId, { title: { es: string; en: string }; icon: LucideIcon; color: string }>;
 
-export const dockApps: AppId[] = ["about", "contact", "experience", "help", "search", "terminal", "projects"];
+// Keep the dock focused on the visitor's professional journey. Utility apps remain
+// available from the menu bar and their existing shortcuts.
+export const dockApps: AppId[] = [
+  "about",
+  "experience",
+  "projects",
+  "skills",
+  "resume",
+  "contact",
+  "terminal",
+];
 
 export const desktopShortcuts = ["resume", "logistics"] as const satisfies readonly AppId[];

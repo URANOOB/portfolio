@@ -11,6 +11,7 @@ interface WindowStore {
   windows: Record<AppId, WindowState>;
   activeApp: AppId | null;
   topZ: number;
+  opener: HTMLElement | null;
   openWindow: (id: AppId) => void;
   closeWindow: (id: AppId) => void;
   minimizeWindow: (id: AppId) => void;
@@ -18,20 +19,23 @@ interface WindowStore {
   focusWindow: (id: AppId) => void;
   moveWindow: (id: AppId, x: number, y: number) => void;
   resizeWindow: (id: AppId, width: number, height: number) => void;
+  constrainToViewport: () => void;
 }
 
 export const useWindowStore = create<WindowStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       windows: initialWindows,
       activeApp: null,
       topZ: 14,
+      opener: null,
       openWindow: (id) =>
         set((state) => {
           const nextZ = state.topZ + 1;
           return {
             topZ: nextZ,
             activeApp: id,
+            opener: document.activeElement instanceof HTMLElement ? document.activeElement : null,
             windows: {
               ...state.windows,
               [id]: {
@@ -44,14 +48,17 @@ export const useWindowStore = create<WindowStore>()(
             },
           };
         }),
-      closeWindow: (id) =>
+      closeWindow: (id) => {
+        const opener = get().opener;
         set((state) => {
           const windows = {
             ...state.windows,
             [id]: { ...state.windows[id], isOpen: false, isMinimized: false },
           };
           return { windows, activeApp: nextActive(windows, id) };
-        }),
+        });
+        window.setTimeout(() => opener?.focus(), 0);
+      },
       minimizeWindow: (id) =>
         set((state) => {
           const windows = {
@@ -104,6 +111,31 @@ export const useWindowStore = create<WindowStore>()(
             },
           },
         })),
+      constrainToViewport: () =>
+        set((state) => {
+          const isMobile = window.innerWidth <= 700;
+          const maxWindowHeight = Math.max(280, window.innerHeight - 92);
+          const windows = Object.fromEntries(
+            Object.entries(state.windows).map(([id, windowState]) => {
+              const visibleWidth = Math.min(windowState.size.width, Math.max(360, window.innerWidth - 16));
+              const visibleHeight = Math.min(windowState.size.height, maxWindowHeight);
+              const maxX = Math.max(8, window.innerWidth - visibleWidth - 8);
+              const maxY = Math.max(52, window.innerHeight - visibleHeight - 82);
+              return [
+                id,
+                {
+                  ...windowState,
+                  isMaximized: isMobile && windowState.isOpen ? true : windowState.isMaximized,
+                  position: {
+                    x: Math.min(Math.max(8, windowState.position.x), maxX),
+                    y: Math.min(Math.max(52, windowState.position.y), maxY),
+                  },
+                },
+              ];
+            }),
+          ) as Record<AppId, WindowState>;
+          return { windows };
+        }),
     }),
     {
       name: "rcoon-window-session",

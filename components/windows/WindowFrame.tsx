@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Maximize2, Minus, X } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { AppContent } from "@/components/windows/AppContent";
 import { appDefinitions } from "@/data/navigation";
 import { usePreferencesStore } from "@/store/preferences-store";
@@ -26,10 +26,16 @@ export function WindowFrame({ id }: { id: AppId }) {
   const resizeWindow = useWindowStore((state) => state.resizeWindow);
   const dragOrigin = useRef<PointerOrigin | null>(null);
   const resizeOrigin = useRef<PointerOrigin | null>(null);
+  const titlebarRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const language = usePreferencesStore((state) => state.language);
   const definition = appDefinitions[id];
   const Icon = definition.icon;
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => titlebarRef.current?.focus(), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (windowState.isMaximized || event.button !== 0) return;
@@ -99,7 +105,9 @@ export function WindowFrame({ id }: { id: AppId }) {
       aria-label={`${language === "es" ? "Ventana" : "Window"} ${definition.title[language]}`}
     >
       <div
+        ref={titlebarRef}
         className="window-titlebar"
+        tabIndex={-1}
         onPointerDown={startDrag}
         onPointerMove={drag}
         onPointerUp={() => (dragOrigin.current = null)}

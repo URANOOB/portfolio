@@ -30,6 +30,7 @@ export function DesktopShell({ initialLanguage }: { initialLanguage: "es" | "en"
   const language = usePreferencesStore((state) => state.language);
   const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const openWindow = useWindowStore((state) => state.openWindow);
+  const constrainToViewport = useWindowStore((state) => state.constrainToViewport);
 
   useEffect(() => {
     if (usePreferencesStore.getState().language !== initialLanguage) setLanguage(initialLanguage);
@@ -70,6 +71,13 @@ export function DesktopShell({ initialLanguage }: { initialLanguage: "es" | "en"
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [openWindow]);
+
+  useEffect(() => {
+    const constrain = () => constrainToViewport();
+    constrain();
+    window.addEventListener("resize", constrain);
+    return () => window.removeEventListener("resize", constrain);
+  }, [constrainToViewport]);
 
   useEffect(() => {
     document.documentElement.lang = language;

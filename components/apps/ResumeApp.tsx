@@ -108,10 +108,11 @@ export function ResumeApp() {
           </div>
           <nav aria-label="Acciones del documento">
             <a href={selected.file} target="_blank" rel="noreferrer">
-              <ExternalLink size={15} /> <span>{language === "es" ? "Abrir" : "Open"}</span>
+              <ExternalLink size={15} /> <span>{language === "es" ? "Abrir currículum" : "Open resume"}</span>
             </a>
             <a href={selected.file} download={selected.downloadName} className="resume-download">
-              <Download size={15} /> <span>{language === "es" ? "Descargar" : "Download"}</span>
+              <Download size={15} />{" "}
+              <span>{language === "es" ? "Descargar currículum" : "Download resume"}</span>
             </a>
           </nav>
         </header>
