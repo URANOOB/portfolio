@@ -1,13 +1,52 @@
 "use client";
 
-import { skillGroups as skillGroupsEs, skillsExperienceNote as noteEs } from "@/data/skills";
-import { skillGroups as skillGroupsEn, skillsExperienceNote as noteEn } from "@/data/skills-en";
+import { Bot, Braces, Database, Webhook } from "lucide-react";
+import { FaJava } from "react-icons/fa6";
+import type { ElementType } from "react";
+import {
+  SiDocker,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpencv,
+  SiPostgresql,
+  SiReact,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
+import { skillGroups as skillGroupsEs } from "@/data/skills";
+import { skillGroups as skillGroupsEn } from "@/data/skills-en";
 import { usePreferencesStore } from "@/store/preferences-store";
+
+const skillIcons: Record<string, ElementType> = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  "Tailwind CSS": SiTailwindcss,
+  "HTML / CSS": SiHtml5,
+  "Node.js": SiNodedotjs,
+  "API REST": Webhook,
+  "REST API": Webhook,
+  SQL: Database,
+  PostgreSQL: SiPostgresql,
+  Supabase: SiSupabase,
+  "Python / OpenCV": SiOpencv,
+  Java: FaJava,
+  "Git / GitHub": SiGit,
+  Vercel: SiVercel,
+  Docker: SiDocker,
+  "IA y automatización": Bot,
+  "AI and Automation": Bot,
+};
 
 export function SkillsApp() {
   const language = usePreferencesStore((state) => state.language);
   const skillGroups = language === "es" ? skillGroupsEs : skillGroupsEn;
-  const skillsExperienceNote = language === "es" ? noteEs : noteEn;
   return (
     <article className="app-scroll skills-app">
       <header className="app-section-header">
@@ -31,20 +70,28 @@ export function SkillsApp() {
               </div>
             </div>
             <div className="skill-list">
-              {group.skills.map((skill) => (
-                <div key={skill.name}>
-                  <div>
-                    <strong>{skill.name}</strong>
-                    <span>{skill.level}</span>
+              {group.skills.map((skill) => {
+                const Icon = skillIcons[skill.name] ?? Braces;
+
+                return (
+                  <div key={skill.name}>
+                    <div>
+                      <div className="skill-card-heading">
+                        <span className="skill-card-icon" aria-hidden="true">
+                          <Icon size={15} />
+                        </span>
+                        <strong>{skill.name}</strong>
+                      </div>
+                      <span>{skill.level}</span>
+                    </div>
+                    <p>{skill.projects.join(" · ")}</p>
                   </div>
-                  <p>{skill.projects.join(" · ")}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         ))}
       </div>
-      <p className="data-note">{skillsExperienceNote}</p>
     </article>
   );
 }

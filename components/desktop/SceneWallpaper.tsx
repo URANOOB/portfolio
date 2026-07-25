@@ -5,7 +5,6 @@ import { usePreferencesStore } from "@/store/preferences-store";
 
 const wallpaperSources = {
   landscape: "/scene/landscape-4k.jpg",
-  summerSea: "/wallpapers/summer-sea.gif",
   animeSea: "/wallpapers/anime-sea.mp4",
 } as const;
 
@@ -224,12 +223,6 @@ export function SceneWallpaper() {
 
   return (
     <div className="scene-wallpaper" aria-hidden="true">
-      {wallpaper === "summerSea" ? (
-        <div
-          className="scene-wallpaper-media"
-          style={{ backgroundImage: `url(${wallpaperSources.summerSea})` }}
-        />
-      ) : null}
       {wallpaper === "animeSea" ? (
         <video
           className="scene-wallpaper-media"

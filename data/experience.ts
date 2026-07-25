@@ -58,16 +58,6 @@ export const experience: Experience[] = [
   },
   {
     track: "logistics",
-    company: "Ingenio Empresarial",
-    role: "Experiencia profesional",
-    period: "",
-    summary: "Participación en iniciativas de negocio y tecnología.",
-    responsibilities: ["Trabajo colaborativo", "Aprendizaje rápido", "Orientación a resultados"],
-    tools: ["Herramientas digitales"],
-    achievements: [],
-  },
-  {
-    track: "logistics",
     company: "Nexa BPO",
     role: "Servicio y operaciones",
     period: "",

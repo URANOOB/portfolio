@@ -37,6 +37,3 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ];
-
-export const skillsExperienceNote =
-  "Los años exactos de experiencia se publicarán cuando hayan sido verificados; los niveles reflejan el uso relativo dentro del portafolio.";

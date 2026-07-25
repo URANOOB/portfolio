@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { AboutApp } from "@/components/apps/AboutApp";
+import { SkillsApp } from "@/components/apps/SkillsApp";
 import { MenuBar } from "@/components/desktop/MenuBar";
 import { dockApps } from "@/data/navigation";
 import { createInitialWindows } from "@/lib/window-state";
@@ -34,6 +35,14 @@ describe("professional navigation", () => {
     expect(useWindowStore.getState().windows.projects.isOpen).toBe(true);
     fireEvent.click(screen.getByRole("button", { name: "Abrir currículum" }));
     expect(useWindowStore.getState().windows.resume.isOpen).toBe(true);
+  });
+
+  it("pairs every listed technology with an identifying icon", () => {
+    const { container } = render(<SkillsApp />);
+
+    expect(container.querySelectorAll(".skill-card-icon svg")).toHaveLength(17);
+    expect(screen.getByText("React")).toBeVisible();
+    expect(screen.getByText("Docker")).toBeVisible();
   });
 
   it("keeps search and help reachable from the top bar", () => {

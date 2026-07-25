@@ -158,21 +158,6 @@ export function SettingsApp() {
             </button>
             <button
               type="button"
-              className={wallpaper === "summerSea" ? "wallpaper-option is-selected" : "wallpaper-option"}
-              onClick={() => setWallpaper("summerSea")}
-              aria-pressed={wallpaper === "summerSea"}
-            >
-              <span className="wallpaper-preview wallpaper-preview-summer" />
-              <span className="wallpaper-option-label">
-                <span>
-                  <strong>Summer sea</strong>
-                  <small>{language === "es" ? "GIF animado" : "Animated GIF"}</small>
-                </span>
-                {wallpaper === "summerSea" ? <Check size={15} aria-hidden="true" /> : null}
-              </span>
-            </button>
-            <button
-              type="button"
               className={wallpaper === "animeSea" ? "wallpaper-option is-selected" : "wallpaper-option"}
               onClick={() => setWallpaper("animeSea")}
               aria-pressed={wallpaper === "animeSea"}

@@ -436,6 +436,9 @@ textarea:focus-visible {
   gap: 5px;
   color: var(--success);
 }
+.desktop[data-theme="light"] .connection-status {
+  color: #065f35;
+}
 .sound-control {
   position: relative;
 }
@@ -2784,6 +2787,23 @@ textarea:focus-visible {
   justify-content: space-between;
   gap: 8px;
 }
+.skill-card-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.skill-card-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  color: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent-soft) 32%, transparent);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent-soft) 10%, transparent);
+}
 .skill-list strong {
   font-size: 11px;
 }
@@ -4126,9 +4146,6 @@ button.wallpaper-option:hover,
   background-position: center;
   background-size: cover;
   object-fit: cover;
-}
-.wallpaper-preview-summer {
-  background: center / cover url("/wallpapers/summer-sea.gif");
 }
 .wallpaper-preview-anime-sea {
   background: center / cover url("/wallpapers/anime-sea-preview.jpg");

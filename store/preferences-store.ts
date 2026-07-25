@@ -7,7 +7,7 @@ export type Theme = "dark" | "light";
 export type Language = "es" | "en";
 export type Accent = "orange" | "green" | "blue" | "purple";
 export type TextSize = "small" | "medium" | "large";
-export type Wallpaper = "landscape" | "summerSea" | "animeSea";
+export type Wallpaper = "landscape" | "animeSea";
 
 interface PreferencesStore {
   theme: Theme;
@@ -45,6 +45,15 @@ export const usePreferencesStore = create<PreferencesStore>()(
     {
       name: "urano-preferences",
       storage: createJSONStorage(() => localStorage),
+      version: 1,
+      migrate: (persistedState) => {
+        const persisted = persistedState as Record<string, unknown>;
+
+        return {
+          ...persisted,
+          wallpaper: persisted.wallpaper === "animeSea" ? "animeSea" : "landscape",
+        };
+      },
     },
   ),
 );
