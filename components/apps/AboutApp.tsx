@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, FileText, LayoutGrid, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { socialLinks } from "@/data/profile";
@@ -43,6 +43,9 @@ export function AboutApp() {
           <i aria-hidden="true" />
           <span>Galeano</span>
         </h2>
+        <p className="about-editorial-role">
+          {language === "es" ? "Desarrollador de Software Full Stack" : "Full Stack Software Developer"}
+        </p>
       </header>
 
       <section className="about-editorial-copy">
@@ -63,10 +66,29 @@ export function AboutApp() {
         </p>
         <p>
           {language === "es"
+            ? "Mi experiencia previa coordinando operaciones logísticas para compañías de Estados Unidos fortaleció mi capacidad para analizar procesos, resolver incidentes y construir soluciones orientadas a necesidades reales."
+            : "My previous experience coordinating logistics operations for U.S.-based companies strengthened my ability to analyze processes, resolve incidents, and build solutions around real operational needs."}
+        </p>
+        <p>
+          {language === "es"
             ? "Fuera del código, disfruto jugar videojuegos y explorar nuevas tecnologías."
             : "Outside of code, I enjoy playing videogames and exploring new technologies."}
         </p>
       </section>
+
+      <div
+        className="about-primary-actions"
+        aria-label={language === "es" ? "Acciones principales" : "Primary actions"}
+      >
+        <button className="about-primary-action" onClick={() => openWindow("projects")}>
+          <LayoutGrid size={17} aria-hidden="true" />
+          {language === "es" ? "Ver proyectos" : "View projects"}
+        </button>
+        <button className="about-secondary-action" onClick={() => openWindow("resume")}>
+          <FileText size={17} aria-hidden="true" />
+          {language === "es" ? "Abrir currículum" : "Open resume"}
+        </button>
+      </div>
 
       <section
         className="about-social-links"

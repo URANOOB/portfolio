@@ -146,9 +146,13 @@ export function ProjectsApp() {
               <p>{selected.longDescription}</p>
             </section>
             <section>
-              <h3>Stack</h3>
+              <h3>{language === "es" ? "Resultado" : "Outcome"}</h3>
+              <p>{selected.outcome}</p>
+            </section>
+            <section>
+              <h3>{language === "es" ? "Stack tecnológico" : "Tech stack"}</h3>
               <p>
-                {selected.outcome} {language === "es" ? "El stack combina" : "The stack combines"}{" "}
+                {language === "es" ? "El stack combina" : "The stack combines"}{" "}
                 {selected.technologies.join(", ")}{" "}
                 {language === "es"
                   ? "para sostener el flujo principal del producto."
@@ -203,6 +207,9 @@ export function ProjectsApp() {
                 <span className="works-project-status">{project.status}</span>
               </span>
               <span className="works-project-outcome">{project.outcome}</span>
+              <span className="works-project-technologies">
+                {project.technologies.slice(0, 3).join(" · ")}
+              </span>
               <span className="works-project-card-action">
                 <span>{project.period}</span>
                 <span>

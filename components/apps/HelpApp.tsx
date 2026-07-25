@@ -20,6 +20,8 @@ import {
   SiVite,
 } from "react-icons/si";
 import { usePreferencesStore, type Language } from "@/store/preferences-store";
+import { useWindowStore } from "@/store/window-store";
+import type { AppId } from "@/types/portfolio";
 
 type LocalizedText = Record<Language, string>;
 
@@ -38,6 +40,14 @@ const terminalCommands = [
   "linkedin",
   "clear",
 ];
+
+const primaryApps = [
+  "about",
+  "experience",
+  "projects",
+  "resume",
+  "contact",
+] as const satisfies readonly AppId[];
 
 interface Technology {
   name: string;
@@ -379,6 +389,7 @@ const helpCopy = {
 
 export function HelpApp() {
   const language = usePreferencesStore((state) => state.language);
+  const openWindow = useWindowStore((state) => state.openWindow);
   const copy = helpCopy[language];
 
   return (
@@ -388,6 +399,36 @@ export function HelpApp() {
         <h2>{copy.title}</h2>
         <p>{copy.intro}</p>
       </header>
+
+      <section className="help-guide-section help-primary-access" aria-labelledby="help-primary-access">
+        <h3 id="help-primary-access">{language === "es" ? "Accesos principales" : "Main shortcuts"}</h3>
+        <p>
+          {language === "es"
+            ? "Usa estos accesos para llegar directamente a la información profesional principal."
+            : "Use these shortcuts to reach the main professional information directly."}
+        </p>
+        <div>
+          {primaryApps.map((id) => (
+            <button key={id} onClick={() => openWindow(id)}>
+              {language === "es"
+                ? {
+                    about: "Sobre mí",
+                    experience: "Experiencia",
+                    projects: "Proyectos",
+                    resume: "Currículum",
+                    contact: "Contacto",
+                  }[id]
+                : {
+                    about: "About me",
+                    experience: "Experience",
+                    projects: "Projects",
+                    resume: "Resume",
+                    contact: "Contact",
+                  }[id]}
+            </button>
+          ))}
+        </div>
+      </section>
 
       <section className="help-stack-section" aria-labelledby="help-stack">
         <header className="help-stack-intro">

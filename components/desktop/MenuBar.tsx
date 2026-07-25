@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, Globe, Moon, Settings, Signal, Sun } from "lucide-react";
+import { Check, ChevronDown, CircleHelp, Globe, Moon, Search, Settings, Signal, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { RcoonMark } from "@/components/ui/RcoonMark";
 import { appDefinitions } from "@/data/navigation";
@@ -46,6 +46,16 @@ export function MenuBar() {
     };
     document.addEventListener("pointerdown", close);
     return () => document.removeEventListener("pointerdown", close);
+  }, []);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      setSettingsOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
   // Close settings-popover on outside click
@@ -115,11 +125,28 @@ export function MenuBar() {
           <Signal size={15} /> <span>Online</span>
         </span>
 
+        <button
+          className="menu-utility-button"
+          onClick={() => openWindow("search")}
+          aria-label={language === "es" ? "Buscar" : "Search"}
+          title={language === "es" ? "Buscar · Ctrl K" : "Search · Ctrl K"}
+        >
+          <Search size={16} aria-hidden="true" />
+        </button>
+        <button
+          className="menu-utility-button"
+          onClick={() => openWindow("help")}
+          aria-label={language === "es" ? "Ayuda" : "Help"}
+          title={language === "es" ? "Ayuda" : "Help"}
+        >
+          <CircleHelp size={16} aria-hidden="true" />
+        </button>
+
         {/* Language quick-toggle */}
         <button
           className="language-toggle"
           onClick={() => setLanguage(language === "es" ? "en" : "es")}
-          aria-label={language === "es" ? "Cambiar idioma" : "Change language"}
+          aria-label={language === "es" ? "ES · Cambiar idioma" : "EN · Change language"}
         >
           {language.toUpperCase()}
         </button>
@@ -130,6 +157,7 @@ export function MenuBar() {
             className={`brand-button settings-btn${settingsOpen ? " is-active" : ""}`}
             onClick={() => setSettingsOpen((v) => !v)}
             aria-label={language === "es" ? "Ajustes rápidos" : "Quick settings"}
+            title={language === "es" ? "Ajustes" : "Settings"}
             aria-expanded={settingsOpen}
           >
             <Settings size={15} />

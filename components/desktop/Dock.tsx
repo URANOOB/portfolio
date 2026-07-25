@@ -3,6 +3,7 @@
 import {
   motion,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   useTransform,
   type MotionStyle,
@@ -14,7 +15,15 @@ import { usePreferencesStore } from "@/store/preferences-store";
 import { useWindowStore } from "@/store/window-store";
 import type { AppId } from "@/types/portfolio";
 
-function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
+function DockItem({
+  id,
+  mouseX,
+  reducedMotion,
+}: {
+  id: AppId;
+  mouseX: MotionValue<number>;
+  reducedMotion: boolean | null;
+}) {
   const ref = useRef<HTMLButtonElement>(null);
   const language = usePreferencesStore((state) => state.language);
   const windowState = useWindowStore((state) => state.windows[id]);
@@ -45,8 +54,13 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
       }
       onClick={activate}
       aria-label={`${windowState.isOpen ? (language === "es" ? "Enfocar" : "Focus") : language === "es" ? "Abrir" : "Open"} ${definition.title[language]}`}
+      title={definition.title[language]}
     >
-      <motion.span className="dock-icon" style={{ width: size, height: size }} aria-hidden="true">
+      <motion.span
+        className="dock-icon"
+        style={{ width: reducedMotion ? 58 : size, height: reducedMotion ? 58 : size }}
+        aria-hidden="true"
+      >
         <Icon size={34} strokeWidth={1.6} />
       </motion.span>
       <span className="dock-label">{definition.title[language]}</span>
@@ -57,6 +71,7 @@ function DockItem({ id, mouseX }: { id: AppId; mouseX: MotionValue<number> }) {
 
 export function Dock() {
   const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
+  const reducedMotion = useReducedMotion();
   const language = usePreferencesStore((state) => state.language);
 
   return (
@@ -67,7 +82,7 @@ export function Dock() {
         onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
       >
         {dockApps.map((id) => (
-          <DockItem key={id} id={id} mouseX={mouseX} />
+          <DockItem key={id} id={id} mouseX={mouseX} reducedMotion={reducedMotion} />
         ))}
       </motion.div>
     </nav>
