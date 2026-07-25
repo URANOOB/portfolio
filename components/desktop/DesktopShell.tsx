@@ -20,7 +20,7 @@ const defaultShortcutPositions: Record<ShortcutId, ShortcutPosition> = {
   logistics: { x: 16, y: 112 },
 };
 
-export function DesktopShell() {
+export function DesktopShell({ initialLanguage }: { initialLanguage: "es" | "en" }) {
   const shortcutAreaRef = useRef<HTMLDivElement>(null);
   const [shortcutPositions, setShortcutPositions] =
     useState<Record<ShortcutId, ShortcutPosition>>(defaultShortcutPositions);
@@ -30,6 +30,10 @@ export function DesktopShell() {
   const language = usePreferencesStore((state) => state.language);
   const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const openWindow = useWindowStore((state) => state.openWindow);
+
+  useEffect(() => {
+    if (usePreferencesStore.getState().language !== initialLanguage) setLanguage(initialLanguage);
+  }, [initialLanguage, setLanguage]);
 
   useEffect(() => {
     try {
@@ -70,11 +74,6 @@ export function DesktopShell() {
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
-
-  useEffect(() => {
-    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
-    if (requestedLanguage === "es" || requestedLanguage === "en") setLanguage(requestedLanguage);
-  }, [setLanguage]);
 
   return (
     <main className="desktop" data-theme={theme} data-accent={accent} data-text-size={textSize}>

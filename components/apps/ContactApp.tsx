@@ -18,6 +18,8 @@ type TurnstileApi = {
   remove?: (widgetId?: string | number) => void;
 };
 
+type TurnstileStatus = "disabled" | "loading" | "ready" | "verified" | "error";
+
 declare global {
   interface Window {
     turnstile?: TurnstileApi;
@@ -50,9 +52,20 @@ export function ContactApp() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileStatus, setTurnstileStatus] = useState<TurnstileStatus>(
+    turnstileSiteKey ? "loading" : "disabled",
+  );
+  const [turnstileAttempt, setTurnstileAttempt] = useState(0);
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetRef = useRef<string | number | undefined>(undefined);
   const turnstileEnabled = Boolean(turnstileSiteKey);
+
+  const removeCurrentWidget = useCallback(() => {
+    const widgetId = turnstileWidgetRef.current;
+    if (widgetId !== undefined) window.turnstile?.remove?.(widgetId);
+    turnstileWidgetRef.current = undefined;
+    turnstileContainerRef.current?.replaceChildren();
+  }, []);
 
   const resetTurnstile = useCallback(() => {
     const widgetId = turnstileWidgetRef.current;
@@ -65,23 +78,51 @@ export function ContactApp() {
 
     let cancelled = false;
     let script: HTMLScriptElement | null = null;
+
+    const fail = () => {
+      if (cancelled) return;
+      window.clearTimeout(loadingTimeout);
+      setTurnstileToken("");
+      setTurnstileStatus("error");
+    };
+
     const renderWidget = () => {
       const container = turnstileContainerRef.current;
       if (cancelled || !container || !window.turnstile || turnstileWidgetRef.current !== undefined) return;
-      turnstileWidgetRef.current = window.turnstile.render(container, {
-        sitekey: turnstileSiteKey,
-        callback: (token: string) => setTurnstileToken(token),
-        "expired-callback": resetTurnstile,
-        "error-callback": resetTurnstile,
-        "timeout-callback": resetTurnstile,
-      });
+      window.clearTimeout(loadingTimeout);
+      try {
+        setTurnstileStatus("ready");
+        turnstileWidgetRef.current = window.turnstile.render(container, {
+          sitekey: turnstileSiteKey,
+          callback: (token: string) => {
+            setTurnstileToken(token);
+            setTurnstileStatus("verified");
+          },
+          "expired-callback": () => {
+            resetTurnstile();
+            setTurnstileStatus("ready");
+          },
+          "error-callback": fail,
+          "timeout-callback": fail,
+        });
+      } catch {
+        fail();
+      }
     };
+
+    const onScriptError = () => fail();
+    const loadingTimeout = window.setTimeout(() => {
+      if (!window.turnstile) fail();
+    }, 10_000);
 
     const existingScript = document.getElementById(turnstileScriptId) as HTMLScriptElement | null;
     if (existingScript) {
       script = existingScript;
       if (window.turnstile) renderWidget();
-      else script.addEventListener("load", renderWidget);
+      else {
+        script.addEventListener("load", renderWidget);
+        script.addEventListener("error", onScriptError);
+      }
     } else {
       script = document.createElement("script");
       script.id = turnstileScriptId;
@@ -89,16 +130,15 @@ export function ContactApp() {
       script.async = true;
       script.defer = true;
       script.addEventListener("load", renderWidget);
+      script.addEventListener("error", onScriptError);
       document.head.appendChild(script);
     }
-
     return () => {
       cancelled = true;
+      window.clearTimeout(loadingTimeout);
       script?.removeEventListener("load", renderWidget);
-      if (turnstileWidgetRef.current !== undefined) {
-        window.turnstile?.remove?.(turnstileWidgetRef.current);
-        turnstileWidgetRef.current = undefined;
-      }
+      script?.removeEventListener("error", onScriptError);
+      removeCurrentWidget();
       if (
         script &&
         script.id === turnstileScriptId &&
@@ -107,7 +147,15 @@ export function ContactApp() {
         script.remove();
       }
     };
-  }, [resetTurnstile]);
+  }, [removeCurrentWidget, resetTurnstile, turnstileAttempt]);
+
+  const retryTurnstile = () => {
+    setTurnstileToken("");
+    setTurnstileStatus("loading");
+    removeCurrentWidget();
+    if (!window.turnstile) document.getElementById(turnstileScriptId)?.remove();
+    setTurnstileAttempt((current) => current + 1);
+  };
 
   const contactMethods = [
     socialLinks.github
@@ -227,7 +275,12 @@ export function ContactApp() {
           })}
         </nav>
       </section>
-      <form onSubmit={submit} noValidate className="contact-form">
+      <form
+        onSubmit={submit}
+        noValidate
+        className="contact-form"
+        aria-describedby={turnstileStatus === "error" ? "turnstile-status" : undefined}
+      >
         <div className="form-grid">
           <Field label={language === "es" ? "Nombre" : "Name"} id="contact-name" error={errors.name}>
             <input
@@ -286,10 +339,36 @@ export function ContactApp() {
           />
         </div>
         {turnstileEnabled ? (
-          <div
-            ref={turnstileContainerRef}
-            aria-label={language === "es" ? "Verificación anti-bots" : "Bot verification"}
-          />
+          <div className="turnstile-wrapper">
+            <div
+              ref={turnstileContainerRef}
+              aria-label={language === "es" ? "Verificación anti-bots" : "Bot verification"}
+            />
+            <div
+              id="turnstile-status"
+              className={`turnstile-status ${turnstileStatus}`}
+              aria-live="polite"
+              role={turnstileStatus === "error" ? "alert" : undefined}
+            >
+              {turnstileStatus === "loading"
+                ? language === "es"
+                  ? "Cargando verificación de seguridad…"
+                  : "Loading security verification…"
+                : null}
+              {turnstileStatus === "error" ? (
+                <>
+                  <span>
+                    {language === "es"
+                      ? "No fue posible cargar la verificación. Reintenta o utiliza el correo directo."
+                      : "The verification could not be loaded. Retry or use the direct email option."}
+                  </span>
+                  <button type="button" className="turnstile-retry" onClick={retryTurnstile}>
+                    {language === "es" ? "Reintentar verificación" : "Retry verification"}
+                  </button>
+                </>
+              ) : null}
+            </div>
+          </div>
         ) : null}
         <div className="form-submit-row">
           <p aria-live="polite" className={`form-status ${status}`}>

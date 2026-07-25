@@ -138,7 +138,7 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAA...
 TURNSTILE_SECRET_KEY=0x4AAAA...
 ```
 
-Cuando el secreto existe, el servidor exige y valida el token de Turnstile antes de enviar el correo. El widget se reinicia después de cada intento para evitar reutilizar tokens expirados.
+Cuando el secreto existe, el servidor exige y valida el token de Turnstile antes de enviar el correo. Configura las dos variables juntas: si falta cualquiera de ellas, corrige la configuración antes de publicar. El widget informa si la verificación no puede cargar y permite reintentarla sin recargar la página.
 
 El endpoint permite hasta cinco intentos por IP cada diez minutos. Para un límite distribuido entre instancias de Vercel, crea una base de datos de Upstash Redis y añade estas variables opcionales:
 
@@ -147,7 +147,7 @@ UPSTASH_REDIS_REST_URL=https://example.upstash.io
 UPSTASH_REDIS_REST_TOKEN=tu_token
 ```
 
-Sin Upstash se usa un fallback limitado en memoria, útil para desarrollo pero no como protección distribuida en producción.
+Configura las dos variables de Upstash juntas. Upstash es opcional: sin ambas se usa un fallback limitado en memoria, útil para desarrollo pero no como protección distribuida en producción. `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY` y `UPSTASH_REDIS_REST_TOKEN` son secretos de servidor y nunca deben usar el prefijo `NEXT_PUBLIC_`.
 
 ## Desplegar en Vercel
 

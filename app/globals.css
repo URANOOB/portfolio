@@ -3207,6 +3207,35 @@ textarea:focus-visible {
 .form-status.error {
   color: #ff9c96;
 }
+.turnstile-wrapper {
+  display: grid;
+  gap: 8px;
+}
+.turnstile-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+.turnstile-status.error {
+  color: #ff9c96;
+}
+.turnstile-retry {
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 5px 7px;
+}
+.turnstile-retry:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
 .spin {
   animation: spin 0.8s linear infinite;
 }

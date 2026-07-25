@@ -7,6 +7,11 @@ type RateLimitResult = {
   retryAfter: number;
 };
 
+type UpstashResponse = {
+  result?: unknown;
+  error?: string;
+};
+
 type LocalEntry = { count: number; resetAt: number };
 
 const localAttempts = new Map<string, LocalEntry>();
@@ -48,21 +53,33 @@ async function upstashRateLimit(key: string): Promise<RateLimitResult | null> {
     "local count = redis.call('INCR', KEYS[1]); if count == 1 then redis.call('EXPIRE', KEYS[1], ARGV[1]) end; return {count, redis.call('TTL', KEYS[1])}";
 
   try {
-    const response = await fetch(`${url.replace(/\/$/, "")}/eval`, {
+    const endpoint = url.replace(/\/$/, "");
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify([script, 1, key, RATE_WINDOW_SECONDS]),
+      body: JSON.stringify(["EVAL", script, 1, key, RATE_WINDOW_SECONDS]),
       signal: AbortSignal.timeout(2_500),
     });
     if (!response.ok) return null;
 
-    const payload = (await response.json()) as { result?: unknown };
-    if (!Array.isArray(payload.result) || typeof payload.result[0] !== "number") return null;
+    const payload = (await response.json()) as UpstashResponse;
+    if (
+      payload.error ||
+      !Array.isArray(payload.result) ||
+      typeof payload.result[0] !== "number" ||
+      typeof payload.result[1] !== "number" ||
+      !Number.isFinite(payload.result[0]) ||
+      !Number.isFinite(payload.result[1]) ||
+      payload.result[0] < 0 ||
+      payload.result[1] <= 0
+    ) {
+      return null;
+    }
 
     const [count, ttl] = payload.result;
     return {
       allowed: count <= RATE_LIMIT,
-      retryAfter: typeof ttl === "number" && ttl > 0 ? ttl : RATE_WINDOW_SECONDS,
+      retryAfter: Math.ceil(ttl),
     };
   } catch {
     return null;

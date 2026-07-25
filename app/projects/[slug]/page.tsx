@@ -32,17 +32,24 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const project = getProject(slug, language);
   if (!project) return {};
   const canonical = `/projects/${project.slug}${language === "en" ? "?lang=en" : ""}`;
+  const spanishPath = `/projects/${project.slug}`;
+  const englishPath = `${spanishPath}?lang=en`;
 
   return {
     title: project.title,
     description: project.description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: { "es-CO": spanishPath, en: englishPath },
+    },
     openGraph: {
       title: `${project.title} | William Galeano`,
       description: project.description,
       type: "article",
       url: canonical,
       siteName: "R/COON OS",
+      locale: language === "en" ? "en_US" : "es_CO",
+      alternateLocale: language === "en" ? "es_CO" : "en_US",
     },
   };
 }

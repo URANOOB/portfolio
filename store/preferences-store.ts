@@ -31,7 +31,13 @@ export const usePreferencesStore = create<PreferencesStore>()(
       textSize: "medium",
       wallpaper: "landscape",
       setTheme: (theme) => set({ theme }),
-      setLanguage: (language) => set({ language }),
+      setLanguage: (language) => {
+        if (typeof document !== "undefined") {
+          document.documentElement.lang = language;
+          document.cookie = `rcoon-language=${language}; path=/; max-age=31536000; samesite=lax`;
+        }
+        set({ language });
+      },
       setAccent: (accent) => set({ accent }),
       setTextSize: (textSize) => set({ textSize }),
       setWallpaper: (wallpaper) => set({ wallpaper }),
